@@ -1,8 +1,8 @@
 FROM node:19-alpine AS builder
 
-WORKDIR src/
+WORKDIR /app
 
-COPY package.json package.json
+COPY package.json yarn.lock
 
 RUN yarn install
 
@@ -16,6 +16,6 @@ WORKDIR /usr/share/nginx/html
 
 RUN rm -rf *
 
-COPY --from=builder /src/dist .
+COPY --from=builder /app/build
 
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
