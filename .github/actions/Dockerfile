@@ -1,14 +1,14 @@
 FROM node:19-alpine AS builder
 
-WORKDIR /app
+WORKDIR src/app
 
 COPY package.json package.json
 
-RUN npm install
+RUN yarn install
 
 COPY . .
 
-RUN npm run build
+RUN yarn run build
 
 FROM nginx:alpine
 
@@ -16,6 +16,6 @@ WORKDIR /usr/share/nginx/html
 
 RUN rm -rf *
 
-COPY --from=builder /app/dist .
+COPY --from=builder /src/app/dist .
 
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
