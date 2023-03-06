@@ -1,10 +1,8 @@
-
-
 name: Deploy
 
 on:
   push:
-    branches: [main]
+    branches: [deployment-github]
 
 jobs:
   build:
@@ -19,12 +17,12 @@ jobs:
         run: |
           npm install
           npm run build
-      
+
       - name: Install Minio
         run: |
           wget https://dl.min.io/client/mc/release/linux-amd64/mc -P /tmp
           chmod +x /tmp/mc
-          /tmp/mc alias set gb_lon https://object.gb-lon.thghosting.cloud ${{ secrets.CEPH_ACCESS_KEY_ID }} ${{ secrets.CEPH_SECRET_ACCESS_KEY }}
+          /tmp/mc alias set dr-fra https://object.gb-lon.thghosting.cloud ${{ secrets.CEPH_ACCESS_KEY_ID }} ${{ secrets.CEPH_SECRET_ACCESS_KEY }}
         working-directory: /tmp
 
       - name: Copy to ceph with minio
