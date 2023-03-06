@@ -16,7 +16,6 @@ WORKDIR /usr/share/nginx/html
 
 RUN rm -rf *
 
-COPY --from=builder /usr/src/app/package.json /usr/app/
-COPY --from=builder /usr/src/app/dist /usr/app/dist
+COPY --from=builder /app/dist .
 
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
