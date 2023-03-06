@@ -11,7 +11,7 @@ export const Item:React.FC<Props> = ({name, imageURL}) => {
 
 
     return (
-        <s.itemContainer>
+        <s.itemContainer to={"/AR"}>
             <s.itemName>{name}</s.itemName>
             <s.itemImage src={imageURL} />
         </s.itemContainer>
