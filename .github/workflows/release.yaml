@@ -1,5 +1,5 @@
 # release.yaml
-name: Example Release
+name: Release
 
 on:
   push:
