@@ -4,17 +4,13 @@ WORKDIR /app
 
 COPY package.json yarn.lock ./
 
-RUN yarn
+RUN yarn install
 
 COPY . ./
 
 RUN yarn build
 
 FROM nginx:alpine
-
-# WORKDIR /usr/share/nginx/html
-
-# RUN rm -rf *
 
 COPY --from=builder /app/build /usr/share/nginx/html
 
