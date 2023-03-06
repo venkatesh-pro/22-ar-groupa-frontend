@@ -1,33 +1,32 @@
 name: Deploy
+# on:
+#   push:
+#     branches: [depolyment-github]
 
-on:
-  push:
-    branches: [depolyment-github]
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v3
+#       - uses: actions/setup-node@v3
+#         with:
+#           node-version: 18.12.0
+#           cache: "npm"
+#       - name: Build
+#         run: |
+#           npm install
+#           npm run build
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18.12.0
-          cache: "npm"
-      - name: Build
-        run: |
-          npm install
-          npm run build
+#       - name: Install Minio
+#         run: |
+#           wget https://dl.min.io/client/mc/release/linux-amd64/mc -P /tmp
+#           chmod +x /tmp/mc
+#           /tmp/mc alias set dr-fra https://object.gb-lon.thghosting.cloud ${{ secrets.CEPH_ACCESS_KEY_ID }} ${{ secrets.CEPH_SECRET_ACCESS_KEY }}
+#         working-directory: /tmp
 
-      - name: Install Minio
-        run: |
-          wget https://dl.min.io/client/mc/release/linux-amd64/mc -P /tmp
-          chmod +x /tmp/mc
-          /tmp/mc alias set dr-fra https://object.gb-lon.thghosting.cloud ${{ secrets.CEPH_ACCESS_KEY_ID }} ${{ secrets.CEPH_SECRET_ACCESS_KEY }}
-        working-directory: /tmp
-
-      - name: Copy to ceph with minio
-        run: |
-          /tmp/mc cp --recursive * gb_lon/gluon
-          /tmp/mc cp --recursive --attr Content-Type=text/css static/css/ gb_lon/gluon
-          /tmp/mc anonymous set public gb_lon/gluon
-        working-directory: build/
+#       - name: Copy to ceph with minio
+#         run: |
+#           /tmp/mc cp --recursive * gb_lon/gluon
+#           /tmp/mc cp --recursive --attr Content-Type=text/css static/css/ gb_lon/gluon
+#           /tmp/mc anonymous set public gb_lon/gluon
+#         working-directory: build/
