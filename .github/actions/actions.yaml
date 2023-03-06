@@ -1,0 +1,5 @@
+#actions.yaml
+name: 'Docker build'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
