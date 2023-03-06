@@ -1,6 +1,6 @@
 FROM node:19-alpine AS builder
 
-WORKDIR src/app
+WORKDIR src/
 
 COPY package.json package.json
 
@@ -16,6 +16,6 @@ WORKDIR /usr/share/nginx/html
 
 RUN rm -rf *
 
-COPY --from=builder /src/app/dist .
+COPY --from=builder /src/dist .
 
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
