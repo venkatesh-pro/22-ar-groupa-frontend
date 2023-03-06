@@ -2,11 +2,11 @@ FROM node:19-alpine AS builder
 
 WORKDIR /app
 
-COPY package.json pacakge-lock.json yarn.lock
+COPY package.json package-lock.json yarn.lock
 
-RUN yarn install
+RUN yarn
 
-COPY . .
+COPY . ./
 
 RUN yarn build
 
