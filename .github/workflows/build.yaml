@@ -3,9 +3,9 @@ name: React site build
 
 on:
   push:
-    branches: [depolyment-github]
+    branches: [main]
   pull_request:
-    branches: [depolyment-github]
+    branches: [main]
 
 jobs:
   build:
