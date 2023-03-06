@@ -1,5 +1,5 @@
 # build.yaml
-name: Static Site Example Build
+name: React site build
 
 on:
   push:
