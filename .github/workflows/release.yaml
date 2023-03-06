@@ -4,7 +4,7 @@ name: Example Release
 on:
   push:
     tags:
-      - 'release/v*'
+      - "release/v*"
 
 jobs:
   build:

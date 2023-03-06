@@ -3,9 +3,9 @@ name: Static Site Example Build
 
 on:
   push:
-    branches: [deployment-github]
+    branches: [depolyment-github]
   pull_request:
-    branches: [deployment-github]
+    branches: [depolyment-github]
 
 jobs:
   build:
