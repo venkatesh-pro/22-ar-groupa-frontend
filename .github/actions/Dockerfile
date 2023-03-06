@@ -1,6 +1,6 @@
 FROM node:19-alpine AS builder
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
 COPY package.json yarn.lock
 
@@ -16,6 +16,6 @@ FROM nginx:alpine
 
 # RUN rm -rf *
 
-COPY --from=builder /usr/src/app/build /usr/share/nginx/html
+COPY --from=builder /app/build /usr/share/nginx/html
 
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
