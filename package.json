@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-three/drei": "^9.57.0",
     "@react-three/fiber": "^8.11.8",
     "@react-three/xr": "^5.2.0",
     "@testing-library/jest-dom": "^5.14.1",
@@ -13,6 +14,7 @@
     "@types/react-dom": "^18.0.0",
     "@types/react-router-dom": "^5.3.3",
     "@types/three": "^0.149.0",
+    "gltfjsx": "^6.1.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.2",
