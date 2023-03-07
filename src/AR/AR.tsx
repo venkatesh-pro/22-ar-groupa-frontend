@@ -3,10 +3,11 @@ import { XR, XRButton } from "@react-three/xr";
 import Box from "./Box";
 // import Image from "./Image"
 import { Model } from "./Scene";
+import s from "./AR.styles"
 
 const AR = () => {
   return (
-    <div>
+    <s.canvasContainer>
       <XRButton mode="AR" />
       <Canvas camera={{position: [0, 0, 2]}}>
         <XR>
@@ -18,7 +19,7 @@ const AR = () => {
           <Model position={[0, 0, 0]}/>
         </XR>
       </Canvas>
-    </div>
+    </s.canvasContainer>
   );
 };
 
