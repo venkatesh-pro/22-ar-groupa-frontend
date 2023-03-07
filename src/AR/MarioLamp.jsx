@@ -13,7 +13,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 
 export function MarioLamp(props) {
   const [hover, setHover] = useState(0);
-  const [clicked, click] = useState(false)
+  // const [clicked, click] = useState(false)
   const { nodes, materials } = useGLTF(
     "assets/mario_floor_lamp/scene-transformed.glb"
   );
@@ -24,10 +24,10 @@ export function MarioLamp(props) {
       ref={ref}
       {...props}
       dispose={null}
-      onPointerEnter={() => setHover(0.05)}
-      onPointerLeave={() => setHover(0)}
-      scale={clicked ? 1.5 : 1}
-      onClick={() => click(!clicked)}
+      onPointerDown={() => setHover(0.05)}
+      onPointerUp={() => setHover(0)}
+      // scale={clicked ? 1.5 : 1}
+      // onClick={() => click(!clicked)}
       
     >
       <group rotation={[-Math.PI / 2, 0, 0]}>
