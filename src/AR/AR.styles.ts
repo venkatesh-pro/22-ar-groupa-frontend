@@ -1,4 +1,5 @@
 import styled from "styled-components";
+// import Colour from "./Colours"
 
 const canvasContainer = styled.div`
     width: 100vw;
