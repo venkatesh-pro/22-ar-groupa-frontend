@@ -9,10 +9,9 @@ interface boxData {
   setRotateClick: Dispatch<SetStateAction<boolean>>;
 }
 
-const Box = (props: boxData) => {
+const Box = React.forwardRef((props: boxData, reference) => {
   const ref = useRef<THREE.Mesh>(null!);
   const [hovered, hover] = useState(false);
-
   useFrame((state, delta) =>
     props.rotateClick ? (ref.current.rotation.y += delta) : null
   );
@@ -22,15 +21,14 @@ const Box = (props: boxData) => {
       {...props}
       position={props.position}
       ref={ref}
-      // scale={clicked ? 1.5 : 1}
       onClick={() => props.setRotateClick(!props.rotateClick)}
       onPointerOver={() => hover(true)}
       onPointerOut={() => hover(false)}
     >
-      <boxGeometry args={[1, 1, 1]} />
+      <boxGeometry args={[0.3, 0.3, 0.3]} />
       <meshStandardMaterial color={hovered ? "hotpink" : "orange"} />
     </mesh>
   );
-};
+});
 
-export default Box;
+export default Cube;
