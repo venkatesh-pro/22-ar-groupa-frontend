@@ -12,7 +12,7 @@ const AR = () => {
     setRotateClick(!rotateClick);
   };
 
-  const HitTestExample = React.forwardRef(
+  const TestBox = React.forwardRef(
     (props: JSX.IntrinsicElements["mesh"], ref) => {
       const boxRef = React.useRef<THREE.Mesh>(null);
 
@@ -46,7 +46,7 @@ const AR = () => {
           <ambientLight />
           <pointLight position={[10, 10, 10]} />
           <Interactive onSelect={handleSelect}>
-            <HitTestExample />
+            <TestBox />
           </Interactive>
         </XR>
       </Canvas>
