@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import React, { Dispatch, SetStateAction, useRef, useState } from "react";
-import { useFrame, ThreeElements } from "@react-three/fiber";
+import { useFrame } from "@react-three/fiber";
 import { Vector3 } from "three";
 
 interface boxData {
@@ -31,4 +31,4 @@ const Box = React.forwardRef((props: boxData, reference) => {
   );
 });
 
-export default Cube;
+export default Box;
