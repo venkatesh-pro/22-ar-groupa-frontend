@@ -1,16 +1,20 @@
 import s from "./Item.styles";
 
-interface Props {
-  name: string;
-  imageSRC: string;
+export interface item {
+  product_id: number;
+  product_name: string;
+  product_desc: string;
+  product_type_id: number;
+  imagePath: string;
+  threeDModelPath: string;
 }
 
-export const Item: React.FC<Props> = ({ name, imageSRC }) => {
+export const Item: React.FC<item> = ({ product_name, imagePath }) => {
   return (
     <div>
       <s.itemContainer to={"/AR"}>
-        <s.itemImage src={imageSRC} alt={name}></s.itemImage>
-        <s.itemName>{name}</s.itemName>
+        <s.itemImage src={imagePath} alt={product_name}></s.itemImage>
+        <s.itemName>{product_name}</s.itemName>
       </s.itemContainer>
     </div>
   );

@@ -1,14 +1,24 @@
-import { Item } from "../Item/Item";
-import tablePic from "../../table.jpg";
+import { item, Item } from "../Item/Item";
 import s from "./ItemList.styles";
 
-export const ItemList: React.FC = () => {
+interface Props {
+  items: item[];
+}
+
+export const ItemList: React.FC<Props> = ({ items }) => {
   return (
     <s.itemListContainer>
-      <Item name={"table 1"} imageSRC={tablePic} />
-      <Item name={"table 2"} imageSRC={tablePic} />
-      <Item name={"table 3"} imageSRC={tablePic} />
-      <Item name={"table 4"} imageSRC={tablePic} />
+      {items.map((item) => (
+        <Item
+          key={item.product_name}
+          product_name={item.product_name}
+          imagePath={item.imagePath}
+          product_id={item.product_id}
+          product_desc={item.product_desc}
+          product_type_id={item.product_type_id}
+          threeDModelPath={item.threeDModelPath}
+        />
+      ))}
     </s.itemListContainer>
   );
 };

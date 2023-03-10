@@ -1,23 +1,33 @@
 import React, { useState } from "react";
 import "./App.css";
-import { DropDownBox } from "./Components/DropDownBox/DropDownBox";
 import { Header } from "./Components/Header/Header";
-
 import { ItemList } from "./Components/ItemList/ItemList";
+import { Message } from "./Components/Message/Message";
+import { useGetItems } from "./useGetItems";
 
 function App() {
-  const [selectedOption, setSelectedOption] = useState("ALL");
-  const types = ["ALL", "TABLE", "CHAIR"];
+  const [selectedOption, setSelectedOption] = useState<string>("Home");
+  const types = ["Table", "Chair", "Lamp"];
+  const [loading, error, items, setTasks] = useGetItems({ selectedOption });
+  console.log(items);
+
+  if (loading) {
+    return <Message text="Loading" />;
+  }
+
+  if (error) {
+    return <Message text="Error" />;
+  }
 
   return (
     <div className="App">
-      <Header text="AcceleratARz" />
-      <DropDownBox
+      <Header
+        text="AcceleratARz"
         selectedOption={selectedOption}
         setSelectedOption={setSelectedOption}
         options={types}
       />
-      <ItemList />
+      <ItemList items={items} />
     </div>
   );
 }
