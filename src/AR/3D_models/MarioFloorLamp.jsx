@@ -28,7 +28,6 @@ export function MarioFloorLamp(props) {
       onPointerUp={() => setHover(0)}
       // scale={clicked ? 1.5 : 1}
       // onClick={() => click(!clicked)}
-      
     >
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <group rotation={[Math.PI / 2, 0, 0]}>

@@ -22,12 +22,12 @@ const Box = React.forwardRef((props: boxData, reference) => {
       position={props.position}
       ref={ref}
       scale={hovered ? 1.5 : 1}
-      onClick={() => click(!clicked)}
+      // onClick={() => click(!clicked)}
       onPointerOver={() => hover(true)}
       onPointerOut={() => hover(false)}
     >
       <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color={clicked ? "hotpink" : "orange"} />
+      {/* <meshStandardMaterial color={clicked ? "hotpink" : "orange"} /> */}
     </mesh>
   );
 });
