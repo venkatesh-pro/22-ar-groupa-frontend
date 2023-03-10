@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const headerContainer = styled.div`
@@ -28,32 +29,56 @@ const button = styled.button`
   gap: 15px;
   margin-left: 25px;
   text-decoration: none;
-  color: black;
+  color: white;
   margin-left: 20px;
   font-size: 25px;
-  border-radius: 15px;
-  border: 1px solid white;
-  background-color: white;
+  border: none;
+  background-color: black;
 
   &:hover {
     text-decoration: none;
-    color: white;
-    border: 1px solid white;
-    background-color: black;
+    color: black;
+    background-color: white;
+    border-radius: 15px;
   }
 
   &:active {
-    background-color: white;
+    background-color: red;
     color: black;
-    padding: 5px;
   }
 `;
 
+const basketButton = styled(Link)`
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 15px;
+  margin-left: 25px;
+  text-decoration: none;
+  color: white;
+  margin-left: 20px;
+  font-size: 25px;
+  border: none;
+  background-color: black;
+
+  &:hover {
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    border-radius: 15px;
+  }
+
+  &:active {
+    background-color: red;
+    color: black;
+  }
+`;
 const styles = {
   header,
   headerContainer,
   button,
   logo,
+  basketButton,
 };
 
 export default styles;
