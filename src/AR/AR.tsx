@@ -7,6 +7,7 @@ import React from "react";
 
 const AR = () => {
   const [rotateClick, setRotateClick] = useState(false);
+  const [x, setx] = useState(0);
 
   const handleSelect = () => {
     setRotateClick(!rotateClick);
@@ -15,7 +16,6 @@ const AR = () => {
   const TestBox = React.forwardRef(
     (props: JSX.IntrinsicElements["mesh"], ref) => {
       const boxRef = React.useRef<THREE.Mesh>(null);
-
       useHitTest((hitMatrix: THREE.Matrix4, hit: XRHitTestResult) => {
         if (boxRef.current) {
           hitMatrix.decompose(
@@ -24,6 +24,12 @@ const AR = () => {
             boxRef.current.scale
           );
         }
+        // const Transform = new XRRigidTransform()
+        // hit.createAnchor(Transform).then((anchor) => {
+        //   console.log(anchor)
+        // }, (error) => {
+        //   console.error(`Could not create anchor: ${error}`);
+        // }
       });
 
       return (
@@ -40,7 +46,7 @@ const AR = () => {
 
   return (
     <div>
-      <ARButton />
+      <ARButton sessionInit={{ requiredFeatures: ["hit-test"] }} />
       <Canvas>
         <XR>
           <ambientLight />
