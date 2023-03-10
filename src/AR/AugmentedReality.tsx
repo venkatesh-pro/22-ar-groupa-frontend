@@ -1,6 +1,6 @@
 
 import { Canvas } from "@react-three/fiber";
-import { ARButton, XR, useHitTest } from "@react-three/xr";
+import { ARButton, XR} from "@react-three/xr";
 import Box from "./Box";
 import { MarioFloorLamp } from "./3D_models/MarioFloorLamp";
 import s from "./AR.styles";
