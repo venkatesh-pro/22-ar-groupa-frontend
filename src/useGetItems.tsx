@@ -6,12 +6,7 @@ interface Props {
 }
 export const useGetItems = ({
   selectedOption,
-}: Props): [
-  boolean,
-  boolean,
-  item[],
-  React.Dispatch<React.SetStateAction<item[]>>
-] => {
+}: Props): [boolean, boolean, item[]] => {
   const [items, setItems] = useState<item[]>([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -41,5 +36,5 @@ export const useGetItems = ({
         setError(true);
       });
   }, [selectedOption]);
-  return [loading, error, items, setItems];
+  return [loading, error, items];
 };

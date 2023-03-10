@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./Pages/App/App";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import AR from "./AR/AR";
+import { AugmentedReality } from "./AR/AugmentedReality";
 import { Basket } from "./Pages/Basket/Basket";
 
 const router = createBrowserRouter([
@@ -14,7 +14,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/AR",
-    element: <AR />,
+    element: <AugmentedReality />,
   },
   {
     path: "/basket",
