@@ -2,48 +2,52 @@ import { Link } from "react-router-dom";
 
 import styled from "styled-components";
 
-const itemName = styled.div`
+const itemText = styled.div`
   display: flex;
-  padding: 10px;
+  padding-top: 10px;
   align-items: right;
-  margin-right: 20px;
+  text-align: center;
 `;
 
 const itemContainer = styled(Link)`
-  font-family: Impact;
+  border: 1px solid black;
+  border-radius: 15px;
+  width: 300px;
+  height: 350px;
+  margin: 10px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
-  background-color: pink;
-  border: solid;
   &:hover {
-    color: red;
+    background-color: pink;
+    transition: 0.2s ease-in;
+    cursor: pointer;
   }
   &:visited {
     color: black;
   }
-
-  width: 50vw;
-  margin: 10px;
-  align-content: center;
-  border-radius: 3%;
-  min-width: 200px;
-  max-width: 350px;
 `;
 
 const itemImage = styled.img`
   display: flex;
-  width: 75%;
-  height: 80%;
-  margin: auto;
+  width: 80%;
+  height: 50%;
+  margin: 10px;
   margin-top: 10px;
   align-items: center;
   align-content: center;
   border-radius: 5%;
 `;
+
+const itemPrice = styled.div``;
+
 const styles = {
-  itemName,
+  itemText,
   itemContainer,
   itemImage,
+  itemPrice,
 };
+
 export default styles;

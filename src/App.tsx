@@ -22,7 +22,6 @@ function App() {
   return (
     <div className="App">
       <Header
-        text="AcceleratARz"
         selectedOption={selectedOption}
         setSelectedOption={setSelectedOption}
         options={types}

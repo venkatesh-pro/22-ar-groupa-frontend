@@ -6,12 +6,15 @@ const headerContainer = styled.div`
   background-color: black;
   display: flex;
   align-items: center;
+  color: white;
 `;
 const header = styled.h1`
+  display: flex;
   justify-content: flex-start;
   color: white;
   font-size: 30px;
   margin-left: 10px;
+  align-items: center;
 `;
 const logo = styled.h1`
   color: red;
@@ -25,26 +28,24 @@ const button = styled.button`
   gap: 15px;
   margin-left: 25px;
   text-decoration: none;
-  color: white;
+  color: black;
   margin-left: 20px;
   font-size: 25px;
+  border-radius: 15px;
+  border: 1px solid white;
+  background-color: white;
 
   &:hover {
     text-decoration: none;
     color: white;
-    margin-left: 20px;
-    font-size: 25px;
     border: 1px solid white;
-    padding: 5px;
-    border-radius: 15px;
+    background-color: black;
   }
 
   &:active {
     background-color: white;
     color: black;
-    border: 1px solid white;
     padding: 5px;
-    border-radius: 15px;
   }
 `;
 

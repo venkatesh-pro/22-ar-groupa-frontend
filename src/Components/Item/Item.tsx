@@ -9,12 +9,17 @@ export interface item {
   threeDModelPath: string;
 }
 
-export const Item: React.FC<item> = ({ product_name, imagePath }) => {
+export const Item: React.FC<item> = ({
+  product_name,
+  imagePath,
+  product_desc,
+}) => {
   return (
     <div>
       <s.itemContainer to={"/AR"}>
         <s.itemImage src={imagePath} alt={product_name}></s.itemImage>
-        <s.itemName>{product_name}</s.itemName>
+        <s.itemText>{product_name}</s.itemText>
+        <s.itemText>{product_desc}</s.itemText>
       </s.itemContainer>
     </div>
   );
