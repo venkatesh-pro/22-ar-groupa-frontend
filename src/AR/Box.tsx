@@ -1,6 +1,5 @@
 import * as THREE from "three";
-import React, { Dispatch, SetStateAction, useRef, useState } from "react";
-import { ThreeElements, useFrame } from "@react-three/fiber";
+import React, { useRef } from "react";
 import { Vector3 } from "three";
 
 interface BoxSettings {

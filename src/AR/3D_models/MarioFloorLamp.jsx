@@ -8,8 +8,7 @@ Title: Mario Floor Lamp
 */
 
 import { useGLTF } from "@react-three/drei";
-import { useRef, useState } from "react";
-import { useFrame } from "@react-three/fiber";
+import { useRef } from "react";
 
 export function MarioFloorLamp(props) {
   const { nodes, materials } = useGLTF(
