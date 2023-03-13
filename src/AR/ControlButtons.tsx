@@ -20,12 +20,12 @@ const ControlButtons = (props: controlSettings) => {
   return props.showControls ? (
     <>
       <Box
-        position={new Vector3(-0.7, -2.99, -2)}
+        position={new Vector3(-0.7, -2.99, -3.4)}
         colour={"orange"}
         rotation={[0, 0, 0]}
       />
       <BigBox
-        position={new Vector3(-0.7, -3, -2)}
+        position={new Vector3(-0.7, -3, -3.4)}
         colour={"blue"}
         rotation={[0, Math.PI / 4, 0]}
       />
@@ -35,7 +35,7 @@ const ControlButtons = (props: controlSettings) => {
         }}
       >
         <Box
-          position={new Vector3(-0.4, -3, -2)}
+          position={new Vector3(-0.4, -3, -3.4)}
           colour={"orange"}
           rotation={[0, 0, 0]}
         />
@@ -46,7 +46,7 @@ const ControlButtons = (props: controlSettings) => {
         }}
       >
         <Box
-          position={new Vector3(-1, -3, -2)}
+          position={new Vector3(-1, -3, -3.4)}
           colour={"orange"}
           rotation={[0, 0, 0]}
         />
@@ -57,7 +57,7 @@ const ControlButtons = (props: controlSettings) => {
         }}
       >
         <Box
-          position={new Vector3(-0.7, -3, -1.7)}
+          position={new Vector3(-0.7, -3, -3.1)}
           colour={"orange"}
           rotation={[0, 0, 0]}
         />
@@ -68,7 +68,7 @@ const ControlButtons = (props: controlSettings) => {
         }}
       >
         <Box
-          position={new Vector3(-0.7, -3, -2.3)}
+          position={new Vector3(-0.7, -3, -3.7)}
           colour={"orange"}
           rotation={[0, 0, 0]}
         />
@@ -80,7 +80,7 @@ const ControlButtons = (props: controlSettings) => {
         }}
       >
         <Box
-          position={new Vector3(1, -2.989, -2)}
+          position={new Vector3(1, -2.989, -3.4)}
           colour={"green"}
           rotation={[0, 0, 0]}
         />
@@ -91,7 +91,7 @@ const ControlButtons = (props: controlSettings) => {
         }}
       >
         <Box
-          position={new Vector3(0.4, -2.989, -2)}
+          position={new Vector3(0.4, -2.989, -3.4)}
           colour={"green"}
           rotation={[0, 0, 0]}
         />
@@ -102,7 +102,7 @@ const ControlButtons = (props: controlSettings) => {
         }}
       >
         <Box
-          position={new Vector3(0.7, -3, -1.7)}
+          position={new Vector3(0.7, -3, -3.1)}
           colour={"orange"}
           rotation={[0, 0, 0]}
         />
@@ -113,19 +113,19 @@ const ControlButtons = (props: controlSettings) => {
         }}
       >
         <Box
-          position={new Vector3(0.7, -3, -2.3)}
+          position={new Vector3(0.7, -3, -3.7)}
           colour={"orange"}
           rotation={[0, 0, 0]}
         />
       </Interactive>
 
       <Box
-        position={new Vector3(0.7, -2.99, -2)}
+        position={new Vector3(0.7, -2.99, -3.4)}
         colour={"orange"}
         rotation={[0, 0, 0]}
       />
       <BigBox
-        position={new Vector3(0.7, -3, -2)}
+        position={new Vector3(0.7, -3, -3.4)}
         colour={"blue"}
         rotation={[0, Math.PI / 4, 0]}
       />

@@ -40,8 +40,8 @@ export function AugmentedReality() {
           onSessionStart={(event: XREvent<XRManagerEvent>) => {
             setShowControls(true);
             setX(0);
-            setY(0);
-            setZ(-2);
+            setY(0.7);
+            setZ(-1.2);
           }}
           onSessionEnd={(event: XREvent<XRManagerEvent>) => {
             setShowControls(false);
