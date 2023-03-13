@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { AugmentedReality } from './AR/AugmentedReality';
+import { MarioFloorLamp } from './AR/3D_models/MarioFloorLamp';
 
 
 const router = createBrowserRouter([

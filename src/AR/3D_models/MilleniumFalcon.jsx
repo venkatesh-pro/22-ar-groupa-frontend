@@ -7,11 +7,10 @@ Source: https://sketchfab.com/3d-models/metalic-millenium-falcon-star-wars-0c09d
 Title: Metalic Millenium Falcon - Star Wars
 */
 
-import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
 export function Model(props) {
-  const { nodes, materials } = useGLTF('/scene-transformed.glb')
+  const { nodes, materials } = useGLTF('assets/MilleniumFalcon/scene-transformed.glb')
   return (
     <group {...props} dispose={null}>
       <group position={[-0.96, -59.08, -28.65]} rotation={[-3.14, -0.03, -0.02]}>

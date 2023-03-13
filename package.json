@@ -2,6 +2,7 @@
   "name": "ar-group-a",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8080",
   "dependencies": {
     "@react-three/drei": "^9.57.0",
     "@react-three/fiber": "^8.11.8",
