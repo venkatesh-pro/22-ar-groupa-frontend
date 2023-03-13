@@ -68,14 +68,14 @@ export function AugmentedReality() {
 
           <Interactive
             onSelect={() => {
-              setAngle(angle - 0.1);
+              setAngle(angle + 0.1);
             }}
           >
             <Box position={new Vector3(1, -3, -2)} colour={"green"} />
           </Interactive>
           <Interactive
             onSelect={() => {
-              setAngle(angle + 0.1);
+              setAngle(angle - 0.1);
             }}
           >
             <Box position={new Vector3(0.4, -3, -2)} colour={"green"} />
