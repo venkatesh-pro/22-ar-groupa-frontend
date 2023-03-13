@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const headerContainer = styled.div`
@@ -27,34 +27,7 @@ const logo = styled.h1`
   font-weight: bolder;
 `;
 
-const button = styled.button`
-  display: flex;
-  justify-content: end;
-  align-items: center;
-  gap: 15px;
-  margin-left: 25px;
-  text-decoration: none;
-  color: white;
-  font-size: 25px;
-  border: none;
-  background-color: black;
-  margin: 10px;
-  font-weight: bold;
-
-  &:hover {
-    text-decoration: none;
-    color: black;
-    background-color: white;
-    border-radius: 15px;
-  }
-
-  &:active {
-    background-color: red;
-    color: black;
-  }
-`;
-
-const basketButton = styled(Link)`
+const button = styled(NavLink)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -76,8 +49,11 @@ const basketButton = styled(Link)`
   }
 
   &:active {
-    background-color: red;
+    background-color: white;
     color: black;
+    border: 1px solid white;
+    padding: 5px;
+    border-radius: 15px;
   }
 `;
 
@@ -91,7 +67,6 @@ const styles = {
   headerContainer,
   button,
   logo,
-  basketButton,
   buttonContainer,
 };
 

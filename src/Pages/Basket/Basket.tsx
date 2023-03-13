@@ -3,11 +3,11 @@ import React from "react";
 import { BasketItem } from "../../Components/BasketItem/BasketItem";
 import { useGetItems } from "../../Functions/useGetItems";
 import { Message } from "../../Components/Message/Message";
+import { Header } from "../../Components/Header/Header";
 
 export const Basket: React.FC = () => {
   const [loading, error, items] = useGetItems({
-    selectedOption: "Home",
-    isBasket: false,
+    selectedOption: "basket",
   });
 
   const totalAmount = items
@@ -22,6 +22,7 @@ export const Basket: React.FC = () => {
   }
   return (
     <s.basketContainer>
+      <Header />
       <s.basketHeader>Basket</s.basketHeader>
       {items.map((item) => (
         <BasketItem

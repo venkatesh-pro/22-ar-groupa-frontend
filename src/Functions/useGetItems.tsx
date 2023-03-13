@@ -2,12 +2,10 @@ import { useEffect, useState } from "react";
 import { item } from "../Components/Item/Item";
 
 interface Props {
-  selectedOption: string;
-  isBasket: boolean;
+  selectedOption: string | undefined;
 }
 export const useGetItems = ({
   selectedOption,
-  isBasket,
 }: Props): [boolean, boolean, item[]] => {
   const [items, setItems] = useState<item[]>([]);
   const [error, setError] = useState(false);
@@ -15,13 +13,15 @@ export const useGetItems = ({
   useEffect(() => {
     setLoading(true);
     let path;
-    const choice = selectedOption.toUpperCase();
-    if (selectedOption === "Home") {
+    if (selectedOption === undefined) {
+      path = `/api/products/all`;
+    } else if (selectedOption === "basket") {
       path = `/api/products/all`;
     } else {
+      const choice = selectedOption.toUpperCase();
       path = `api/products/all?productType=${choice}`;
-      console.log(path);
     }
+
     fetch(path, {
       method: "GET",
     })

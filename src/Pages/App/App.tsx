@@ -4,13 +4,12 @@ import { Header } from "../../Components/Header/Header";
 import { ItemList } from "../../Components/ItemList/ItemList";
 import { Message } from "../../Components/Message/Message";
 import { useGetItems } from "../../Functions/useGetItems";
+import { useParams } from "react-router-dom";
 
 function App() {
-  const [selectedOption, setSelectedOption] = useState<string>("Home");
-  const types = ["Table", "Chair", "Light"];
+  const { filter } = useParams<string>();
   const [loading, error, items] = useGetItems({
-    selectedOption: selectedOption,
-    isBasket: false,
+    selectedOption: filter,
   });
   console.log(items);
 
@@ -26,11 +25,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header
-        selectedOption={selectedOption}
-        setSelectedOption={setSelectedOption}
-        options={types}
-      />
+      <Header />
       <ItemList items={items} />
     </div>
   );
