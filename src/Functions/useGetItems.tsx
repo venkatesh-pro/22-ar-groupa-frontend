@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import { item } from "./Components/Item/Item";
+import { item } from "../Components/Item/Item";
 
 interface Props {
   selectedOption: string;
+  isBasket: boolean;
 }
 export const useGetItems = ({
   selectedOption,
+  isBasket,
 }: Props): [boolean, boolean, item[]] => {
   const [items, setItems] = useState<item[]>([]);
   const [error, setError] = useState(false);
