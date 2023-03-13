@@ -7,7 +7,7 @@ import { useGetItems } from "../../useGetItems";
 
 function App() {
   const [selectedOption, setSelectedOption] = useState<string>("Home");
-  const types = ["Table", "Chair", "Lamp"];
+  const types = ["Table", "Chair", "Light"];
   const [loading, error, items] = useGetItems({ selectedOption });
   console.log(items);
 
