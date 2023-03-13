@@ -15,12 +15,20 @@ export const Item: React.FC<item> = ({
   imagePath,
   product_price,
 }) => {
+  const handleAddToBasket = () => {
+    console.log("ADDED TO BASKET");
+  };
   return (
     <div>
-      <s.itemContainer to={"/AR"}>
-        <s.itemImage src={imagePath} alt={product_name}></s.itemImage>
-        <s.itemText>{product_name}</s.itemText>
-        <s.itemText>£{product_price}</s.itemText>
+      <s.itemContainer>
+        <s.itemLink to={"/AR"}>
+          <s.itemImage src={imagePath} alt={product_name}></s.itemImage>
+          <s.itemText>{product_name}</s.itemText>
+          <s.itemText>£{product_price}</s.itemText>
+        </s.itemLink>
+        <s.addToBasketButton onClick={handleAddToBasket}>
+          Add To Basket
+        </s.addToBasketButton>
       </s.itemContainer>
     </div>
   );

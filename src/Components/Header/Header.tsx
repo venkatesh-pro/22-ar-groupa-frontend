@@ -25,17 +25,19 @@ export const Header: React.FC<Props> = ({
       <s.header>
         f<s.logo>AR</s.logo>nitures
       </s.header>
-      <s.button onClick={handleClick}>Home</s.button>
-      {options.map((op) => (
-        <s.button key={op} onClick={handleClick}>
-          {op}
-        </s.button>
-      ))}
-      <s.button>Sign Up</s.button>
-      <s.button>Log in</s.button>
-      <s.basketButton to="/basket">
-        <RiShoppingCart2Line size={32} />
-      </s.basketButton>
+      <s.buttonContainer>
+        <s.button onClick={handleClick}>Home</s.button>
+        {options.map((op) => (
+          <s.button key={op} onClick={handleClick}>
+            {op}
+          </s.button>
+        ))}
+        <s.button>Sign Up</s.button>
+        <s.button>Log in</s.button>
+        <s.basketButton to="/basket">
+          <RiShoppingCart2Line size={32} />
+        </s.basketButton>
+      </s.buttonContainer>
     </s.headerContainer>
   );
 };
