@@ -13,10 +13,11 @@ export const Item: React.FC<item> = ({
   product_name,
   imagePath,
   product_desc,
+  product_id,
 }) => {
   return (
     <div>
-      <s.itemContainer to={"/AR"}>
+      <s.itemContainer to={`/product/${product_id}`}>
         <s.itemImage src={imagePath} alt={product_name}></s.itemImage>
         <s.itemText>{product_name}</s.itemText>
         <s.itemText>{product_desc}</s.itemText>
