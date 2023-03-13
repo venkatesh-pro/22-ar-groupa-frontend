@@ -1,23 +1,35 @@
-import * as THREE from 'three'
-import React, { useRef, useState } from 'react'
-import { useFrame, ThreeElements } from '@react-three/fiber'
+import * as THREE from "three";
+import React, { Dispatch, SetStateAction, useRef, useState } from "react";
+import { useFrame } from "@react-three/fiber";
+import { Vector3 } from "three";
 
-const Box = (props: ThreeElements['mesh']) => {
-  const ref = useRef<THREE.Mesh>(null!)
-  const [hovered, hover] = useState(false)
-  const [clicked, click] = useState(false)
-  useFrame((state, delta) => (ref.current.rotation.x += delta))
+interface boxData {
+  position: Vector3;
+  rotateClick: boolean;
+  setRotateClick: Dispatch<SetStateAction<boolean>>;
+}
+
+const Box = React.forwardRef((props: boxData, reference) => {
+  const ref = useRef<THREE.Mesh>(null!);
+  const [hovered, hover] = useState(false);
+  useFrame((state, delta) =>
+    props.rotateClick ? (ref.current.rotation.y += delta) : null
+  );
+
   return (
     <mesh
       {...props}
+      position={props.position}
       ref={ref}
-      scale={clicked ? 1.5 : 1}
-      onClick={() => click(!clicked)}
+      scale={hovered ? 1.5 : 1}
+      // onClick={() => click(!clicked)}
       onPointerOver={() => hover(true)}
-      onPointerOut={() => hover(false)}>
+      onPointerOut={() => hover(false)}
+    >
       <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color={hovered ? 'hotpink' : 'orange'} />
+      {/* <meshStandardMaterial color={clicked ? "hotpink" : "orange"} /> */}
     </mesh>
-  )
-}
-export default Box
+  );
+});
+
+export default Box;
