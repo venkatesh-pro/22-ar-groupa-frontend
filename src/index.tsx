@@ -1,11 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import AR from './AR/AR';
-
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./Pages/App/App";
+import reportWebVitals from "./reportWebVitals";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { AugmentedReality } from "./AR/AugmentedReality";
+import { Basket } from "./Pages/Basket/Basket";
 
 const router = createBrowserRouter([
   {
@@ -13,13 +13,17 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path:"/AR",
-    element: <AR />,
+    path: "/AR",
+    element: <AugmentedReality />,
   },
-])
+  {
+    path: "/basket",
+    element: <Basket />,
+  },
+]);
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
