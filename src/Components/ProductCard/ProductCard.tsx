@@ -41,8 +41,7 @@ const ProductCard: React.FC = () => {
           ></s.itemImage>
           <s.itemText>Product name: {product.product_name}</s.itemText>
           <s.itemText>Description: {product.product_desc}</s.itemText>
-
-          {/* <p>Price: {product.product_price}</p> */}
+          <s.itemText>Price: £{product.product_price}</s.itemText>
           <button>Add to basket</button>
           <button>Try AR</button>
         </div>

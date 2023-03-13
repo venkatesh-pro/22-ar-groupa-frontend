@@ -7,6 +7,7 @@ export interface item {
   product_type_id: number;
   imagePath: string;
   threeDModelPath: string;
+  product_price?: string;
 }
 
 export const Item: React.FC<item> = ({
@@ -14,6 +15,7 @@ export const Item: React.FC<item> = ({
   imagePath,
   product_desc,
   product_id,
+  product_price,
 }) => {
   return (
     <div>
