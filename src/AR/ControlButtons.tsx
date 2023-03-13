@@ -1,8 +1,9 @@
 import { Interactive } from "@react-three/xr";
-import { Dispatch, SetStateAction } from "react";
-import { Vector3 } from "three";
+import { Dispatch, SetStateAction, useRef } from "react";
+import { Box2, Vector3 } from "three";
 import BigBox from "./BigBox";
 import Box from "./Box";
+import { Html } from "@react-three/drei";
 
 interface controlSettings {
   setX: Dispatch<SetStateAction<number>>;
@@ -130,6 +131,41 @@ const ControlButtons = (props: controlSettings) => {
         rotation={[0, Math.PI / 4, 0]}
       />
     </>
-  ) : null;
+  ) : (
+    <>
+      <mesh
+        onClick={() => {
+          props.setAngle(props.angle + 0.1);
+        }}
+      >
+        <BigBox
+          position={new Vector3(0.7, -3, -1)}
+          colour={"orange"}
+          rotation={[-Math.PI / 10, 0, Math.PI / 4]}
+        />
+        <BigBox
+          position={new Vector3(0.5, -3, -1)}
+          colour={"orange"}
+          rotation={[-Math.PI / 10, 0, 0]}
+        />
+      </mesh>
+      <mesh
+        onClick={() => {
+          props.setAngle(props.angle - 0.1);
+        }}
+      >
+        <BigBox
+          position={new Vector3(-0.7, -3, -1)}
+          colour={"orange"}
+          rotation={[-Math.PI / 10, 0, -Math.PI / 4]}
+        />
+        <BigBox
+          position={new Vector3(-0.5, -3, -1)}
+          colour={"orange"}
+          rotation={[-Math.PI / 10, 0, 0]}
+        />
+      </mesh>
+    </>
+  );
 };
 export default ControlButtons;
