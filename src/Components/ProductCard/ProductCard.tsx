@@ -1,5 +1,7 @@
+import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Header } from "../Header/Header";
 import { item } from "../Item/Item";
 import s from "./ProductCard.styles";
 
@@ -32,21 +34,25 @@ const ProductCard: React.FC = () => {
 
   return (
     <div>
-      Id: {id}
       {product ? (
-        <div>
-          <s.itemImage
-            src={product.imagePath}
-            alt={product.product_name}
-          ></s.itemImage>
-          <s.itemText>Product name: {product.product_name}</s.itemText>
-          <s.itemText>Description: {product.product_desc}</s.itemText>
-          <s.itemText>Price: £{product.product_price}</s.itemText>
-          <button>Add to basket</button>
-          <button>Try AR</button>
-        </div>
+        <s.productCardContainer>
+          <Header />
+          <s.productCard>
+            <s.itemImage
+              src={product.imagePath}
+              alt={product.product_name}
+            ></s.itemImage>
+            <s.itemText>Product name: {product.product_name}</s.itemText>
+            <s.itemText>Description: {product.product_desc}</s.itemText>
+            <s.itemText>Price: £{product.product_price}</s.itemText>
+            <button>Add to basket</button>
+            <button>Try AR</button>
+          </s.productCard>
+        </s.productCardContainer>
       ) : (
-        <p>Product not found</p>
+        <s.productCardContainer>
+          <p>Product not found</p>
+        </s.productCardContainer>
       )}
     </div>
   );
