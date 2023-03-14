@@ -26,24 +26,46 @@ export const Scene: React.FC<Props> = ({ threeD }) => {
     <group
       ref={ref}
       dispose={null}
-      // position={[0,0,-1000]}
+      position={threeD.groups[0]?.position}
+      rotation={threeD.groups[0]?.rotation}
+      scale={threeD.groups[0]?.scale}
       onPointerDown={() => setClick(0.05)}
       onPointerUp={() => setClick(0)}
     >
       <group
-        position={threeD.outerGroup.position}
-        rotation={threeD.outerGroup.rotation}
+        position={threeD.groups[1]?.position}
+        rotation={threeD.groups[1]?.rotation}
+        scale={threeD.groups[1]?.scale}
       >
         <group
-          position={threeD.innerGroup.position}
-          rotation={threeD.innerGroup.rotation}
+          position={threeD.groups[2]?.position}
+          rotation={threeD.groups[2]?.rotation}
+          scale={threeD.groups[2]?.scale}
         >
-          {threeD.meshArray.map((element) => (
-             <mesh key={element.geometry}
-              geometry={nodes[element.geometry].geometry}
-              material={materials[element.material]}
+          {threeD.groups[2]?.meshArray.map((e) => (
+            <mesh
+              key={e.geometry}
+              geometry={nodes[e.geometry].geometry}
+              material={materials[e.material]}
+              rotation={e.rotation}
+              scale={e.scale}
             />
           ))}
+          <group
+            position={threeD.groups[3]?.position}
+            rotation={threeD.groups[3]?.rotation}
+            scale={threeD.groups[3]?.scale}
+          >
+            {threeD.groups[3]?.meshArray.map((element) => (
+              <mesh
+                key={element.geometry}
+                geometry={nodes[element.geometry].geometry}
+                material={materials[element.material]}
+                rotation={element.rotation}
+                scale={element.scale}
+              />
+            ))}
+          </group>
         </group>
       </group>
     </group>
