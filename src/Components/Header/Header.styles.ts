@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const headerContainer = styled.div`
@@ -8,15 +8,18 @@ const headerContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   color: white;
-  max-width: 100vw;
+  width: 100vw;
   flex-wrap: wrap;
+  @media screen and (max-width: 750px) {
+    background-color: blue;
+  }
 `;
 const header = styled.h1`
   display: flex;
   justify-content: flex-start;
   color: white;
   font-size: 30px;
-  margin-left: 10px;
+  margin-left: 50px;
   margin-right: 20px;
   align-items: center;
   font-weight: bolder;
@@ -39,7 +42,9 @@ const button = styled(NavLink)`
   font-size: 25px;
   border: none;
   background-color: black;
-  width: 50px;
+  width: auto;
+  padding-left: 10px;
+  padding-right: 10px;
 
   &:hover {
     text-decoration: none;
@@ -48,7 +53,7 @@ const button = styled(NavLink)`
     border-radius: 15px;
   }
 
-  &:active {
+  &.active {
     background-color: white;
     color: black;
     border: 1px solid white;
@@ -61,6 +66,7 @@ const buttonContainer = styled.div`
   display: flex;
   justify-content: end;
   flex-wrap: wrap;
+  margin-right: 50px;
 `;
 const styles = {
   header,

@@ -18,8 +18,11 @@ const itemLink = styled(Link)`
   align-items: center;
   border-top: 4px solid white;
   border-bottom: 4px solid white;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
   height: 80%;
   width: 100%;
+
   &:visited {
     color: black;
   }

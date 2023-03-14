@@ -15,7 +15,7 @@ export const Header: React.FC = () => {
             {op}
           </s.button>
         ))}
-        <s.button to="/login">Sign Up</s.button>
+        <s.button to="/signup">Sign Up</s.button>
         <s.button to="/login">Log in</s.button>
         <s.button to="/basket">
           <RiShoppingCart2Line size={32} />
