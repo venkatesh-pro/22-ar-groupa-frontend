@@ -23,7 +23,7 @@ export const Basket: React.FC = () => {
   return (
     <s.basketContainer>
       <Header />
-      <s.basketHeader>Basket</s.basketHeader>
+      <s.basketHeader>Your Basket!</s.basketHeader>
       {items.map((item) => (
         <BasketItem
           key={item.product_name}

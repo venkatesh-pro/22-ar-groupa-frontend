@@ -8,6 +8,7 @@ const headerContainer = styled.div`
   color: white;
   width: 100vw;
   align-items: flex-start;
+  height: 100px;
   @media screen and (max-width: 750px) {
   }
 `;
@@ -36,7 +37,9 @@ const button = styled(NavLink)`
   align-items: center;
   align-self: center;
   gap: 15px;
-  margin-left: 25px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 10px;
   text-decoration: none;
   color: white;
   font-size: 25px;
@@ -52,14 +55,20 @@ const button = styled(NavLink)`
     background-color: white;
     border-radius: 15px;
   }
+  &.active {
+    background-color: white;
+    color: black;
+    border: 1px solid white;
+    padding: 5px;
+    border-radius: 15px;
+  }
 `;
 
 const menuButton = styled.button`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  align-self: flex-end;
-  gap: 15px;
+  align-self: center;
   margin-left: 25px;
   text-decoration: none;
   color: white;
@@ -77,25 +86,27 @@ const menuButton = styled.button`
     background-color: white;
     border-radius: 15px;
   }
-
-  &.active {
-    background-color: white;
-    color: black;
-    border: 1px solid white;
-    padding: 5px;
-    border-radius: 15px;
-  }
 `;
 const menuContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 30px;
+  background-color: black;
+  width: 150px;
+  align-items: center;
+  align-self: flex-end;
+  position: absolute;
+  margin-top: 100px;
 `;
 const buttonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-right: 50px;
   align-self: center;
+`;
+
+const headerWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 const styles = {
   header,
@@ -105,6 +116,7 @@ const styles = {
   buttonContainer,
   menuButton,
   menuContainer,
+  headerWrapper,
 };
 
 export default styles;

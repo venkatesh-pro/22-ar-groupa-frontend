@@ -14,7 +14,7 @@ const basketHeader = styled.h1``;
 
 const checkoutButton = styled(Link)`
   display: flex;
-  width: 150px;
+  width: 250px;
   height: 50px;
   background-color: rgb(19, 19, 19);
   color: white;
@@ -25,11 +25,14 @@ const checkoutButton = styled(Link)`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  font-size: 25px;
 `;
 
 const checkout = styled.div``;
 
-const description = styled.p``;
+const description = styled.p`
+  font-size: 30px;
+`;
 
 const styles = {
   basketContainer,

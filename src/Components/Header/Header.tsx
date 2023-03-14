@@ -22,32 +22,31 @@ export const Header: React.FC = () => {
 
   if (mobileView) {
     return (
-      <s.headerContainer>
-        <s.header>
-          f<s.logo>AR</s.logo>nitures
-        </s.header>
-        <s.menuContainer>
+      <s.headerWrapper>
+        <s.headerContainer>
+          <s.header>
+            f<s.logo>AR</s.logo>nitures
+          </s.header>
           <s.menuButton onClick={handleClick}>
             <RiMenuLine size={32} />
           </s.menuButton>
-
-          {toggle && (
-            <div>
-              <s.button to="/">Home</s.button>
-              {options.map((op) => (
-                <s.button key={op} to={`/${op}`}>
-                  {op}
-                </s.button>
-              ))}
-              <s.button to="/signup">Sign Up</s.button>
-              <s.button to="/login">Log in</s.button>
-              <s.button to="/basket">
-                <RiShoppingCart2Line size={32} />
+        </s.headerContainer>
+        {toggle && (
+          <s.menuContainer>
+            <s.button to="/">Home</s.button>
+            {options.map((op) => (
+              <s.button key={op} to={`/${op}`}>
+                {op}
               </s.button>
-            </div>
-          )}
-        </s.menuContainer>
-      </s.headerContainer>
+            ))}
+            <s.button to="/signup">Sign Up</s.button>
+            <s.button to="/login">Log in</s.button>
+            <s.button to="/basket">
+              <RiShoppingCart2Line size={32} />
+            </s.button>
+          </s.menuContainer>
+        )}
+      </s.headerWrapper>
     );
   }
 
