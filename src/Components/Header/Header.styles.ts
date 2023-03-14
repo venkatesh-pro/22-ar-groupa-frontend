@@ -2,38 +2,63 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const headerContainer = styled.div`
-  height: auto;
   background-color: black;
   display: flex;
-  align-items: center;
   justify-content: space-between;
   color: white;
   width: 100vw;
-  flex-wrap: wrap;
+  align-items: flex-start;
   @media screen and (max-width: 750px) {
-    background-color: blue;
   }
 `;
 const header = styled.h1`
   display: flex;
-  justify-content: flex-start;
   color: white;
   font-size: 30px;
   margin-left: 50px;
   margin-right: 20px;
-  align-items: center;
+  margin-top: 30px;
   font-weight: bolder;
+  align-self: center;
+  align-content: center;
 `;
 const logo = styled.h1`
   color: red;
   font-size: 35px;
   font-weight: bolder;
+  align-self: center;
+  margin: 0px;
 `;
 
 const button = styled(NavLink)`
   display: flex;
   justify-content: center;
   align-items: center;
+  align-self: center;
+  gap: 15px;
+  margin-left: 25px;
+  text-decoration: none;
+  color: white;
+  font-size: 25px;
+  border: none;
+  background-color: black;
+  width: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  &:hover {
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    border-radius: 15px;
+  }
+`;
+
+const menuButton = styled.button`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  align-self: flex-end;
   gap: 15px;
   margin-left: 25px;
   text-decoration: none;
@@ -42,7 +67,7 @@ const button = styled(NavLink)`
   font-size: 25px;
   border: none;
   background-color: black;
-  width: auto;
+  width: 50px;
   padding-left: 10px;
   padding-right: 10px;
 
@@ -61,12 +86,16 @@ const button = styled(NavLink)`
     border-radius: 15px;
   }
 `;
-
+const menuContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+`;
 const buttonContainer = styled.div`
   display: flex;
-  justify-content: end;
-  flex-wrap: wrap;
+  justify-content: flex-end;
   margin-right: 50px;
+  align-self: center;
 `;
 const styles = {
   header,
@@ -74,6 +103,8 @@ const styles = {
   button,
   logo,
   buttonContainer,
+  menuButton,
+  menuContainer,
 };
 
 export default styles;
