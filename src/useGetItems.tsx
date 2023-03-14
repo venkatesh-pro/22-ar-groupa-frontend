@@ -6,22 +6,18 @@ interface Props {
 }
 export const useGetItems = ({
   selectedOption,
-}: Props): [
-  boolean,
-  boolean,
-  item[],
-  React.Dispatch<React.SetStateAction<item[]>>
-] => {
+}: Props): [boolean, boolean, item[]] => {
   const [items, setItems] = useState<item[]>([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
     let path;
+    const choice = selectedOption.toUpperCase();
     if (selectedOption === "Home") {
       path = `/api/products/all`;
     } else {
-      path = `api/products/type?type=${selectedOption}`;
+      path = `api/products/all?productType=${choice}`;
       console.log(path);
     }
     fetch(path, {
@@ -41,5 +37,5 @@ export const useGetItems = ({
         setError(true);
       });
   }, [selectedOption]);
-  return [loading, error, items, setItems];
+  return [loading, error, items];
 };

@@ -8,28 +8,17 @@ Title: Mario Floor Lamp
 */
 
 import { useGLTF } from "@react-three/drei";
-import { useRef, useState } from "react";
-import { useFrame } from "@react-three/fiber";
+import { useRef } from "react";
 
 export function MarioFloorLamp(props) {
-  const [click, setClick] = useState(0);
-  // const [clicked, click] = useState(false)
   const { nodes, materials } = useGLTF(
     "assets/MarioFloorLamp/scene-transformed.glb"
   );
   const ref = useRef();
-  useFrame(() => (ref.current.rotation.y += click));
-
   return (
-    <group
-      ref={ref}
-      {...props}
-      dispose={null}
-      onPointerDown={() => setClick(0.05)}
-      onPointerUp={() => setClick(0)}
-    >
-      <group rotation={[-Math.PI / 2, 0, 0]}>
-        <group rotation={[Math.PI / 2, 0, 0]}>
+    <group ref={ref} {...props} dispose={null}>
+      <group rotation={[-Math.PI / 2, 0, 0]} scale={0.5}>
+        <group rotation={[Math.PI / 2, props.angle * Math.PI, 0]}>
           <mesh
             geometry={nodes.defaultMaterial.geometry}
             material={materials.Mario_Metal}

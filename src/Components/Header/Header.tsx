@@ -1,4 +1,5 @@
 import s from "./Header.styles";
+import { RiShoppingCart2Line } from "react-icons/ri";
 
 interface Props {
   selectedOption: string;
@@ -30,6 +31,11 @@ export const Header: React.FC<Props> = ({
           {op}
         </s.button>
       ))}
+      <s.button>Sign Up</s.button>
+      <s.button>Log in</s.button>
+      <s.basketButton to="/basket">
+        <RiShoppingCart2Line size={32} />
+      </s.basketButton>
     </s.headerContainer>
   );
 };
