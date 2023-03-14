@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Header } from "../Header/Header";
 import { item } from "../Item/Item";
 import s from "./ProductCard.styles";
@@ -32,6 +32,8 @@ const ProductCard: React.FC = () => {
       });
   }, [id]);
 
+  const navigate = useNavigate();
+
   return (
     <div>
       {product ? (
@@ -47,6 +49,7 @@ const ProductCard: React.FC = () => {
             <s.itemText>Price: £{product.product_price}</s.itemText>
             <button>Add to basket</button>
             <button>Try AR</button>
+            <button onClick={() => navigate(-1)}>Go back</button>
           </s.productCard>
         </s.productCardContainer>
       ) : (
