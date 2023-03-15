@@ -1,46 +1,93 @@
 import styled from "styled-components";
 
-const productCardContainer = styled.div`
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
-  // align-items: center;
-  // margin: 0px;
-`;
+const productCardContainer = styled.div``;
 
-const productCard = styled.div`
-  // display: flex;
-  margin: 30px 200px;
+const div_ProductCard = styled.div`
+  display: flex;
+  flex-direction: row;
+  max-width: 1000px;
+  margin: 50px auto;
   border: 1px solid black;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
   border-radius: 25px;
 `;
 
-const itemImage = styled.img`
+const div_Gallery = styled.div`
   display: flex;
-  width: 30%;
-  height: 40%;
+  flex-direction: column;
+  max-width: 500px;
+  border: 1px solid red;
+`;
+
+const img_Big = styled.img`
   margin: 10px;
-  margin-top: 10px;
-  border-radius: 5%;
+  border-radius: 20px;
 `;
 
-const itemText = styled.div`
+const div_Thumbnails = styled.div`
   display: flex;
-  padding-top: 10px;
-  align-items: right;
-  text-align: center;
-  font-size: 20px;
+  flex-direction: row;
+  margin-bottom: 10px;
+  justify-content: space-between;
 `;
 
-const itemPrice = styled.div``;
+const img_Small = styled.img`
+  max-width: 140px;
+  margin: 0px 10px;
+  border-radius: 10px;
+`;
+
+const div_Details = styled.div`
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  margin-left: 10px;
+  border: 1px solid green;
+`;
+
+const div_Product_Name = styled.div`
+  padding-top: 10px;
+  text-align: left;
+  font-size: 35px;
+`;
+
+const div_Product_Description = styled.div`
+  padding-top: 10px;
+  text-align: left;
+  font-size: 25px;
+`;
+
+const div_Buttons = styled.div`
+  border: 1px solid lightblue;
+`;
+
+const button_AddToBasket = styled.button`
+  margin-top: 10px;
+  color: pink;
+`;
+
+const button_TryAR = styled.button`
+  color: yellow;
+`;
+
+const button_GoBack = styled.button`
+  color: red;
+`;
 
 const styles = {
   productCardContainer,
-  productCard,
-  itemText,
-  itemImage,
-  itemPrice,
+  div_ProductCard,
+  div_Gallery,
+  img_Big,
+  div_Thumbnails,
+  img_Small,
+  div_Details,
+  div_Product_Name,
+  div_Product_Description,
+  div_Buttons,
+  button_AddToBasket,
+  button_TryAR,
+  button_GoBack,
 };
 
 export default styles;
