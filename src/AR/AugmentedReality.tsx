@@ -8,7 +8,7 @@ import {
 } from "@react-three/xr";
 import ControlButtons from "./ControlButtons";
 
-import { MarioFloorLamp } from "./3D_models/MarioFloorLamp";
+import { MarioFloorLamp } from "./3D_models/MarioFloorLamp"
 import s from "./AR.styles";
 import React, { useState } from "react";
 export function AugmentedReality() {
