@@ -12,6 +12,10 @@ const cartItem = styled.div`
   @media screen and (min-width: 700px) {
     width: 600px;
   }
+
+  @media screen and (max-width: 500px) {
+    height: 200px;
+  }
 `;
 
 const cartItemImg = styled.img`

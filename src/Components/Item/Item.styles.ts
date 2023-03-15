@@ -22,6 +22,7 @@ const itemLink = styled(Link)`
   border-bottom-right-radius: 0px;
   height: 80%;
   width: 100%;
+  color: black;
 
   &:visited {
     color: black;
