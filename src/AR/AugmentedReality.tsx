@@ -14,6 +14,8 @@ import s from "./AR.styles";
 import React, { useState } from "react";
 import { models } from "./3D_models/models";
 import { model } from "./3D_models/model";
+import { MarioFloorLamp2 } from "./3D_models/MarioFloorLamp2";
+import { VictorianCoffeeTable } from "./3D_models/VictorianCoffeeTable";
 
 interface Props {
   threeD: model;
@@ -44,7 +46,6 @@ export const AugmentedReality: React.FC<Props> = ({ threeD }) => {
         );
       }
     });
-    // return <MarioFloorLamp ref={boxRef} position={[x, y, z]} angle={angle} />;
     return (
       <Scene threeD={threeD} ref={boxRef} position={[x, y, z]} angle={angle} />
     );
