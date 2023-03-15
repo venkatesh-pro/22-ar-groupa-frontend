@@ -16,4 +16,5 @@ interface mesh {
   material?: string | undefined;
   rotation?: number[] | undefined;
   scale?: number | undefined;
+  position?: number[] | undefined;
 }

@@ -1,6 +1,6 @@
 export const MilleniumFalconData = {
     name: "MilleniumFlacon",
-    URL: "assets/MilleniumFalcon/scene-transformed.glb",
+    URL: "assets/millenium_falcon/scene-transformed.glb",
     groups: [
       {
         position: [0, 0, -1000],

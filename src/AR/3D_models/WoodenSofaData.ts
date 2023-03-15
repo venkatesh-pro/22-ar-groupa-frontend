@@ -3,7 +3,8 @@ export const WoodenSofaData = {
     URL: "assets/wooden_sofa/scene-transformed.glb",
     groups: [
       {
-        position: [0, 0, -2]
+        position: [0, 0, -2],
+        rotation: [Math.PI, Math.PI, Math.PI]
       },
       {
         rotation: [-Math.PI / 2, 0, 0],
