@@ -1,31 +1,62 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const signUpContainer = styled.div``;
-const form = styled.form`
-  margin: 10px 10px;
-  border: 1px solid black;
+
+const loginHeader = styled.h1`
+  margin: 20px;
+`;
+
+const loginBox = styled.div`
+  max-width: 700px;
+  min-width: 200px;
+  max-height: 700px;
+  min-height: 200px;
+  border: solid;
+  border-width: 7px;
+  margin: 30px;
   border-radius: 15px;
+  background-color: black;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
 `;
 
-const h1 = styled.h1`
-  color: pink;
-  text-align: center;
+const userDetailText = styled.p`
+  color: white;
+  margin: 10px;
+  font-weight: bold;
 `;
 
-const div_form = styled.div`
-  border: 1px solid red;
+const userDetailBox = styled.input`
+  margin: 10px;
 `;
 
-const div_field = styled.div`
-  color: green;
-  border: 1px solid green;
-  margin: 10px auto;
+const userDetailContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
 `;
 
-const button_auth = styled.button`
-  background-color: aqua;
+const userDetailWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
-const styles = { signUpContainer, form, h1, div_form, div_field, button_auth };
+const cancelButton = styled(Link)`
+  &:visited {
+    color: white;
+  }
+`;
+
+const styles = {
+  signUpContainer,
+  loginHeader,
+  loginBox,
+  userDetailBox,
+  userDetailContainer,
+  userDetailText,
+  cancelButton,
+  userDetailWrapper,
+};
 
 export default styles;
