@@ -1,6 +1,8 @@
 import { Header } from "../../Components/Header/Header";
 import s from "./Login.styles";
-import { RiCloseCircleFill, RiMailLine } from "react-icons/ri";
+import { RiCloseCircleFill } from "react-icons/ri";
+
+//, RiMailLine
 
 export const Login: React.FC = () => {
   return (
