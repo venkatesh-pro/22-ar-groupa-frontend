@@ -2,15 +2,17 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./Pages/App/App";
-import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AugmentedReality } from "./AR/AugmentedReality";
 import { Basket } from "./Pages/Basket/Basket";
 import { models } from "./AR/3D_models/models";
+import { Login } from "./Pages/Login/Login";
+import { SignUp } from "./Pages/SignUp/SignUp";
+import ProductCard from "./Components/ProductCard/ProductCard";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/:filter?",
     element: <App />,
   },
   {
@@ -20,6 +22,18 @@ const router = createBrowserRouter([
   {
     path: "/basket",
     element: <Basket />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/signup",
+    element: <SignUp />,
+  },
+  {
+    path: "/product/:id",
+    element: <ProductCard />,
   },
 ]);
 
@@ -31,8 +45,3 @@ root.render(
     <RouterProvider router={router} />
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

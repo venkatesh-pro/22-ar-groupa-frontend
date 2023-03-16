@@ -16,7 +16,8 @@ export const ItemList: React.FC<Props> = ({ items }) => {
           product_id={item.product_id}
           product_desc={item.product_desc}
           product_type_id={item.product_type_id}
-          threeDModelPath={item.threeDModelPath} 
+          threeDModelPath={item.threeDModelPath}
+          product_price={item.product_price}
         />
       ))}
     </s.itemListContainer>

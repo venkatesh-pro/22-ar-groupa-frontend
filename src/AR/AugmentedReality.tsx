@@ -8,26 +8,24 @@ import {
 } from "@react-three/xr";
 import ControlButtons from "./ControlButtons";
 import { Scene } from "./3D_models/Scene";
-import { MarioFloorLamp } from "./3D_models/MarioFloorLamp";
-import { WoodenTable2 } from "./3D_models/WoodenTable2"
+//import { MarioFloorLamp } from "./3D_models/MarioFloorLamp";
+//import { WoodenTable2 } from "./3D_models/WoodenTable2"
 import s from "./AR.styles";
 import React, { useState } from "react";
-import { models } from "./3D_models/models";
+//import { models } from "./3D_models/models";
 import { model } from "./3D_models/model";
-import { MarioFloorLamp2 } from "./3D_models/MarioFloorLamp2";
-import { VictorianCoffeeTable } from "./3D_models/VictorianCoffeeTable";
+//import { MarioFloorLamp2 } from "./3D_models/MarioFloorLamp2";
+//import { VictorianCoffeeTable } from "./3D_models/VictorianCoffeeTable";
 
 interface Props {
   threeD: model;
 }
 
 export const AugmentedReality: React.FC<Props> = ({ threeD }) => {
-
   let modelX: number = threeD.groups[0].position?.at(0) ?? 0;
   let modelY: number = threeD.groups[0].position?.at(1) ?? 0;
   let modelZ: number = threeD.groups[0].position?.at(2) ?? 0;
   let rotationY: number = threeD.groups[0].rotation?.at(1) ?? Math.PI;
-
 
   const [showControls, setShowControls] = useState(false);
   const [x, setX] = useState(modelX);

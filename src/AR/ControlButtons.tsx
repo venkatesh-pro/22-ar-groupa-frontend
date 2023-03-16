@@ -1,9 +1,9 @@
 import { Interactive } from "@react-three/xr";
-import { Dispatch, SetStateAction, useRef } from "react";
-import { Box2, Vector3 } from "three";
+import { Dispatch, SetStateAction } from "react";
+import { Vector3 } from "three";
 import BigBox from "./BigBox";
 import Box from "./Box";
-import { Html } from "@react-three/drei";
+//import { Html } from "@react-three/drei";
 
 interface controlSettings {
   setX: Dispatch<SetStateAction<number>>;
