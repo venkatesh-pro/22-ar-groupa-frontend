@@ -1,0 +1,11 @@
+Model Information:
+* title:	Cover Chair
+* source:	https://sketchfab.com/3d-models/cover-chair-86c6d5e7bb954a949b9977decbd3009b
+* author:	rfinterior (https://sketchfab.com/rocio133)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Cover Chair" (https://sketchfab.com/3d-models/cover-chair-86c6d5e7bb954a949b9977decbd3009b) by rfinterior (https://sketchfab.com/rocio133) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

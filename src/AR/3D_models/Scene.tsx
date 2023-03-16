@@ -48,6 +48,7 @@ export const Scene: React.FC<Props> = ({ threeD, ref, angle, position }) => {
               material={materials[element.material]}
               rotation={element.rotation}
               scale={element.scale}
+              position={element.position}
             />
           ))}
         <group
@@ -62,6 +63,7 @@ export const Scene: React.FC<Props> = ({ threeD, ref, angle, position }) => {
               material={materials[element.material]}
               rotation={element.rotation}
               scale={element.scale}
+              position={element.position}
             />
           ))}
           <group
@@ -76,6 +78,7 @@ export const Scene: React.FC<Props> = ({ threeD, ref, angle, position }) => {
                 material={materials[element.material]}
                 rotation={element.rotation}
                 scale={element.scale}
+                position={element.position}
               />
             ))}
           </group>

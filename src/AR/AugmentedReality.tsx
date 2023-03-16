@@ -11,6 +11,7 @@ import { Scene } from "./3D_models/Scene";
 import s from "./AR.styles";
 import React, { useState } from "react";
 import { model } from "./3D_models/model";
+import { HaloChair } from "./3D_models/Chairs/Components/HaloChair";
 
 
 interface Props {

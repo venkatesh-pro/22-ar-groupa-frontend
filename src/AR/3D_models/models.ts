@@ -1,28 +1,23 @@
 import { model } from "./model";
 
 //Chairs
-import { WoodenSofaData } from "./Chairs/Data/WoodenSofaData";
+import { SomaChairData } from "./Chairs/Data/SomaChairData";
+import { HaloChairData } from "./Chairs/Data/HaloChairData";
 
 //Lamps
-import { MarioFloorLampData } from "./Lamps/Data/MarioFloorLampData"
-import { LampData } from "./Lamps/Data/LampData";
+import { MarioLampData } from "./Lamps/Data/MarioLampData";
 
-//Misc
-import { MilleniumFalconData } from "./Misc/Data/MilleniumFalconData"
+// //Misc
 
-//Tables
-import { VictorianCoffeeTableData } from "./Tables/Data/VictorianCoffeeTableData";
-import { WoodenTable2Data } from "./Tables/Data/WoodenTable2Data";
+// //Tables
+import { StyxTableData } from "./Tables/Data/StyxTableData";
+import { ObeliskTableData } from "./Tables/Data/ObeliskTableData";
+
 
 export const models: model[] = [
-  
-    WoodenSofaData,
-
-    LampData,
-    MarioFloorLampData,
-    
-    MilleniumFalconData,
-    
-    VictorianCoffeeTableData,
-    WoodenTable2Data,
+  SomaChairData,
+  HaloChairData,
+  MarioLampData,
+  StyxTableData,
+  ObeliskTableData,
 ];

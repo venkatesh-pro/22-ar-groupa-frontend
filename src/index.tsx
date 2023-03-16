@@ -15,7 +15,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/AR",
-    element: <AugmentedReality threeD={models[5]} />,
+    element: <AugmentedReality threeD={models[1]} />,
   },
   {
     path: "/basket",
