@@ -16,6 +16,8 @@ import { models } from "./3D_models/models";
 import { model } from "./3D_models/model";
 import { MarioFloorLamp2 } from "./3D_models/MarioFloorLamp2";
 import { VictorianCoffeeTable } from "./3D_models/VictorianCoffeeTable";
+import { WoodenTable } from "./3D_models/WoodenTable";
+import { Lamp } from "./3D_models/Lamp";
 
 interface Props {
   threeD: model;
@@ -72,6 +74,10 @@ export const AugmentedReality: React.FC<Props> = ({ threeD }) => {
           <ambientLight />
           <pointLight position={[10, 10, 10]} />
           <Item3D />
+          {/* <VictorianCoffeeTable position={[2, 2, -2]}/>
+          <WoodenTable/>
+          <WoodenTable2 position={[10, 3, -2]}/> */}
+          {/* <Lamp/> */}
           <ControlButtons
             setX={setX}
             setY={setY}
