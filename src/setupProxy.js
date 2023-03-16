@@ -6,6 +6,9 @@ module.exports = function (app) {
     createProxyMiddleware({
       target: "acceleratars-back-service.acceleratars:80",
       changeOrigin: true,
+      pathRewrite: {
+        "^/api": "",
+      },
     })
   );
 };

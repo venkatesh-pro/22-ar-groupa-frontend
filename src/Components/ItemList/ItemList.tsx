@@ -8,17 +8,21 @@ interface Props {
 export const ItemList: React.FC<Props> = ({ items }) => {
   return (
     <s.itemListContainer>
-      {items.map((item) => (
-        <Item
-          key={item.product_name}
-          product_name={item.product_name}
-          imagePath={item.imagePath}
-          product_id={item.product_id}
-          product_desc={item.product_desc}
-          product_type_id={item.product_type_id}
-          threeDModelPath={item.threeDModelPath}
-        />
-      ))}
+      {items.length > 0 ? (
+        items.map((item) => (
+          <Item
+            key={item.product_name}
+            product_name={item.product_name}
+            imagePath={item.imagePath}
+            product_id={item.product_id}
+            product_desc={item.product_desc}
+            product_type_id={item.product_type_id}
+            threeDModelPath={item.threeDModelPath}
+          />
+        ))
+      ) : (
+        <p>No data</p>
+      )}
     </s.itemListContainer>
   );
 };
