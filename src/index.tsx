@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AugmentedReality } from "./AR/AugmentedReality";
 import { Basket } from "./Pages/Basket/Basket";
+import { PhotoFurniturePlacer } from "./AR/PhotoFurniturePlacer";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: "/basket",
     element: <Basket />,
+  },
+  {
+    path: "/PR",
+    element: <PhotoFurniturePlacer />,
   },
 ]);
 

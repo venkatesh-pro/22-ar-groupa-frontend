@@ -42,11 +42,13 @@ const ControlButtons = (props: controlSettings) => {
         />
       </Interactive>
       <Interactive
+        data-testid={"test-right-button"}
         onSelect={() => {
           props.setX(props.x - 0.1);
         }}
       >
         <Box
+          data-testid={"test-right-button"}
           position={new Vector3(-1, -3, -3.4)}
           colour={"orange"}
           rotation={[0, 0, 0]}

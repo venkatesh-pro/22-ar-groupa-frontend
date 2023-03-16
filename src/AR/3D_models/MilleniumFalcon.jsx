@@ -7,7 +7,6 @@ Source: https://sketchfab.com/3d-models/metalic-millenium-falcon-star-wars-0c09d
 Title: Metalic Millenium Falcon - Star Wars
 */
 
-import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
 export function MilleniumFalcon(props) {

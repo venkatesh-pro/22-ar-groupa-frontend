@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import React, { useRef } from "react";
 import { Vector3 } from "three";
+
 import { Euler } from "@react-three/fiber";
 
 interface BoxSettings {
@@ -18,9 +19,8 @@ const BigBox = React.forwardRef((props: BoxSettings) => {
       position={props.position}
       ref={ref}
       rotation={props.rotation}
-      scale={[0.42, 0.31, 0.42]}
     >
-      <boxGeometry />
+      <boxGeometry args={[0.42, 0.31, 0.42]} />
       <meshStandardMaterial color={props.colour} />
     </mesh>
   );
