@@ -7,24 +7,41 @@ Source: https://sketchfab.com/3d-models/metalic-millenium-falcon-star-wars-0c09d
 Title: Metalic Millenium Falcon - Star Wars
 */
 
-import React, { useRef } from 'react'
-import { useGLTF } from '@react-three/drei'
+import { useGLTF } from "@react-three/drei";
 
-export function Model(props) {
-  const { nodes, materials } = useGLTF('/scene-transformed.glb')
+export function MilleniumFalcon(props) {
+  const { nodes, materials } = useGLTF("/scene-transformed.glb");
   return (
     <group {...props} dispose={null}>
-      <group position={[-0.96, -59.08, -28.65]} rotation={[-3.14, -0.03, -0.02]}>
+      <group
+        position={[-0.96, -59.08, -28.65]}
+        rotation={[-3.14, -0.03, -0.02]}
+      >
         <group rotation={[-Math.PI, 0, 0]}>
-          <mesh geometry={nodes.Stereo_textured_mesh_Material0_0.geometry} material={materials.Material0} />
-          <mesh geometry={nodes.Stereo_textured_mesh_Material0_0_1.geometry} material={materials.Material0} />
-          <mesh geometry={nodes.Stereo_textured_mesh_Material0_0_2.geometry} material={materials.Material0} />
-          <mesh geometry={nodes.Stereo_textured_mesh_Material0_0_3.geometry} material={materials.Material0} />
-          <mesh geometry={nodes.Stereo_textured_mesh_Material0_0_4.geometry} material={materials.Material0} />
+          <mesh
+            geometry={nodes.Stereo_textured_mesh_Material0_0.geometry}
+            material={materials.Material0}
+          />
+          <mesh
+            geometry={nodes.Stereo_textured_mesh_Material0_0_1.geometry}
+            material={materials.Material0}
+          />
+          <mesh
+            geometry={nodes.Stereo_textured_mesh_Material0_0_2.geometry}
+            material={materials.Material0}
+          />
+          <mesh
+            geometry={nodes.Stereo_textured_mesh_Material0_0_3.geometry}
+            material={materials.Material0}
+          />
+          <mesh
+            geometry={nodes.Stereo_textured_mesh_Material0_0_4.geometry}
+            material={materials.Material0}
+          />
         </group>
       </group>
     </group>
-  )
+  );
 }
 
 useGLTF.preload('/scene-transformed.glb')

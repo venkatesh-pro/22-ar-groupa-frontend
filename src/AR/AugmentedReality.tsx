@@ -1,17 +1,39 @@
 import { Canvas } from "@react-three/fiber";
-import { ARButton, XR, useHitTest, Interactive } from "@react-three/xr";
-import Box from "./Box";
-
-import { MarioFloorLamp } from "./3D_models/MarioFloorLamp";
+import {
+  ARButton,
+  XR,
+  useHitTest,
+  XREvent,
+  XRManagerEvent,
+} from "@react-three/xr";
+import ControlButtons from "./ControlButtons";
+import { Scene } from "./3D_models/Scene";
+//import { MarioFloorLamp } from "./3D_models/MarioFloorLamp";
+//import { WoodenTable2 } from "./3D_models/WoodenTable2"
 import s from "./AR.styles";
 import React, { useState } from "react";
-import { Vector3 } from "three";
-export function AugmentedReality() {
-  const [x, setX] = useState(0);
-  const [y, setY] = useState(0.8);
-  const [z, setZ] = useState(-2);
-  const [angle, setAngle] = useState(0);
-  const Item = React.forwardRef((props: JSX.IntrinsicElements["mesh"], ref) => {
+//import { models } from "./3D_models/models";
+import { model } from "./3D_models/model";
+//import { MarioFloorLamp2 } from "./3D_models/MarioFloorLamp2";
+//import { VictorianCoffeeTable } from "./3D_models/VictorianCoffeeTable";
+
+interface Props {
+  threeD: model;
+}
+
+export const AugmentedReality: React.FC<Props> = ({ threeD }) => {
+  let modelX: number = threeD.groups[0].position?.at(0) ?? 0;
+  let modelY: number = threeD.groups[0].position?.at(1) ?? 0;
+  let modelZ: number = threeD.groups[0].position?.at(2) ?? 0;
+  let rotationY: number = threeD.groups[0].rotation?.at(1) ?? Math.PI;
+
+  const [showControls, setShowControls] = useState(false);
+  const [x, setX] = useState(modelX);
+  const [y, setY] = useState(modelY);
+  const [z, setZ] = useState(modelZ);
+  const [angle, setAngle] = useState(rotationY);
+
+  const Item3D = React.forwardRef(() => {
     const boxRef = React.useRef<THREE.Mesh>(null!);
     useHitTest((hitMatrix) => {
       if (boxRef.current) {
@@ -22,82 +44,45 @@ export function AugmentedReality() {
         );
       }
     });
-
-    return <MarioFloorLamp ref={boxRef} position={[x, y, z]} angle={angle} />;
+    return (
+      <Scene threeD={threeD} ref={boxRef} position={[x, y, z]} angle={angle} />
+    );
   });
 
   return (
     <s.canvasContainer>
       <ARButton sessionInit={{ requiredFeatures: ["hit-test"] }} />
       <Canvas>
-        <XR>
+        <XR
+          onSessionStart={(event: XREvent<XRManagerEvent>) => {
+            setShowControls(true);
+            setX(0);
+            setY(0.7);
+            setZ(-1.2);
+          }}
+          onSessionEnd={(event: XREvent<XRManagerEvent>) => {
+            setShowControls(false);
+            setX(0);
+            setY(0);
+            setZ(3.5);
+          }}
+        >
           <ambientLight />
           <pointLight position={[10, 10, 10]} />
-
-          <Interactive
-            onSelect={() => {
-              setX(x + 0.1);
-            }}
-          >
-            <Box position={new Vector3(-0.4, -3, -2)} colour={"orange"} />
-          </Interactive>
-          <Interactive
-            onSelect={() => {
-              setX(x - 0.1);
-            }}
-          >
-            <Box position={new Vector3(-1, -3, -2)} colour={"orange"} />
-          </Interactive>
-          <Interactive
-            onSelect={() => {
-              setZ(z + 0.1);
-            }}
-          >
-            <Box position={new Vector3(-0.7, -3, -1.7)} colour={"orange"} />
-          </Interactive>
-          <Interactive
-            onSelect={() => {
-              setZ(z - 0.1);
-            }}
-          >
-            <Box position={new Vector3(-0.7, -3, -2.3)} colour={"orange"} />
-          </Interactive>
-
-          <Box position={new Vector3(-0.7, -3, -2)} colour={"yellow"} />
-          <Item />
-
-          <Interactive
-            onSelect={() => {
-              setAngle(angle + 0.1);
-            }}
-          >
-            <Box position={new Vector3(1, -3, -2)} colour={"green"} />
-          </Interactive>
-          <Interactive
-            onSelect={() => {
-              setAngle(angle - 0.1);
-            }}
-          >
-            <Box position={new Vector3(0.4, -3, -2)} colour={"green"} />
-          </Interactive>
-          <Interactive
-            onSelect={() => {
-              setY(y - 0.1);
-            }}
-          >
-            <Box position={new Vector3(0.7, -3, -1.7)} colour={"orange"} />
-          </Interactive>
-          <Interactive
-            onSelect={() => {
-              setY(y + 0.1);
-            }}
-          >
-            <Box position={new Vector3(0.7, -3, -2.3)} colour={"orange"} />
-          </Interactive>
-
-          <Box position={new Vector3(0.7, -3, -2)} colour={"yellow"} />
+          <Item3D />
+          <ControlButtons
+            setX={setX}
+            setY={setY}
+            setZ={setZ}
+            setAngle={setAngle}
+            x={x}
+            y={y}
+            z={z}
+            angle={angle}
+            showControls={showControls}
+          />
         </XR>
       </Canvas>
     </s.canvasContainer>
   );
-}
+};
