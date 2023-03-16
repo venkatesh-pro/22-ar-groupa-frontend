@@ -15,7 +15,7 @@ function App() {
     return <Message text="Loading" />;
   }
 
-  if (error) {
+  if (error || items.length === 0) {
     return <Message text="Error" />;
   }
 
