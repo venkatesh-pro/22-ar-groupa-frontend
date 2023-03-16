@@ -39,18 +39,43 @@ const ProductCard: React.FC = () => {
       {product ? (
         <s.productCardContainer>
           <Header />
-          <s.productCard>
-            <s.itemImage
-              src={product.imagePath}
-              alt={product.product_name}
-            ></s.itemImage>
-            <s.itemText>Product name: {product.product_name}</s.itemText>
-            <s.itemText>Description: {product.product_desc}</s.itemText>
-            <s.itemText>Price: £{product.product_price}</s.itemText>
-            <button>Add to basket</button>
-            <button>Try AR</button>
-            <button onClick={() => navigate(-1)}>Go back</button>
-          </s.productCard>
+          <s.div_ProductCard>
+            <s.div_Gallery>
+              <s.img_Big src={product.imagePath} alt={product.product_name} />
+              <s.div_Thumbnails>
+                <s.img_Small
+                  src={product.imagePath}
+                  alt={product.product_name}
+                />
+                <s.img_Small
+                  src={product.imagePath}
+                  alt={product.product_name}
+                />
+                <s.img_Small
+                  src={product.imagePath}
+                  alt={product.product_name}
+                />
+              </s.div_Thumbnails>
+            </s.div_Gallery>
+
+            <s.div_Details>
+              <s.div_Product_Name>{product.product_name}</s.div_Product_Name>
+              <s.div_Product_Description>
+                {product.product_desc}
+              </s.div_Product_Description>
+              <s.div_Product_Description>
+                £{product.product_price}
+              </s.div_Product_Description>
+              <s.button_AddToBasket>Add to basket</s.button_AddToBasket>
+
+              <s.div_Buttons>
+                <s.button_TryAR>Try AR</s.button_TryAR>
+                <s.button_GoBack onClick={() => navigate(-1)}>
+                  Go Back
+                </s.button_GoBack>
+              </s.div_Buttons>
+            </s.div_Details>
+          </s.div_ProductCard>
         </s.productCardContainer>
       ) : (
         <s.productCardContainer>
