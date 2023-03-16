@@ -1,20 +1,28 @@
 import { model } from "./model";
-import { MarioFloorLampData } from "./MarioFloorLampData"
-import { MarioFloorLamp2Data } from "./MarioFloorLamp2Data"
-import { MilleniumFalconData } from "./MilleniumFalconData";
-import { WoodenSofaData } from "./WoodenSofaData";
-import { VictorianCoffeeTableData } from "./VictorianCoffeeTableData";
-import { LampData } from "./Lamp";
-import { WoodenTableData } from "./WoodenTableData";
-import { WoodenTable2Data } from "./WoodenTable2Data";
+
+//Chairs
+import { WoodenSofaData } from "./Chairs/Data/WoodenSofaData";
+
+//Lamps
+import { MarioFloorLampData } from "./Lamps/Data/MarioFloorLampData"
+import { LampData } from "./Lamps/Data/LampData";
+
+//Misc
+import { MilleniumFalconData } from "./Misc/Data/MilleniumFalconData"
+
+//Tables
+import { VictorianCoffeeTableData } from "./Tables/Data/VictorianCoffeeTableData";
+import { WoodenTable2Data } from "./Tables/Data/WoodenTable2Data";
 
 export const models: model[] = [
   
+    WoodenSofaData,
+
     LampData,
     MarioFloorLampData,
-    WoodenSofaData,
+    
     MilleniumFalconData,
-    MarioFloorLamp2Data,
+    
     VictorianCoffeeTableData,
     WoodenTable2Data,
 ];
