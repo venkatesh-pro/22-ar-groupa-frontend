@@ -9,7 +9,6 @@ function App() {
   const [selectedOption, setSelectedOption] = useState<string>("Home");
   const types = ["Table", "Chair", "Light"];
   const [loading, error, items] = useGetItems({ selectedOption });
-  console.log(items);
 
   if (loading) {
     return <Message text="Loading" />;

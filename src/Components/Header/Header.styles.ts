@@ -10,7 +10,7 @@ const headerContainer = styled.div`
   max-width: 100vw;
   flex-wrap: wrap;
 `;
-const header = styled.h1`
+const header = styled.div`
   display: flex;
   justify-content: flex-start;
   color: white;
