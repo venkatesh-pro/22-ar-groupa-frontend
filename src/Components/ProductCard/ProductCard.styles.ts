@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const productCardContainer = styled.div``;
 
@@ -66,7 +67,7 @@ const button_AddToBasket = styled.button`
   color: pink;
 `;
 
-const button_TryAR = styled.button`
+const button_TryAR = styled(Link)`
   color: yellow;
 `;
 
