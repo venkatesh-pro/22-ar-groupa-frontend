@@ -12,7 +12,7 @@ const headerContainer = styled.div`
   @media screen and (max-width: 750px) {
   }
 `;
-const header = styled.h1`
+const header = styled.div`
   display: flex;
   color: white;
   font-size: 30px;
