@@ -10,7 +10,7 @@ export const Login: React.FC = () => {
   return (
     <s.loginContainer>
       <Header />
-      <s.loginHeader>Login</s.loginHeader>
+      <s.loginHeader data-testid="login-header">Login</s.loginHeader>
       <s.loginBox>
         <s.cancelButton to="/">
           <RiCloseCircleFill size={25} />
