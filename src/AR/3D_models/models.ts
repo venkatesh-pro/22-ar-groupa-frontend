@@ -1,21 +1,34 @@
 import { model } from "./model";
-import { MarioFloorLampData } from "./MarioFloorLampData"
-import { MarioFloorLamp2Data } from "./MarioFloorLamp2Data"
-import { MilleniumFalconData } from "./MilleniumFalconData";
-import { WoodenSofaData } from "./WoodenSofaData";
-// import { VictorianCoffeeTableData } from "./VictorianCoffeeTableData";
-// import { WoodenTableData } from "./WoodenTableData";
-// import { WoodenTable2Data } from "./WoodenTable2Data";
+
+//Chairs
+import { SomaChairData } from "./Chairs/Data/SomaChairData";
+import { HaloChairData } from "./Chairs/Data/HaloChairData";
+
+//Lamps
+import { MarioLampData } from "./Lamps/Data/MarioLampData";
+
+// //Misc
+
+// //Tables
+import { StyxTableData } from "./Tables/Data/StyxTableData";
+import { ObeliskTableData } from "./Tables/Data/ObeliskTableData";
+import { KelpieChairData } from "./Chairs/Data/KelpieChairData";
+import { TyrChairData } from "./Chairs/Data/TyrChairData";
+import { VitraChairData } from "./Chairs/Data/VitraChairData";
+import { CirusLampData } from "./Lamps/Data/CirusLampData";
+import { DurbanLampData } from "./Lamps/Data/DurbanLampData";
+
 
 export const models: model[] = [
-  
-    
-    MarioFloorLampData,
-    WoodenSofaData,
-    MilleniumFalconData,
-    MarioFloorLamp2Data,
-    // VictorianCoffeeTableData
-    // WoodenTable2Data,
-    // WoodenTableData
 
+  DurbanLampData,
+  CirusLampData,  
+    VitraChairData,
+    TyrChairData,
+    KelpieChairData,
+  SomaChairData,
+  HaloChairData,
+  MarioLampData,
+  StyxTableData,
+  ObeliskTableData,
 ];

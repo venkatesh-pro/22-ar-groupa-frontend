@@ -2,12 +2,20 @@ import { Canvas } from "@react-three/fiber";
 import { ARButton, XR, useHitTest } from "@react-three/xr";
 import ControlButtons from "./ControlButtons";
 import { Scene } from "./3D_models/Scene";
-
 import s from "./AR.styles";
 import React, { useState } from "react";
-import { models } from "./3D_models/models";
-
 import { useLocation } from "react-router-dom";
+import { models } from "./3D_models/models";
+// import { model } from "./3D_models/model";
+// import { MinervaChair } from "./3D_models/Chairs/Components/MinervaChair";
+// import { KelpieChair } from "./3D_models/Chairs/Components/KelpieChair";
+// import { SomaChair } from "./3D_models/Chairs/Components/SomaChair";
+// import { TyrChair } from "./3D_models/Chairs/Components/TyrChair";
+// import { VitraChair } from "./3D_models/Chairs/Components/VitraChair";
+// import { CirusLamp } from "./3D_models/Lamps/Components/CirusLamp";
+// import { DurbanLamp } from "./3D_models/Lamps/Components/DurbanLamp";
+// import { JanusLamp } from "./3D_models/Lamps/Components/JanusLamp";
+// import { VelesLamp } from "./3D_models/Lamps/Components/VelesLamp";
 
 export const AugmentedReality = () => {
   let { state } = useLocation();
@@ -71,6 +79,7 @@ export const AugmentedReality = () => {
         >
           <pointLight position={[10, 10, 10]} />
           <Item3D />
+          {/* <DurbanLamp/> */}
           <ControlButtons
             setX={setX}
             setY={setY}

@@ -24,23 +24,43 @@ export const Scene: React.FC<Props> = ({ threeD, ref, angle, position }) => {
       ]}
       scale={threeD.groups[0]?.scale}
     >
+      {threeD.groups[0]?.meshArray?.map((element) => (
+            <mesh
+              key={element.geometry}
+              geometry={nodes[element.geometry].geometry}
+              material={materials[element.material]}
+              rotation={element.rotation}
+              scale={element.scale}
+            />
+          ))}
       <group
         position={threeD.groups[1]?.position}
         rotation={threeD.groups[1]?.rotation}
         scale={threeD.groups[1]?.scale}
       >
+        {threeD.groups[1]?.meshArray?.map((element) => (
+            <mesh
+              key={element.geometry}
+              geometry={nodes[element.geometry].geometry}
+              material={materials[element.material]}
+              rotation={element.rotation}
+              scale={element.scale}
+              position={element.position}
+            />
+          ))}
         <group
           position={threeD.groups[2]?.position}
           rotation={threeD.groups[2]?.rotation}
           scale={threeD.groups[2]?.scale}
         >
-          {threeD.groups[2]?.meshArray.map((e) => (
+          {threeD.groups[2]?.meshArray?.map((element) => (
             <mesh
-              key={e.geometry}
-              geometry={nodes[e.geometry].geometry}
-              material={materials[e.material]}
-              rotation={e.rotation}
-              scale={e.scale}
+              key={element.geometry}
+              geometry={nodes[element.geometry].geometry}
+              material={materials[element.material]}
+              rotation={element.rotation}
+              scale={element.scale}
+              position={element.position}
             />
           ))}
           <group
@@ -48,15 +68,32 @@ export const Scene: React.FC<Props> = ({ threeD, ref, angle, position }) => {
             rotation={threeD.groups[3]?.rotation}
             scale={threeD.groups[3]?.scale}
           >
-            {threeD.groups[3]?.meshArray.map((element) => (
+            {threeD.groups[3]?.meshArray?.map((element) => (
               <mesh
                 key={element.geometry}
                 geometry={nodes[element.geometry].geometry}
                 material={materials[element.material]}
                 rotation={element.rotation}
                 scale={element.scale}
+                position={element.position}
               />
             ))}
+            <group
+          position={threeD.groups[4]?.position}
+          rotation={threeD.groups[4]?.rotation}
+          scale={threeD.groups[4]?.scale}
+        >
+          {threeD.groups[4]?.meshArray?.map((element) => (
+            <mesh
+              key={element.geometry}
+              geometry={nodes[element.geometry].geometry}
+              material={materials[element.material]}
+              rotation={element.rotation}
+              scale={element.scale}
+              position={element.position}
+            />
+          ))}
+          </group>
           </group>
         </group>
       </group>

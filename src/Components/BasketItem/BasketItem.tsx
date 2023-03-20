@@ -6,8 +6,6 @@ import { RiDeleteBin2Line } from "react-icons/ri";
 export const BasketItem: React.FC<item> = ({
   product_name,
   imagePath,
-  product_desc,
-  product_id,
   product_price,
 }) => {
   return (

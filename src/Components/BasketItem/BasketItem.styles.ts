@@ -53,6 +53,10 @@ const deleteButton = styled.button`
     color: white;
     background-color: black;
   }
+  &:active {
+    background-color: red;
+    color: black;
+  }
 `;
 
 const styles = {

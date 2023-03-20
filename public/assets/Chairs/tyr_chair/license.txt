@@ -1,0 +1,11 @@
+Model Information:
+* title:	Design Chair
+* source:	https://sketchfab.com/3d-models/design-chair-373a09593d744d049f006ffa0b05b4d1
+* author:	futaba@blender (https://sketchfab.com/futaba_blender)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Design Chair" (https://sketchfab.com/3d-models/design-chair-373a09593d744d049f006ffa0b05b4d1) by futaba@blender (https://sketchfab.com/futaba_blender) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

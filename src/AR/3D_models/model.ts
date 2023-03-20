@@ -14,7 +14,7 @@ interface group {
 interface mesh {
   geometry?: string | undefined;
   material?: string | undefined;
+  position?: number[] | undefined;
   rotation?: number[] | undefined;
   scale?: number | undefined;
-  position?: number[] | undefined;
 }

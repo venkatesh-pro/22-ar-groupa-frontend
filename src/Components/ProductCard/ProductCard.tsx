@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Header } from "../Header/Header";
 import { item } from "../Item/Item";
 import s from "./ProductCard.styles";
@@ -15,8 +15,6 @@ import s from "./ProductCard.styles";
 const ProductCard: React.FC = () => {
   const { id } = useParams();
   const [product, setProduct] = useState<item | null>(null);
-  let { state } = useLocation();
-  let itemURL = state;
 
   useEffect(() => {
     fetch(`/api/products/${id}`, {
@@ -71,9 +69,7 @@ const ProductCard: React.FC = () => {
               <s.button_AddToBasket>Add to basket</s.button_AddToBasket>
 
               <s.div_Buttons>
-                <s.button_TryAR to={"/AR"} state={itemURL}>
-                  Try AR
-                </s.button_TryAR>
+                <s.button_TryAR to="/AR">Try AR</s.button_TryAR>
                 <s.button_GoBack onClick={() => navigate(-1)}>
                   Go Back
                 </s.button_GoBack>
