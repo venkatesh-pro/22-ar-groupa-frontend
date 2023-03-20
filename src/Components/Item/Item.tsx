@@ -26,7 +26,7 @@ export const Item: React.FC<item> = ({
       <s.itemLink to={`/product/${product_id}`} state={threeDModelPath}>
         <s.itemImage src={imagePath} alt={product_name}></s.itemImage>
         <s.itemText>{product_name}</s.itemText>
-        <s.itemText>£{product_price}</s.itemText>
+        <s.itemText>£ {product_price}</s.itemText>
       </s.itemLink>
       <s.addToBasketButton onClick={handleAddToBasket}>
         Add To Basket

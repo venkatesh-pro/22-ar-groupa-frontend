@@ -2,15 +2,15 @@ import { Header } from "../../Components/Header/Header";
 import s from "./Login.styles";
 import {
   RiCloseCircleFill,
-  RiUser3Fill,
   RiLockPasswordFill,
+  RiUser3Fill,
 } from "react-icons/ri";
 
-export const Login: React.FC = () => {
+export const SignUp: React.FC = () => {
   return (
     <s.loginContainer>
       <Header />
-      <s.loginHeader>Login</s.loginHeader>
+      <s.loginHeader>Sign Up</s.loginHeader>
       <s.loginBox>
         <s.cancelButton to="/">
           <RiCloseCircleFill size={25} />
@@ -35,7 +35,19 @@ export const Login: React.FC = () => {
             ></s.userDetailBox>
           </s.userInputWraper>
         </s.userDetailContainer>
-        <s.loginButton>LOGIN</s.loginButton>
+        <s.userDetailContainer key={"repeat-password"}>
+          <s.userDetailText key={"password-text"}>
+            Repeat Password:
+          </s.userDetailText>
+          <s.userInputWraper>
+            <RiLockPasswordFill size={25} />
+            <s.userDetailBox
+              key={"repeat-password-input"}
+              type="text"
+            ></s.userDetailBox>
+          </s.userInputWraper>
+        </s.userDetailContainer>
+        <s.loginButton>Create New User</s.loginButton>
       </s.loginBox>
     </s.loginContainer>
   );
