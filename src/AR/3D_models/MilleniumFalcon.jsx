@@ -44,4 +44,4 @@ export function MilleniumFalcon(props) {
   );
 }
 
-useGLTF.preload("/scene-transformed.glb");
+useGLTF.preload('/scene-transformed.glb')

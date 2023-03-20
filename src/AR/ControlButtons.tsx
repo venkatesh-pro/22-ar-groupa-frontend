@@ -1,9 +1,8 @@
 import { Interactive } from "@react-three/xr";
-import { Dispatch, SetStateAction, useRef } from "react";
-import { Box2, Vector3 } from "three";
+import { Dispatch, SetStateAction } from "react";
+import { Vector3 } from "three";
 import BigBox from "./BigBox";
 import Box from "./Box";
-import { Html } from "@react-three/drei";
 
 interface controlSettings {
   setX: Dispatch<SetStateAction<number>>;
@@ -137,7 +136,7 @@ const ControlButtons = (props: controlSettings) => {
     <>
       <mesh
         onClick={() => {
-          props.setAngle(props.angle + 0.1);
+          props.setAngle(props.angle - 0.1);
         }}
       >
         <BigBox
@@ -153,7 +152,7 @@ const ControlButtons = (props: controlSettings) => {
       </mesh>
       <mesh
         onClick={() => {
-          props.setAngle(props.angle - 0.1);
+          props.setAngle(props.angle + 0.1);
         }}
       >
         <BigBox
