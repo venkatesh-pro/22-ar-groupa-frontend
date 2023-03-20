@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { item } from "./Components/Item/Item";
+import { item } from "../Components/Item/Item";
 
 interface Props {
-  selectedOption: string;
+  selectedOption: string | undefined;
 }
 export const useGetItems = ({
   selectedOption,
@@ -13,13 +13,15 @@ export const useGetItems = ({
   useEffect(() => {
     setLoading(true);
     let path;
-    const choice = selectedOption.toUpperCase();
-    if (selectedOption === "Home") {
+    if (selectedOption === undefined) {
+      path = `/api/products/all`;
+    } else if (selectedOption === "basket") {
       path = `/api/products/all`;
     } else {
+      const choice = selectedOption.toUpperCase();
       path = `api/products/all?productType=${choice}`;
-      console.log(path);
     }
+
     fetch(path, {
       method: "GET",
     })

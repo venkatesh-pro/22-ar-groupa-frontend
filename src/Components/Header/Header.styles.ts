@@ -1,41 +1,53 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const headerContainer = styled.div`
-  height: auto;
   background-color: black;
   display: flex;
-  align-items: center;
+  justify-content: space-between;
   color: white;
-  max-width: 100vw;
-  flex-wrap: wrap;
+  width: 100vw;
+  align-items: flex-start;
+  height: 100px;
+  @media screen and (max-width: 750px) {
+  }
 `;
-const header = styled.h1`
+const header = styled.div`
   display: flex;
-  justify-content: flex-start;
   color: white;
   font-size: 30px;
-  margin-left: 10px;
+  margin-left: 50px;
   margin-right: 20px;
-  align-items: center;
+  margin-top: 30px;
+  font-weight: bolder;
+  align-self: center;
+  align-content: center;
 `;
 const logo = styled.h1`
   color: red;
   font-size: 35px;
+  font-weight: bolder;
+  align-self: center;
+  margin: 0px;
 `;
 
-const button = styled.button`
+const button = styled(NavLink)`
   display: flex;
-  justify-content: end;
+  justify-content: center;
   align-items: center;
+  align-self: center;
   gap: 15px;
-  margin-left: 25px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 10px;
   text-decoration: none;
   color: white;
   font-size: 25px;
   border: none;
   background-color: black;
-  margin: 10px;
+  width: auto;
+  padding-left: 10px;
+  padding-right: 10px;
 
   &:hover {
     text-decoration: none;
@@ -43,18 +55,20 @@ const button = styled.button`
     background-color: white;
     border-radius: 15px;
   }
-
-  &:active {
-    background-color: red;
+  &.active {
+    background-color: white;
     color: black;
+    border: 1px solid white;
+    padding: 5px;
+    border-radius: 15px;
   }
 `;
 
-const basketButton = styled(Link)`
+const menuButton = styled.button`
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
-  gap: 15px;
+  align-self: center;
   margin-left: 25px;
   text-decoration: none;
   color: white;
@@ -62,6 +76,9 @@ const basketButton = styled(Link)`
   font-size: 25px;
   border: none;
   background-color: black;
+  width: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
 
   &:hover {
     text-decoration: none;
@@ -69,18 +86,37 @@ const basketButton = styled(Link)`
     background-color: white;
     border-radius: 15px;
   }
+`;
+const menuContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  width: 150px;
+  align-items: center;
+  align-self: flex-end;
+  position: absolute;
+  margin-top: 100px;
+`;
+const buttonContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 50px;
+  align-self: center;
+`;
 
-  &:active {
-    background-color: red;
-    color: black;
-  }
+const headerWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 const styles = {
   header,
   headerContainer,
   button,
   logo,
-  basketButton,
+  buttonContainer,
+  menuButton,
+  menuContainer,
+  headerWrapper,
 };
 
 export default styles;
