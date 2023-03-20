@@ -13,7 +13,7 @@ import { useGLTF } from '@react-three/drei'
 export function MinervaChair(props) {
   const { nodes, materials } = useGLTF('assets/Chairs/minerva_chair/scene-transformed.glb')
   return (
-    <group {...props} dispose={null}>
+    <group {...props} dispose={null} position={[0 ,0 , -200]}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <group position={[-28.1, -24.83, -0.08]}>
           <mesh geometry={nodes.Object_3.geometry} material={materials.ig_100_100_100SG} />

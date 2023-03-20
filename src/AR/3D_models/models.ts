@@ -12,9 +12,20 @@ import { MarioLampData } from "./Lamps/Data/MarioLampData";
 // //Tables
 import { StyxTableData } from "./Tables/Data/StyxTableData";
 import { ObeliskTableData } from "./Tables/Data/ObeliskTableData";
+import { KelpieChairData } from "./Chairs/Data/KelpieChairData";
+import { TyrChairData } from "./Chairs/Data/TyrChairData";
+import { VitraChairData } from "./Chairs/Data/VitraChairData";
+import { CirusLampData } from "./Lamps/Data/CirusLampData";
+import { DurbanLampData } from "./Lamps/Data/DurbanLampData";
 
 
 export const models: model[] = [
+
+  DurbanLampData,
+  CirusLampData,  
+    VitraChairData,
+    TyrChairData,
+    KelpieChairData,
   SomaChairData,
   HaloChairData,
   MarioLampData,

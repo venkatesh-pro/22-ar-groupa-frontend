@@ -1,24 +1,18 @@
-export const NameTypeData = {
-  name: "Name Type",
-  URL: "assets/Type/name_type/scene-transformed.glb",
+export const TyrChairData = {
+  name: "Tyr Chair",
+  URL: "assets/Chairs/tyr_chair/scene-transformed.glb",
   groups: [
     {
       position: [0, 0, -2],
-      rotation: [Math.PI / 0.9, Math.PI, Math.PI],
+      rotation: [Math.PI / 1.6, 0, 0.5],
     },
     {
-      position: [0, 0, 0],
-      rotation: [Math.PI / 0.9, Math.PI, Math.PI],
-      scale: 1,
+      rotation: [-Math.PI / 2, 0, 0],
       meshArray: [
         {
-          geometry: "geo",
-          material: "mat",
-        },
-        {
-          geometry: "geo",
-          material: "mat",
-        },
+          geometry: "defaultMaterial",
+          material: "DefaultMaterial",
+        }
       ],
     },
   ],

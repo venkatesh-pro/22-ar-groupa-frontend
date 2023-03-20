@@ -1,23 +1,31 @@
-export const NameTypeData = {
-  name: "Name Type",
-  URL: "assets/Type/name_type/scene-transformed.glb",
+export const VitraChairData = {
+  name: "Vitra Chair",
+  URL: "assets/Chairs/vitra_chair/scene-transformed.glb",
   groups: [
     {
       position: [0, 0, -2],
-      rotation: [Math.PI / 0.9, Math.PI, Math.PI],
+      rotation: [Math.PI / 0.85, Math.PI, Math.PI],
+      scale: 1
     },
     {
-      position: [0, 0, 0],
-      rotation: [Math.PI / 0.9, Math.PI, Math.PI],
-      scale: 1,
+      rotation: [-Math.PI / 2, 0, 0],
+      scale: 0.05,
       meshArray: [
         {
-          geometry: "geo",
-          material: "mat",
+          geometry: "Object_2",
+          material: "01_-_Default",
         },
         {
-          geometry: "geo",
-          material: "mat",
+          geometry: "Object_3",
+          material: "01_-_Default",
+        },
+        {
+          geometry: "Object_4",
+          material: "01_-_Default",
+        },
+        {
+          geometry: "Object_5",
+          material: "01_-_Default",
         },
       ],
     },

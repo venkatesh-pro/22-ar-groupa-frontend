@@ -11,9 +11,6 @@ interface Props {
 }
 
 export const Scene: React.FC<Props> = ({ threeD, ref, angle, position }) => {
-
-  console.log(threeD.groups[0].rotation.at(0))
-  console.log(threeD.groups[1].meshArray?.at(0))
   const { nodes, materials } = useGLTF(threeD.URL);
   return (
     <group
@@ -81,6 +78,22 @@ export const Scene: React.FC<Props> = ({ threeD, ref, angle, position }) => {
                 position={element.position}
               />
             ))}
+            <group
+          position={threeD.groups[4]?.position}
+          rotation={threeD.groups[4]?.rotation}
+          scale={threeD.groups[4]?.scale}
+        >
+          {threeD.groups[4]?.meshArray?.map((element) => (
+            <mesh
+              key={element.geometry}
+              geometry={nodes[element.geometry].geometry}
+              material={materials[element.material]}
+              rotation={element.rotation}
+              scale={element.scale}
+              position={element.position}
+            />
+          ))}
+          </group>
           </group>
         </group>
       </group>
