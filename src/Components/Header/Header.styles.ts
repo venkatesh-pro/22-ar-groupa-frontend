@@ -12,10 +12,10 @@ const headerContainer = styled.div`
   @media screen and (max-width: 750px) {
   }
 `;
-const header = styled.h1`
+const header = styled.div`
   display: flex;
   color: white;
-  font-size: 30px;
+  font-size: 32px;
   margin-left: 50px;
   margin-right: 20px;
   margin-top: 30px;
@@ -37,30 +37,31 @@ const button = styled(NavLink)`
   align-items: center;
   align-self: center;
   gap: 15px;
-  margin-left: 15px;
-  margin-right: 15px;
-  margin-bottom: 10px;
+  margin: 0px 5px 10px 5px;
   text-decoration: none;
   color: white;
   font-size: 25px;
-  border: none;
   background-color: black;
   width: auto;
   padding-left: 10px;
   padding-right: 10px;
+  border: 2px solid black;
+  border-radius: 15px;
 
   &:hover {
-    text-decoration: none;
-    color: black;
     background-color: white;
-    border-radius: 15px;
+    color: black;
+    border-color: white;
+  }
+  &:active {
+    background-color: red;
+    color: black;
+    border-color: red;
   }
   &.active {
     background-color: white;
     color: black;
-    border: 1px solid white;
-    padding: 5px;
-    border-radius: 15px;
+    border-color: white;
   }
 `;
 

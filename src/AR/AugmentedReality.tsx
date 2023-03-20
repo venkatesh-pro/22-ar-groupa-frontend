@@ -1,31 +1,41 @@
 import { Canvas } from "@react-three/fiber";
-import {
-  ARButton,
-  XR,
-  useHitTest,
-  XREvent,
-  XRManagerEvent,
-} from "@react-three/xr";
+import { ARButton, XR, useHitTest } from "@react-three/xr";
 import ControlButtons from "./ControlButtons";
 import { Scene } from "./3D_models/Scene";
-//import { MarioFloorLamp } from "./3D_models/MarioFloorLamp";
-//import { WoodenTable2 } from "./3D_models/WoodenTable2"
 import s from "./AR.styles";
 import React, { useState } from "react";
-//import { models } from "./3D_models/models";
-import { model } from "./3D_models/model";
-//import { MarioFloorLamp2 } from "./3D_models/MarioFloorLamp2";
-//import { VictorianCoffeeTable } from "./3D_models/VictorianCoffeeTable";
+import { useLocation } from "react-router-dom";
+import { models } from "./3D_models/models";
+// import { model } from "./3D_models/model";
+// import { MinervaChair } from "./3D_models/Chairs/Components/MinervaChair";
+// import { KelpieChair } from "./3D_models/Chairs/Components/KelpieChair";
+// import { SomaChair } from "./3D_models/Chairs/Components/SomaChair";
+// import { TyrChair } from "./3D_models/Chairs/Components/TyrChair";
+// import { VitraChair } from "./3D_models/Chairs/Components/VitraChair";
+// import { CirusLamp } from "./3D_models/Lamps/Components/CirusLamp";
+// import { DurbanLamp } from "./3D_models/Lamps/Components/DurbanLamp";
+// import { JanusLamp } from "./3D_models/Lamps/Components/JanusLamp";
+// import { VelesLamp } from "./3D_models/Lamps/Components/VelesLamp";
 
-interface Props {
-  threeD: model;
-}
+export const AugmentedReality = () => {
+  let { state } = useLocation();
+  console.log(state);
+  const getElementByIdName = (name: String) => {
+    var modelUsed = models[0];
+    for (let index = 0; index < models.length; index++) {
+      if (name === models[index].URL) {
+        modelUsed = models[index];
+      }
+    }
+    return modelUsed;
+  };
 
-export const AugmentedReality: React.FC<Props> = ({ threeD }) => {
-  let modelX: number = threeD.groups[0].position?.at(0) ?? 0;
-  let modelY: number = threeD.groups[0].position?.at(1) ?? 0;
-  let modelZ: number = threeD.groups[0].position?.at(2) ?? 0;
-  let rotationY: number = threeD.groups[0].rotation?.at(1) ?? Math.PI;
+  const model = getElementByIdName(state);
+
+  let modelX: number = model.groups[0].position?.at(0) ?? 0;
+  let modelY: number = model.groups[0].position?.at(1) ?? 0;
+  let modelZ: number = model.groups[0].position?.at(2) ?? 0;
+  let rotationY: number = model.groups[0].rotation?.at(1) ?? Math.PI;
 
   const [showControls, setShowControls] = useState(false);
   const [x, setX] = useState(modelX);
@@ -45,7 +55,7 @@ export const AugmentedReality: React.FC<Props> = ({ threeD }) => {
       }
     });
     return (
-      <Scene threeD={threeD} ref={boxRef} position={[x, y, z]} angle={angle} />
+      <Scene threeD={model} ref={boxRef} position={[x, y, z]} angle={angle} />
     );
   });
 
@@ -54,22 +64,22 @@ export const AugmentedReality: React.FC<Props> = ({ threeD }) => {
       <ARButton sessionInit={{ requiredFeatures: ["hit-test"] }} />
       <Canvas>
         <XR
-          onSessionStart={(event: XREvent<XRManagerEvent>) => {
+          onSessionStart={() => {
             setShowControls(true);
             setX(0);
             setY(0.7);
             setZ(-1.2);
           }}
-          onSessionEnd={(event: XREvent<XRManagerEvent>) => {
+          onSessionEnd={() => {
             setShowControls(false);
             setX(0);
             setY(0);
             setZ(3.5);
           }}
         >
-          <ambientLight />
           <pointLight position={[10, 10, 10]} />
           <Item3D />
+          {/* <DurbanLamp/> */}
           <ControlButtons
             setX={setX}
             setY={setY}

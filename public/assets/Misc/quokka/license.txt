@@ -1,0 +1,11 @@
+Model Information:
+* title:	Quokka
+* source:	https://sketchfab.com/3d-models/quokka-c0212e29e3c748a5b499dc2d72f2cd84
+* author:	markcraig (https://sketchfab.com/markcraig)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Quokka" (https://sketchfab.com/3d-models/quokka-c0212e29e3c748a5b499dc2d72f2cd84) by markcraig (https://sketchfab.com/markcraig) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)

@@ -69,7 +69,7 @@ const ProductCard: React.FC = () => {
               <s.button_AddToBasket>Add to basket</s.button_AddToBasket>
 
               <s.div_Buttons>
-                <s.button_TryAR>Try AR</s.button_TryAR>
+                <s.button_TryAR to="/AR">Try AR</s.button_TryAR>
                 <s.button_GoBack onClick={() => navigate(-1)}>
                   Go Back
                 </s.button_GoBack>
