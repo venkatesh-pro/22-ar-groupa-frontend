@@ -18,14 +18,26 @@ const checkoutButton = styled(Link)`
   height: 50px;
   background-color: rgb(19, 19, 19);
   color: white;
-  border: none;
+  border: solid;
   border-radius: 8px;
   margin: 10px;
+  border-width: 3px;
+  border-color: black;
   text-decoration: none;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   font-size: 25px;
+  &:active {
+    background-color: red;
+    color: black;
+    border-color: red;
+  }
+  &:hover {
+    background-color: white;
+    color: black;
+    border-color: black;
+  }
 `;
 
 const checkout = styled.div``;
