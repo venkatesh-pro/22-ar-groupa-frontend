@@ -13,17 +13,16 @@ const mockItem: item = {
 };
 
 test("It renders the product details", () => {
-  render(
-    <BasketItem
-      product_desc={mockItem.product_desc}
-      product_id={mockItem.product_id}
-      product_name={mockItem.product_name}
-      product_type_id={mockItem.product_type_id}
-      product_price={mockItem.product_price}
-      imagePath={mockItem.imagePath}
-      threeDModelPath={mockItem.threeDModelPath}
-    />
-  );
+  // render();
+  // <BasketItem
+  //   product_desc={mockItem.product_desc}
+  //   product_id={mockItem.product_id}
+  //   product_name={mockItem.product_name}
+  //   product_type_id={mockItem.product_type_id}
+  //   product_price={mockItem.product_price}
+  //   imagePath={mockItem.imagePath}
+  //   threeDModelPath={mockItem.threeDModelPath}
+  // />
 
   const productName = screen.getByText("name");
   const productPrice = screen.getByText("Price: £price");

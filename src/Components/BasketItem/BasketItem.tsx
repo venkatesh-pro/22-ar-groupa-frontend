@@ -3,17 +3,19 @@ import { item } from "../Item/Item";
 import s from "./BasketItem.styles";
 import { RiDeleteBin2Line } from "react-icons/ri";
 
-export const BasketItem: React.FC<item> = ({
-  product_name,
-  imagePath,
-  product_price,
-}) => {
+interface props {
+  item: item;
+  number: number;
+}
+
+export const BasketItem: React.FC<props> = ({ item, number }) => {
   return (
     <s.cartItem>
-      <s.cartItemImg src={imagePath} />
+      <s.cartItemImg src={item.imagePath} />
       <s.itemDescription>
-        <s.itemName>{product_name}</s.itemName>
-        <s.itemPrice>Price: £{product_price}</s.itemPrice>
+        <s.itemName>{item.product_name}</s.itemName>
+        <s.itemPrice>Price: £{item.product_price}</s.itemPrice>
+        <p> number : {number}</p>
       </s.itemDescription>
       <s.deleteButton>
         <RiDeleteBin2Line size={32} />

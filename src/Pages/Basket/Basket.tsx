@@ -4,6 +4,7 @@ import { BasketItem } from "../../Components/BasketItem/BasketItem";
 import { useGetItems } from "../../Functions/useGetItems";
 import { Message } from "../../Components/Message/Message";
 import { Header } from "../../Components/Header/Header";
+import { item } from "../../Components/Item/Item";
 
 export const Basket: React.FC = () => {
   const [loading, error, items] = useGetItems({
@@ -20,22 +21,33 @@ export const Basket: React.FC = () => {
   if (error) {
     return <Message text="Error" />;
   }
+
+  var uniqueCounts = items.reduce(
+    (
+      uniqueCounts: { [productId: string]: { number: number; itemG: item } },
+      item: item
+    ) => {
+      uniqueCounts[item.product_id] = {
+        number: (uniqueCounts[item.product_id]?.number || 0) + 1,
+        itemG: uniqueCounts[item.product_id]?.itemG || item,
+      };
+      return uniqueCounts;
+    },
+    {}
+  );
+
+  console.log(uniqueCounts);
   return (
     <s.basketContainer>
       <Header />
       <s.basketHeader>Your Basket!</s.basketHeader>
-      {items.map((item) => (
+      {Object.keys(uniqueCounts).map((key) => (
         <BasketItem
-          key={item.product_name}
-          product_name={item.product_name}
-          imagePath={item.imagePath}
-          product_id={item.product_id}
-          product_desc={item.product_desc}
-          product_type_id={item.product_type_id}
-          threeDModelPath={item.threeDModelPath}
-          product_price={item.product_price}
+          key={key}
+          item={uniqueCounts[key].itemG}
+          number={uniqueCounts[key].number}
         />
-      ))}{" "}
+      ))}
       {totalAmount > 0 ? (
         <s.checkout>
           <s.description> Subtotal: £{totalAmount} </s.description>
