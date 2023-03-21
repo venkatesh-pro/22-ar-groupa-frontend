@@ -13,18 +13,30 @@ const div_ProductCard = styled.div`
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
   border-radius: 25px;
   border: 1px solid black;
+
+  @media screen and (max-width: 615px) {
+    flex-direction: column;
+    max-width: 300px;
+    min-width: 300px;
+  }
 `;
 
 const div_Gallery = styled.div`
   display: flex;
   flex-direction: column;
   min-width: 400px;
-  max-width: 500px;
-  border: 1px solid red;
+  max-width: 600px;
+
+  @media screen and (max-width: 615px) {
+    flex-direction: column;
+    min-width: 300px;
+    max-width: 400px;
+  }
 `;
 
 const img_Big = styled.img`
   margin: 10px;
+  border: 1px solid black;
   border-radius: 20px;
 `;
 
@@ -45,24 +57,28 @@ const div_Details1 = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 10px;
-  border: 1px solid yellow;
   width: 100%;
+  /* border: 1px solid yellow; */
 `;
 
 const div_Details2 = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 10px;
-  border: 1px solid yellow;
   width: 10%;
+  @media screen and (max-width: 615px) {
+    width: 100%;
+    margin-left: 0;
+  }
+  /* border: 1px solid yellow; */
 `;
 
 const div_Product_Name = styled.div`
   padding-top: 10px;
   text-align: left;
   font-size: 35px;
-  border: 1px solid aqua;
   width: 100%;
+  /* border: 1px solid aqua; */
 `;
 
 const div_Product_Description = styled.div`
@@ -70,7 +86,7 @@ const div_Product_Description = styled.div`
   padding-top: 10px;
   text-align: left;
   font-size: 25px;
-  border: 1px solid aqua;
+  /* border: 1px solid aqua; */
 `;
 
 const div_Buttons = styled.div`
@@ -78,9 +94,9 @@ const div_Buttons = styled.div`
   flex-direction: column;
   height: 100%;
   width: 100%;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: flex-start;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 `;
 
 const button_AddToBasket = styled.button`
@@ -88,13 +104,16 @@ const button_AddToBasket = styled.button`
   border: 2px solid black;
   max-width: 115px;
   padding: 5px 10px;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
   border-radius: 15px;
   margin-top: 10px;
   font-weight: bold;
   &:hover {
     background-color: black;
     color: white;
+  }
+  @media screen and (max-width: 615px) {
+    margin-bottom: 0px;
   }
 `;
 
@@ -106,7 +125,7 @@ const button_TryAR = styled(Link)`
 
   padding: 5px 10px;
   border-radius: 15px;
-  margin-top: 10px;
+  margin-top: 15px;
   font-size: 13.33px;
   font-weight: bold;
   color: black;
@@ -120,8 +139,8 @@ const button_TryAR = styled(Link)`
 `;
 
 const button_GoBack = styled.button`
-  margin-top: 5px;
-  margin-right: 5px;
+  margin-top: 10px;
+  margin-right: 10px;
   padding: 0;
   display: flex;
   flex-direction: row;
@@ -137,6 +156,13 @@ const button_GoBack = styled.button`
   &:hover {
     background-color: white;
     color: black;
+  }
+
+  @media screen and (max-width: 615px) {
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-top: 0px;
+    flex-direction: column;
   }
 `;
 

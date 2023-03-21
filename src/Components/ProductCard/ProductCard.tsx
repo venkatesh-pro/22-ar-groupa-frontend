@@ -67,7 +67,13 @@ const ProductCard: React.FC = () => {
                   Try AR
                 </s.button_TryAR>
 
-                <s.button_AddToBasket>Add to basket</s.button_AddToBasket>
+                <s.button_AddToBasket
+                  onClick={() => {
+                    console.log("You clicked Add to basket");
+                  }}
+                >
+                  Add to basket
+                </s.button_AddToBasket>
               </s.div_Buttons>
             </s.div_Details1>
             <s.div_Details2>
