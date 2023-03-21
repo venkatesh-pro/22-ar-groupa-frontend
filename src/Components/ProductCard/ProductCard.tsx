@@ -10,6 +10,7 @@ import { RiCloseCircleFill } from "react-icons/ri";
 
 const ProductCard: React.FC = () => {
   const { id } = useParams();
+  console.log(id);
   const [product, setProduct] = useState<item | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
@@ -17,9 +18,8 @@ const ProductCard: React.FC = () => {
   const navigate = useNavigate();
 
   const handleAddToBasket = () => {
-    if (id) {
-      const product_id = parseInt(id);
-      AddToBasket(setLoading, setLoading, product_id);
+    if (!(id === undefined)) {
+      AddToBasket(setLoading, setError, id);
     }
   };
 
@@ -89,14 +89,6 @@ const ProductCard: React.FC = () => {
                 <s.button_TryAR to="/AR" state={state}>
                   Try AR
                 </s.button_TryAR>
-
-                <s.button_AddToBasket
-                  onClick={() => {
-                    console.log("You clicked Add to basket");
-                  }}
-                >
-                  Add to basket
-                </s.button_AddToBasket>
               </s.div_Buttons>
             </s.div_Details1>
             <s.div_Details2>
