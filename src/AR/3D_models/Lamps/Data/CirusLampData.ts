@@ -3,7 +3,7 @@ export const CirusLampData = {
   URL: "assets/Lamps/cirus_lamp/scene-transformed.glb",
   groups: [
     {
-      position: [0, 10, -10],
+      position: [0, 10, -15],
       rotation: [Math.PI / 0.9, Math.PI, Math.PI],
       scale: 0.1
     },

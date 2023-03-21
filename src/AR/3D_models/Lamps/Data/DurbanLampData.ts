@@ -3,9 +3,9 @@ export const DurbanLampData = {
   URL: "assets/Lamps/durban_lamp/scene-transformed.glb",
   groups: [
     {
-      position: [0, -40, -150],
-      rotation: [Math.PI / 0.95, Math.PI / 1.2, Math.PI],
-      scale: 0.5,
+      position: [2.5, -4, -10],
+      rotation: [Math.PI, Math.PI / 0.9, Math.PI],
+      scale: 0.05,
     },
     {
       rotation: [-Math.PI / 2, 0, 0],

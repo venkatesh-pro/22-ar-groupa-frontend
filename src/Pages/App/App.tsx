@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createContext } from "react";
 import "./App.css";
 import { Header } from "../../Components/Header/Header";
 import { ItemList } from "../../Components/ItemList/ItemList";
@@ -7,9 +7,13 @@ import { useParams } from "react-router-dom";
 import { Loading } from "../../Components/Loading/Loading";
 import { Error } from "../../Components/Error/Error";
 
-function App() {
+export const AppStateContext = createContext<
+  React.Dispatch<React.SetStateAction<boolean>>[]
+>([]);
+
+export function App() {
   const { filter } = useParams<string>();
-  const [loading, error, items] = useGetItems({
+  const [loading, error, items, setLoading, setError] = useGetItems({
     selectedOption: filter,
   });
   // console.log(items);
@@ -26,9 +30,9 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <ItemList items={items} />
+      <AppStateContext.Provider value={[setLoading, setError]}>
+        <ItemList items={items} />
+      </AppStateContext.Provider>
     </div>
   );
 }
-
-export default App;

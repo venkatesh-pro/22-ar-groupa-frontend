@@ -3,8 +3,9 @@ export const HaloChairData = {
   URL: "assets/Chairs/halo_chair/scene-transformed.glb",
   groups: [
     {
-      position: [0, -1, -20],
-      rotation: [Math.PI / 0.9, Math.PI, Math.PI],
+      position: [0, -2, -5],
+      rotation: [Math.PI, Math.PI, Math.PI],
+      scale: 2.5
     },
     {
       rotation: [-Math.PI / 2, 0, 0],
