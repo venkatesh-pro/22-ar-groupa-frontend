@@ -1,40 +1,53 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { AddToBasket } from "../../Functions/AddToBasket";
 import { Header } from "../Header/Header";
 import { item } from "../Item/Item";
+import { Message } from "../Message/Message";
 import s from "./ProductCard.styles";
-
-// const ProductCard: React.FC<item> = ({
-//   product_name,
-//   imagePath,
-//   product_desc,
-//   product_id,
-// }) => {
 
 const ProductCard: React.FC = () => {
   const { id } = useParams();
   const [product, setProduct] = useState<item | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
   let { state } = useLocation();
+  const navigate = useNavigate();
+
+  const handleAddToBasket = () => {
+    if (id) {
+      const product_id = parseInt(id);
+      AddToBasket(setLoading, setLoading, product_id);
+    }
+  };
 
   useEffect(() => {
+    setLoading(true);
     fetch(`/api/products/${id}`, {
       method: "GET",
     })
       .then((response) => {
-        console.log(response.text);
         return response.json();
       })
       .then((response) => {
         setProduct(response);
       })
-      .catch((error) => {
-        console.log(error);
+      .finally(() => {
+        setLoading(false);
+      })
+      .catch(() => {
+        setError(true);
       });
   }, [id]);
 
-  const navigate = useNavigate();
+  if (loading) {
+    return <Message text="Loading" />;
+  }
 
+  if (error) {
+    return <Message text="Error" />;
+  }
   return (
     <div>
       {product ? (
@@ -67,7 +80,9 @@ const ProductCard: React.FC = () => {
               <s.div_Product_Description>
                 £{product.product_price}
               </s.div_Product_Description>
-              <s.button_AddToBasket>Add to basket</s.button_AddToBasket>
+              <s.button_AddToBasket onClick={handleAddToBasket}>
+                Add to basket
+              </s.button_AddToBasket>
 
               <s.div_Buttons>
                 <s.button_TryAR to="/AR" state={state}>
