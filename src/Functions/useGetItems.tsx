@@ -14,9 +14,9 @@ export const useGetItems = ({
     setLoading(true);
     let path;
     if (selectedOption === undefined) {
-      path = `/api/products/all`;
+      path = `api/products/all`;
     } else if (selectedOption === "basket") {
-      path = `/api/products/all`;
+      path = `api/products/all`;
     } else {
       const choice = selectedOption.toUpperCase();
       path = `api/products/all?productType=${choice}`;

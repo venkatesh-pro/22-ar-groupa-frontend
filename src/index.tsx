@@ -5,9 +5,9 @@ import App from "./Pages/App/App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AugmentedReality } from "./AR/AugmentedReality";
 import { Basket } from "./Pages/Basket/Basket";
-import { models } from "./AR/3D_models/models";
+
 import { Login } from "./Pages/Login/Login";
-import { SignUp } from "./Pages/SignUp/SignUp";
+import { SignUp } from "./Pages/Login/SignUp";
 import ProductCard from "./Components/ProductCard/ProductCard";
 
 const router = createBrowserRouter([

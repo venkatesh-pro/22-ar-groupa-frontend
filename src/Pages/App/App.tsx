@@ -11,7 +11,7 @@ function App() {
   const [loading, error, items] = useGetItems({
     selectedOption: filter,
   });
-  console.log(items);
+  // console.log(items);
 
   items.map((item) => console.log(item.product_id));
 

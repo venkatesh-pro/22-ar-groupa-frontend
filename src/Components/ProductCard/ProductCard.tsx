@@ -16,7 +16,6 @@ const ProductCard: React.FC = () => {
   const { id } = useParams();
   const [product, setProduct] = useState<item | null>(null);
   let { state } = useLocation();
-  let itemURL = state;
 
   useEffect(() => {
     fetch(`/api/products/${id}`, {
@@ -71,7 +70,7 @@ const ProductCard: React.FC = () => {
               <s.button_AddToBasket>Add to basket</s.button_AddToBasket>
 
               <s.div_Buttons>
-                <s.button_TryAR to={"/AR"} state={itemURL}>
+                <s.button_TryAR to="/AR" state={state}>
                   Try AR
                 </s.button_TryAR>
                 <s.button_GoBack onClick={() => navigate(-1)}>
