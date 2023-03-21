@@ -1,23 +1,30 @@
-export const NameTypeData = {
-  name: "Name Type",
-  URL: "assets/Type/name_type/scene-transformed.glb",
+export const JanusLampData = {
+  name: "Janus Lamp",
+  URL: "assets/Lamps/janus_lamp/scene-transformed.glb",
   groups: [
     {
-      position: [0, 0, -2],
-      rotation: [Math.PI / 0.9, Math.PI, Math.PI],
+      position: [1.7, -3, -10],
+      rotation: [Math.PI, Math.PI / 0.6, Math.PI],
+      scale: 1.5
     },
     {
-      position: [0, 0, 0],
-      rotation: [Math.PI / 0.9, Math.PI, Math.PI],
-      scale: 1,
+      rotation: [-Math.PI / 2, 0, 0],
       meshArray: [
         {
-          geometry: "geo",
-          material: "mat",
+          geometry: "Object_2",
+          material: "Latun",
         },
         {
-          geometry: "geo",
-          material: "mat",
+          geometry: "Object_3",
+          material: "Material",
+        },
+        {
+          geometry: "Object_4",
+          material: "black_rezina.002",
+        },
+        {
+          geometry: "Object_5",
+          material: "mirror.001",
         },
       ],
     },

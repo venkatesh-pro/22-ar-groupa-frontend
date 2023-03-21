@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { AddToBasket } from "../../Functions/AddToBasket";
+import { AppStateContext } from "../../Pages/App/App";
 import s from "./Item.styles";
 
 export interface item {
@@ -18,9 +21,12 @@ export const Item: React.FC<item> = ({
   product_price,
   threeDModelPath,
 }) => {
+  const [setLoading, setError] = useContext(AppStateContext);
+
   const handleAddToBasket = () => {
-    console.log("ADDED TO BASKET");
+    AddToBasket(setLoading, setError, product_id);
   };
+
   return (
     <s.itemContainer>
       <s.itemLink to={`/product/${product_id}`} state={threeDModelPath}>
