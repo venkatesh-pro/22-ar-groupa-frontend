@@ -2,8 +2,9 @@ import s from "./Basket.styles";
 import React from "react";
 import { BasketItem } from "../../Components/BasketItem/BasketItem";
 import { useGetItems } from "../../Functions/useGetItems";
-import { Message } from "../../Components/Message/Message";
 import { Header } from "../../Components/Header/Header";
+import { Loading } from "../../Components/Loading/Loading";
+import { Error } from "../../Components/Error/Error";
 
 export const Basket: React.FC = () => {
   const [loading, error, items] = useGetItems({
@@ -14,11 +15,11 @@ export const Basket: React.FC = () => {
     .map((item) => Number(item.product_price))
     .reduce((sum, price) => sum + price, 0);
   if (loading) {
-    return <Message text="Loading" />;
+    return <Loading></Loading>;
   }
 
   if (error) {
-    return <Message text="Error" />;
+    return <Error></Error>;
   }
   return (
     <s.basketContainer>
