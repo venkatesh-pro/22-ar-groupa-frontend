@@ -6,7 +6,13 @@ interface Props {
 }
 export const useGetItems = ({
   selectedOption,
-}: Props): [boolean, boolean, item[]] => {
+}: Props): [
+  boolean,
+  boolean,
+  item[],
+  React.Dispatch<React.SetStateAction<boolean>>,
+  React.Dispatch<React.SetStateAction<boolean>>
+] => {
   const [items, setItems] = useState<item[]>([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -16,7 +22,7 @@ export const useGetItems = ({
     if (selectedOption === undefined) {
       path = `api/products/all`;
     } else if (selectedOption === "basket") {
-      path = `api/products/all`;
+      path = `api/basket/1/getProducts`;
     } else {
       const choice = selectedOption.toUpperCase();
       path = `api/products/all?productType=${choice}`;
@@ -39,5 +45,5 @@ export const useGetItems = ({
         setError(true);
       });
   }, [selectedOption]);
-  return [loading, error, items];
+  return [loading, error, items, setLoading, setError];
 };
