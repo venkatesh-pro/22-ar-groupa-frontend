@@ -4,7 +4,7 @@ import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { AddToBasket } from "../../Functions/AddToBasket";
 import { Header } from "../Header/Header";
 import { item } from "../Item/Item";
-import { Message } from "../Message/Message";
+// import { Message } from "../Message/Message";
 import s from "./ProductCard.styles";
 import { RiCloseCircleFill } from "react-icons/ri";
 
@@ -43,11 +43,11 @@ const ProductCard: React.FC = () => {
   }, [id]);
 
   if (loading) {
-    return <Message text="Loading" />;
+    // return <Message text="Loading" />;
   }
 
   if (error) {
-    return <Message text="Error" />;
+    // return <Message text="Error" />;
   }
   return (
     <div>
