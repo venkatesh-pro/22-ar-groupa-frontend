@@ -7,11 +7,10 @@ Source: https://sketchfab.com/3d-models/industrial-table-5f94fb035fa74f43abda3ad
 Title: Industrial Table
 */
 
-import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
-export function Model(props) {
-  const { nodes, materials } = useGLTF('/scene-transformed.glb')
+export function CeresTable(props) {
+  const { nodes, materials } = useGLTF('assets/Tables/ceres_table/scene-transformed.glb')
   return (
     <group {...props} dispose={null}>
       <mesh geometry={nodes.Object_4.geometry} material={materials.Table_wood_1} />

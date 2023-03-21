@@ -7,11 +7,10 @@ Source: https://sketchfab.com/3d-models/baby-yoda-free-3d-by-oscar-creativo-fa68
 Title: BABY YODA FREE 3D BY OSCAR CREATIVO
 */
 
-import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
-export function Model(props) {
-  const { nodes, materials } = useGLTF('/scene-transformed.glb')
+export function BabyYoda(props) {
+  const { nodes, materials } = useGLTF('assets/Misc/baby_yoda/scene-transformed.glb')
   return (
     <group {...props} dispose={null}>
       <mesh geometry={nodes.CABEZA_5_CABEZA_5_0.geometry} material={materials.CABEZA_5} />

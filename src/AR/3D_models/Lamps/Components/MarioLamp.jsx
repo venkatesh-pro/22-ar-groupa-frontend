@@ -10,20 +10,14 @@ Title: Mario Floor Lamp
 
 import { useGLTF } from "@react-three/drei";
 
-interface Props {
-  ref
-  angle
-  position
-}
-
-export const MarioLamp: React.FC<Props> = ({ref, position, angle }) => {
+export const MarioLamp = () => {
   const { nodes, materials } = useGLTF(
     "assets/Lamps/mario_lamp/scene-transformed.glb"
   );
   return (
-    <group ref={ref} position={position} dispose={null}>
+    <group dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]} scale={0.5}>
-        <group rotation={[Math.PI / 2, angle * Math.PI, 0]}>
+        <group rotation={[Math.PI / 2, Math.PI, 0]}>
           <mesh
             geometry={nodes.defaultMaterial.geometry}
             material={materials.Mario_Metal}

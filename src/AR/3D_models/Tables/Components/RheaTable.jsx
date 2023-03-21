@@ -7,11 +7,10 @@ Source: https://sketchfab.com/3d-models/table-1132fa2850a24917892733566bd68e74
 Title: Table
 */
 
-import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
-export function Model(props) {
-  const { nodes, materials } = useGLTF('/scene-transformed.glb')
+export function RheaTable(props) {
+  const { nodes, materials } = useGLTF('assets/Tables/rhea_table/scene-transformed.glb')
   return (
     <group {...props} dispose={null}>
       <mesh geometry={nodes.pCylinder6_blinn1_0.geometry} material={materials.blinn1} />

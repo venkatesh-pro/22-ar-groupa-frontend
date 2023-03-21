@@ -3,8 +3,9 @@ export const TyrChairData = {
   URL: "assets/Chairs/tyr_chair/scene-transformed.glb",
   groups: [
     {
-      position: [0, 0, -2],
-      rotation: [Math.PI / 1.6, 0, 0.5],
+      position: [0, -1.5, -5],
+      rotation: [Math.PI / 2, 0, 0.5],
+      scale: 1.4
     },
     {
       rotation: [-Math.PI / 2, 0, 0],

@@ -7,11 +7,10 @@ Source: https://sketchfab.com/3d-models/vintage-table-cc60f4bce4fd4af78904b4253e
 Title: Vintage table
 */
 
-import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
-export function Model(props) {
-  const { nodes, materials } = useGLTF('/scene-transformed.glb')
+export function HeraTable(props) {
+  const { nodes, materials } = useGLTF('assets/Tables/hera_table/scene-transformed.glb')
   return (
     <group {...props} dispose={null}>
       <group position={[0, 0.28, 0]} rotation={[Math.PI / 2, 0, 0]}>

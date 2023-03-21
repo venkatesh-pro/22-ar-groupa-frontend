@@ -2,7 +2,10 @@ export const ObeliskTableData = {
     name: "Obelisk Table",
     URL: "assets/Tables/obelisk_table/scene-transformed.glb",
     groups: [
-      { position: [0, 0, 0], rotation: [Math.PI / 0.9, Math.PI, Math.PI] },
+      { position: [0, -3, -10], 
+        rotation: [Math.PI, Math.PI, Math.PI],
+        scale: 4
+       },
       {
         rotation: [-Math.PI / 2, 0, 0],
         scale: 0.04,
