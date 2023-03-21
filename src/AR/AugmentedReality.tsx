@@ -9,7 +9,6 @@ import { models } from "./3D_models/models";
 
 export const AugmentedReality = () => {
   let { state } = useLocation();
-  console.log(state);
   const getElementByIdName = (name: String) => {
     var modelUsed = models[0];
     for (let index = 0; index < models.length; index++) {
