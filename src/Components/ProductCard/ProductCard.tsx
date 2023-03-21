@@ -4,13 +4,7 @@ import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { Header } from "../Header/Header";
 import { item } from "../Item/Item";
 import s from "./ProductCard.styles";
-
-// const ProductCard: React.FC<item> = ({
-//   product_name,
-//   imagePath,
-//   product_desc,
-//   product_id,
-// }) => {
+import { RiCloseCircleFill } from "react-icons/ri";
 
 const ProductCard: React.FC = () => {
   const { id } = useParams();
@@ -43,7 +37,7 @@ const ProductCard: React.FC = () => {
           <s.div_ProductCard>
             <s.div_Gallery>
               <s.img_Big src={product.imagePath} alt={product.product_name} />
-              <s.div_Thumbnails>
+              {/* <s.div_Thumbnails>
                 <s.img_Small
                   src={product.imagePath}
                   alt={product.product_name}
@@ -56,10 +50,10 @@ const ProductCard: React.FC = () => {
                   src={product.imagePath}
                   alt={product.product_name}
                 />
-              </s.div_Thumbnails>
+              </s.div_Thumbnails> */}
             </s.div_Gallery>
 
-            <s.div_Details>
+            <s.div_Details1>
               <s.div_Product_Name>{product.product_name}</s.div_Product_Name>
               <s.div_Product_Description>
                 {product.product_desc}
@@ -67,17 +61,26 @@ const ProductCard: React.FC = () => {
               <s.div_Product_Description>
                 £{product.product_price}
               </s.div_Product_Description>
-              <s.button_AddToBasket>Add to basket</s.button_AddToBasket>
 
               <s.div_Buttons>
                 <s.button_TryAR to="/AR" state={state}>
                   Try AR
                 </s.button_TryAR>
-                <s.button_GoBack onClick={() => navigate(-1)}>
-                  Go Back
-                </s.button_GoBack>
+
+                <s.button_AddToBasket
+                  onClick={() => {
+                    console.log("You clicked Add to basket");
+                  }}
+                >
+                  Add to basket
+                </s.button_AddToBasket>
               </s.div_Buttons>
-            </s.div_Details>
+            </s.div_Details1>
+            <s.div_Details2>
+              <s.button_GoBack onClick={() => navigate(-1)}>
+                <RiCloseCircleFill size={25} />
+              </s.button_GoBack>
+            </s.div_Details2>
           </s.div_ProductCard>
         </s.productCardContainer>
       ) : (

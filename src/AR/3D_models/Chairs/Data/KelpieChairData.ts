@@ -3,8 +3,9 @@ export const KelpieChairData = {
   URL: "assets/Chairs/kelpie_chair/scene-transformed.glb",
   groups: [
     {
-      position: [0, 0, -2],
-      rotation: [Math.PI / 0.9, Math.PI / 1.4, Math.PI],
+      position: [0, -2, -4],
+      rotation: [Math.PI, Math.PI / 1.45, Math.PI],
+      scale: 4
     },
     {
       rotation: [-Math.PI / 2, 0, 0.95],

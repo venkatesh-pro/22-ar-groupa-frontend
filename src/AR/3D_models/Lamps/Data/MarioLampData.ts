@@ -1,8 +1,12 @@
 export const MarioLampData = {
-  name: "MarioFloorLamp",
+  name: "Mario Lamp",
   URL: "assets/Lamps/mario_lamp/scene-transformed.glb",
   groups: [
-    { position: [0, 0, -2], rotation: [Math.PI, Math.PI, Math.PI] },
+    { position: [0, 0, -5], 
+      rotation: [Math.PI, Math.PI, Math.PI],
+      scale: 4
+    },
+      
     {
       rotation: [-Math.PI / 2, 0, 0],
     },
