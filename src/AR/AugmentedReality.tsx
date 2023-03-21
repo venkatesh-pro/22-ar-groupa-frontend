@@ -6,20 +6,9 @@ import s from "./AR.styles";
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { models } from "./3D_models/models";
-// import { model } from "./3D_models/model";
-// import { MinervaChair } from "./3D_models/Chairs/Components/MinervaChair";
-// import { KelpieChair } from "./3D_models/Chairs/Components/KelpieChair";
-// import { SomaChair } from "./3D_models/Chairs/Components/SomaChair";
-// import { TyrChair } from "./3D_models/Chairs/Components/TyrChair";
-// import { VitraChair } from "./3D_models/Chairs/Components/VitraChair";
-// import { CirusLamp } from "./3D_models/Lamps/Components/CirusLamp";
-// import { DurbanLamp } from "./3D_models/Lamps/Components/DurbanLamp";
-// import { JanusLamp } from "./3D_models/Lamps/Components/JanusLamp";
-// import { VelesLamp } from "./3D_models/Lamps/Components/VelesLamp";
 
 export const AugmentedReality = () => {
   let { state } = useLocation();
-  console.log(state);
   const getElementByIdName = (name: String) => {
     var modelUsed = models[0];
     for (let index = 0; index < models.length; index++) {
@@ -27,6 +16,7 @@ export const AugmentedReality = () => {
         modelUsed = models[index];
       }
     }
+    // return models[0]
     return modelUsed;
   };
 
@@ -66,20 +56,20 @@ export const AugmentedReality = () => {
         <XR
           onSessionStart={() => {
             setShowControls(true);
-            setX(0);
-            setY(0.7);
-            setZ(-1.2);
+            setX(modelX);
+            setY(modelY - 2);
+            setZ(modelZ -5);
           }}
           onSessionEnd={() => {
             setShowControls(false);
-            setX(0);
-            setY(0);
-            setZ(3.5);
+            setX(modelX);
+            setY(modelY - 2);
+            setZ(modelZ - 5);
           }}
         >
           <pointLight position={[10, 10, 10]} />
           <Item3D />
-          {/* <DurbanLamp/> */}
+          {/* <MarioLamp/> */}
           <ControlButtons
             setX={setX}
             setY={setY}

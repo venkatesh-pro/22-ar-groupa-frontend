@@ -7,7 +7,6 @@ Source: https://sketchfab.com/3d-models/a-floor-lamp-58823caf1d9f4235a0872ae3e88
 Title: a Floor Lamp
 */
 
-import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
 export function JanusLamp(props) {
@@ -22,7 +21,9 @@ export function JanusLamp(props) {
       rotation={[Math.PI, Math.PI / 0.6, Math.PI]}
     >
       <group rotation={[-Math.PI / 2, 0, 0]}>
-        <mesh geometry={nodes.Object_2.geometry} material={materials.Latun} />
+        <mesh 
+          geometry={nodes.Object_2.geometry} 
+          material={materials.Latun} />
         <mesh
           geometry={nodes.Object_3.geometry}
           material={materials.Material}
