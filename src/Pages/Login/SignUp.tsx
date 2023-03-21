@@ -5,8 +5,37 @@ import {
   RiLockPasswordFill,
   RiUser3Fill,
 } from "react-icons/ri";
+import { ChangeEvent, useState } from "react";
 
 export const SignUp: React.FC = () => {
+  const [customerEmail, setEmail] = useState<string>("");
+  const [customerPassword, setPassword] = useState<string>("");
+  const [repeatPassword, setRepeatPassword] = useState<string>("");
+
+  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
+  const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+  };
+  const handleRepeatPasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setRepeatPassword(e.target.value);
+  };
+  const handleAdd = () => {
+    if (customerPassword === repeatPassword) {
+      const payload = JSON.stringify({
+        customerEmail,
+        customerPassword,
+      });
+      fetch(`api/customer/postNew`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: payload,
+      }).then(() => alert("user added"));
+    } else {
+      alert("passwords dont match");
+    }
+  };
   return (
     <s.loginContainer>
       <Header />
@@ -22,6 +51,8 @@ export const SignUp: React.FC = () => {
             <s.userDetailBox
               key={"username-input"}
               type="text"
+              value={customerEmail}
+              onChange={handleEmailChange}
             ></s.userDetailBox>
           </s.userInputWraper>
         </s.userDetailContainer>
@@ -32,6 +63,8 @@ export const SignUp: React.FC = () => {
             <s.userDetailBox
               key={"password-input"}
               type="text"
+              value={customerPassword}
+              onChange={handlePasswordChange}
             ></s.userDetailBox>
           </s.userInputWraper>
         </s.userDetailContainer>
@@ -44,10 +77,12 @@ export const SignUp: React.FC = () => {
             <s.userDetailBox
               key={"repeat-password-input"}
               type="text"
+              value={repeatPassword}
+              onChange={handleRepeatPasswordChange}
             ></s.userDetailBox>
           </s.userInputWraper>
         </s.userDetailContainer>
-        <s.loginButton>Create New User</s.loginButton>
+        <s.loginButton onClick={handleAdd}>Create New User</s.loginButton>
       </s.loginBox>
     </s.loginContainer>
   );

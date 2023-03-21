@@ -5,8 +5,33 @@ import {
   RiUser3Fill,
   RiLockPasswordFill,
 } from "react-icons/ri";
+import { ChangeEvent, useState } from "react";
 
 export const Login: React.FC = () => {
+  const [customerEmail, setEmail] = useState<string>("");
+  const [customerPassword, setPassword] = useState<string>("");
+
+  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
+  const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+  };
+  const handleAdd = () => {
+    fetch(
+      `/api/customer/getCustomerId?customerEmail=${customerEmail}&customerPassword=${customerPassword}`,
+      {
+        method: "Get",
+      }
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((response) => {
+        alert(response);
+      });
+  };
+
   return (
     <s.loginContainer>
       <Header />
@@ -22,6 +47,8 @@ export const Login: React.FC = () => {
             <s.userDetailBox
               key={"username-input"}
               type="text"
+              value={customerEmail}
+              onChange={handleEmailChange}
             ></s.userDetailBox>
           </s.userInputWraper>
         </s.userDetailContainer>
@@ -32,10 +59,12 @@ export const Login: React.FC = () => {
             <s.userDetailBox
               key={"password-input"}
               type="text"
+              value={customerPassword}
+              onChange={handlePasswordChange}
             ></s.userDetailBox>
           </s.userInputWraper>
         </s.userDetailContainer>
-        <s.loginButton>LOGIN</s.loginButton>
+        <s.loginButton onClick={handleAdd}>LOGIN</s.loginButton>
       </s.loginBox>
     </s.loginContainer>
   );
