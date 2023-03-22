@@ -5,7 +5,7 @@ export const AddToBasket = (
 ) => {
   console.log("ADDED TO BASKET");
   setLoading(true);
-  const path = `/api/basket/products/1/add?productId=${product_id}`;
+  const path = `/api/basketProducts/1/add?productId=${product_id}`;
   console.log(path);
   fetch(path, { method: "POST" })
     .then((response) => {
