@@ -5,10 +5,10 @@ import { App } from "./Pages/App/App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AugmentedReality } from "./AR/AugmentedReality";
 import { Basket } from "./Pages/Basket/Basket";
-
 import { Login } from "./Pages/Login/Login";
 import { SignUp } from "./Pages/Login/SignUp";
 import ProductCard from "./Components/ProductCard/ProductCard";
+import { Header } from "./Components/Header/Header";
 
 const router = createBrowserRouter([
   {

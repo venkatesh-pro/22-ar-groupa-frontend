@@ -5,14 +5,14 @@ import {
   RiUser3Fill,
   RiLockPasswordFill,
 } from "react-icons/ri";
-import { ChangeEvent, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export const Login: React.FC = () => {
   const [customerEmail, setEmail] = useState<string>("");
   const [customerPassword, setPassword] = useState<string>("");
-  const navigate = useNavigate();
   const [customerId, setCustomerId] = useState(null);
+  const navigate = useNavigate();
 
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
