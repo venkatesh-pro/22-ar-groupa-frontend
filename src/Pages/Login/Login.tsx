@@ -5,6 +5,7 @@ import {
   RiUser3Fill,
   RiLockPasswordFill,
 } from "react-icons/ri";
+import Footer from "../../Components/Footer/Footer";
 
 export const Login: React.FC = () => {
   return (
@@ -37,6 +38,7 @@ export const Login: React.FC = () => {
         </s.userDetailContainer>
         <s.loginButton>LOGIN</s.loginButton>
       </s.loginBox>
+      <Footer />
     </s.loginContainer>
   );
 };
