@@ -16,7 +16,9 @@ export const BasketItem: React.FC<props> = ({ item, number }) => {
   const handleDelete = () => {
     console.log("ADDED TO BASKET");
     setLoading(true);
-    fetch(`basket/1/delete?productId=${item.product_id}`, { method: "DELETE" })
+    fetch(`basket/products/1/delete?productId=${item.product_id}`, {
+      method: "DELETE",
+    })
       .finally(() => {
         setLoading(false);
         window.location.reload();
@@ -29,7 +31,7 @@ export const BasketItem: React.FC<props> = ({ item, number }) => {
   const handleSingleDelete = () => {
     console.log("ADDED TO BASKET");
     setLoading(true);
-    fetch(`basket/1/single/delete?productId=${item.product_id}`, {
+    fetch(`basket/products/1/single/delete?productId=${item.product_id}`, {
       method: "DELETE",
     })
       .finally(() => {
