@@ -31,7 +31,7 @@ export const BasketItem: React.FC<props> = ({ item, number }) => {
       <s.itemDescription>
         <s.itemName>{item.product_name}</s.itemName>
         <s.itemPrice>Price: £{item.product_price}</s.itemPrice>
-        <p> number : {number}</p>
+        <s.itemPrice> Quantity : {number}</s.itemPrice>
       </s.itemDescription>
       <s.deleteButton onClick={handleDelete}>
         <RiDeleteBin2Line size={32} />
