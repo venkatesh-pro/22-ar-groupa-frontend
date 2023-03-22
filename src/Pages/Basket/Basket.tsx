@@ -42,6 +42,7 @@ export const Basket: React.FC = () => {
   );
 
   console.log(uniqueCounts);
+  console.log(items);
   return (
     <s.basketContainer>
       <Header />
