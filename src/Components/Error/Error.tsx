@@ -6,8 +6,12 @@ export const Error: React.FC = () => {
   return (
     <div>
       <Header />
-      <s.Header> Furniture not found :( </s.Header>
-      <s.ErrorImage src={errorImage} alt="room" />
+      <s.div_ErrorPageContainer>
+        <s.Header> Furniture not found :( </s.Header>
+        <s.div_ImageContainer>
+          <s.ErrorImage src={errorImage} alt="room" />
+        </s.div_ImageContainer>
+      </s.div_ErrorPageContainer>
     </div>
   );
 };

@@ -2,7 +2,6 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { AddToBasket } from "../../Functions/AddToBasket";
-import { Header } from "../Header/Header";
 import { item } from "../Item/Item";
 import s from "./ProductCard.styles";
 import { RiCloseCircleFill } from "react-icons/ri";
@@ -54,24 +53,9 @@ const ProductCard: React.FC = () => {
     <div>
       {product ? (
         <s.productCardContainer>
-          <Header />
           <s.div_ProductCard>
             <s.div_Gallery>
               <s.img_Big src={product.imagePath} alt={product.product_name} />
-              {/* <s.div_Thumbnails>
-                <s.img_Small
-                  src={product.imagePath}
-                  alt={product.product_name}
-                />
-                <s.img_Small
-                  src={product.imagePath}
-                  alt={product.product_name}
-                />
-                <s.img_Small
-                  src={product.imagePath}
-                  alt={product.product_name}
-                />
-              </s.div_Thumbnails> */}
             </s.div_Gallery>
 
             <s.div_Details1>

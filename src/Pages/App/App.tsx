@@ -1,6 +1,5 @@
 import React, { createContext } from "react";
 import "./App.css";
-import { Header } from "../../Components/Header/Header";
 import { ItemList } from "../../Components/ItemList/ItemList";
 import { useGetItems } from "../../Functions/useGetItems";
 import { useParams } from "react-router-dom";
@@ -29,7 +28,6 @@ export function App() {
 
   return (
     <div className="App">
-      <Header />
       <AppStateContext.Provider value={[setLoading, setError]}>
         <ItemList items={items} />
       </AppStateContext.Provider>

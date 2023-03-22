@@ -1,4 +1,3 @@
-import { Header } from "../../Components/Header/Header";
 import s from "./Login.styles";
 import {
   RiCloseCircleFill,
@@ -43,7 +42,6 @@ export const Login: React.FC = () => {
 
   return (
     <s.loginContainer>
-      <Header />
       <s.loginHeader data-testid="login-header">Login</s.loginHeader>
       <s.loginBox>
         <s.cancelButton to="/">
