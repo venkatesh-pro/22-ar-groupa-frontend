@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./Pages/App/App";
+import { App } from "./Pages/App/App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AugmentedReality } from "./AR/AugmentedReality";
 import { Basket } from "./Pages/Basket/Basket";
