@@ -58,20 +58,6 @@ const ProductCard: React.FC = () => {
           <s.div_ProductCard>
             <s.div_Gallery>
               <s.img_Big src={product.imagePath} alt={product.product_name} />
-              {/* <s.div_Thumbnails>
-                <s.img_Small
-                  src={product.imagePath}
-                  alt={product.product_name}
-                />
-                <s.img_Small
-                  src={product.imagePath}
-                  alt={product.product_name}
-                />
-                <s.img_Small
-                  src={product.imagePath}
-                  alt={product.product_name}
-                />
-              </s.div_Thumbnails> */}
             </s.div_Gallery>
 
             <s.div_Details1>

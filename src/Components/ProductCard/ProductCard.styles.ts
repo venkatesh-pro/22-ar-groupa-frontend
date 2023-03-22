@@ -40,19 +40,6 @@ const img_Big = styled.img`
   border-radius: 20px;
 `;
 
-// const div_Thumbnails = styled.div`
-//   display: flex;
-//   flex-direction: row;
-//   margin-bottom: 10px;
-//   justify-content: space-between;
-// `;
-
-// const img_Small = styled.img`
-//   max-width: 140px;
-//   margin: 0px 10px;
-//   border-radius: 10px;
-// `;
-
 const div_Details1 = styled.div`
   display: flex;
   flex-direction: column;
@@ -94,7 +81,6 @@ const div_Buttons = styled.div`
   flex-direction: column;
   height: 100%;
   width: 100%;
-  /* justify-content: space-between; */
   align-items: flex-start;
   /* border: 1px solid red; */
 `;
@@ -173,8 +159,6 @@ const styles = {
   div_ProductCard,
   div_Gallery,
   img_Big,
-  // div_Thumbnails,
-  // img_Small,
   div_Details1,
   div_Details2,
   div_Product_Name,
