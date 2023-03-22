@@ -1,13 +1,18 @@
 import s from "./Basket.styles";
-import React from "react";
+import React, { createContext } from "react";
 import { BasketItem } from "../../Components/BasketItem/BasketItem";
 import { useGetItems } from "../../Functions/useGetItems";
-import { Message } from "../../Components/Message/Message";
 import { Header } from "../../Components/Header/Header";
 import { item } from "../../Components/Item/Item";
+import { Loading } from "../../Components/Loading/Loading";
+import { Error } from "../../Components/Error/Error";
+
+export const BasketStateContext = createContext<
+  React.Dispatch<React.SetStateAction<boolean>>[]
+>([]);
 
 export const Basket: React.FC = () => {
-  const [loading, error, items] = useGetItems({
+  const [loading, error, items, setLoading, setError] = useGetItems({
     selectedOption: "basket",
   });
 
@@ -15,11 +20,11 @@ export const Basket: React.FC = () => {
     .map((item) => Number(item.product_price))
     .reduce((sum, price) => sum + price, 0);
   if (loading) {
-    return <Message text="Loading" />;
+    return <Loading></Loading>;
   }
 
   if (error) {
-    return <Message text="Error" />;
+    return <Error></Error>;
   }
 
   var uniqueCounts = items.reduce(
@@ -40,22 +45,26 @@ export const Basket: React.FC = () => {
   return (
     <s.basketContainer>
       <Header />
-      <s.basketHeader>Your Basket!</s.basketHeader>
-      {Object.keys(uniqueCounts).map((key) => (
-        <BasketItem
-          key={key}
-          item={uniqueCounts[key].itemG}
-          number={uniqueCounts[key].number}
-        />
-      ))}
-      {totalAmount > 0 ? (
-        <s.checkout>
-          <s.description> Subtotal: £{totalAmount} </s.description>
-          <s.checkoutButton to="/">Continue Shopping</s.checkoutButton>
-        </s.checkout>
-      ) : (
-        <s.basketHeader> Your Shopping Basket is Empty</s.basketHeader>
-      )}
+      <BasketStateContext.Provider value={[setLoading, setError]}>
+        {totalAmount > 0 ? (
+          <s.basketContainer>
+            <s.basketHeader>Your Basket!</s.basketHeader>
+            {Object.keys(uniqueCounts).map((key) => (
+              <BasketItem
+                key={key}
+                item={uniqueCounts[key].itemG}
+                number={uniqueCounts[key].number}
+              />
+            ))}
+            <s.checkout>
+              <s.description> Subtotal: £{totalAmount} </s.description>
+              <s.checkoutButton to="/">Continue Shopping</s.checkoutButton>
+            </s.checkout>
+          </s.basketContainer>
+        ) : (
+          <s.basketHeader> Your Shopping Basket is Empty!</s.basketHeader>
+        )}
+      </BasketStateContext.Provider>
     </s.basketContainer>
   );
 };

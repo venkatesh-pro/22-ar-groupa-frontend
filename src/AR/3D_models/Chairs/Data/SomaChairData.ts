@@ -3,8 +3,9 @@ export const SomaChairData = {
     URL: "assets/Chairs/soma_chair/scene-transformed.glb",
     groups: [
       {
-        position: [0, 0, -2],
-        rotation: [Math.PI / 0.9, Math.PI, Math.PI]
+        position: [-1, -1, -5],
+        rotation: [Math.PI, Math.PI / 0.85, Math.PI],
+        scale: 5
       },
       {
         rotation: [-Math.PI / 2, 0, 0],

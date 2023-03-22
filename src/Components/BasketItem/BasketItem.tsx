@@ -1,14 +1,31 @@
-import React from "react";
+import React, { useContext } from "react";
 import { item } from "../Item/Item";
 import s from "./BasketItem.styles";
 import { RiDeleteBin2Line } from "react-icons/ri";
+
+import { BasketStateContext } from "../../Pages/Basket/Basket";
 
 interface props {
   item: item;
   number: number;
 }
 
-export const BasketItem: React.FC<props> = ({ item, number }) => {
+export const BasketItem: React.FC<props> = ({ item, number   product_id,
+}) => {
+  const [setLoading, setError] = useContext(BasketStateContext);
+
+  const handleDelete = () => {
+    console.log("ADDED TO BASKET");
+    setLoading(true);
+    fetch(`basket/1/delete?productId=${product_id}`, { method: "DELETE" })
+      .finally(() => {
+        setLoading(false);
+        window.location.reload();
+      })
+      .catch(() => {
+        setError(true);
+      });
+  };
   return (
     <s.cartItem>
       <s.cartItemImg src={item.imagePath} />
@@ -17,7 +34,7 @@ export const BasketItem: React.FC<props> = ({ item, number }) => {
         <s.itemPrice>Price: £{item.product_price}</s.itemPrice>
         <p> number : {number}</p>
       </s.itemDescription>
-      <s.deleteButton>
+      <s.deleteButton onClick={handleDelete}>
         <RiDeleteBin2Line size={32} />
       </s.deleteButton>
     </s.cartItem>
