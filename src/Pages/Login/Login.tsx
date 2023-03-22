@@ -6,10 +6,13 @@ import {
   RiLockPasswordFill,
 } from "react-icons/ri";
 import { ChangeEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Login: React.FC = () => {
   const [customerEmail, setEmail] = useState<string>("");
   const [customerPassword, setPassword] = useState<string>("");
+  const navigate = useNavigate();
+  const [customerId, setCustomerId] = useState(null);
 
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -28,10 +31,13 @@ export const Login: React.FC = () => {
         return response.json();
       })
       .then((response) => {
-        alert(response);
+        setCustomerId(response);
+      })
+      .then(() => {
+        navigate("/");
       })
       .catch((error) => {
-        alert("incorrect username or password");
+        alert(error);
       });
   };
 

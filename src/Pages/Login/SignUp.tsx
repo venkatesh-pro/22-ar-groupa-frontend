@@ -6,7 +6,7 @@ import {
   RiUser3Fill,
 } from "react-icons/ri";
 import { ChangeEvent, useState } from "react";
-import App from "../App/App";
+import { useNavigate } from "react-router-dom";
 
 export const SignUp: React.FC = () => {
   const [customerEmail, setEmail] = useState<string>("");
@@ -15,6 +15,8 @@ export const SignUp: React.FC = () => {
   const [passwordDontMatch, setPasswordDontMatch] = useState(false);
   const [UserExists, setUserExists] = useState(false);
   const [customerId, setCustomerId] = useState(null);
+
+  const navigate = useNavigate();
 
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -52,21 +54,7 @@ export const SignUp: React.FC = () => {
                   setUserExists(false);
                 })
                 .then(() => {
-                  fetch(
-                    `/api/customer/getCustomerId?customerEmail=${customerEmail}&customerPassword=${customerPassword}`,
-                    {
-                      method: "Get",
-                    }
-                  )
-                    .then((response) => {
-                      return response.json();
-                    })
-                    .then((response) => {
-                      setCustomerId(response);
-                    })
-                    .then(() => {
-                      return <App />;
-                    });
+                  navigate("/login");
                 })
             : setUserExists(true);
           setPasswordDontMatch(false);
