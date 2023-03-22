@@ -29,6 +29,9 @@ export const Login: React.FC = () => {
       })
       .then((response) => {
         alert(response);
+      })
+      .catch((error) => {
+        alert("incorrect username or password");
       });
   };
 

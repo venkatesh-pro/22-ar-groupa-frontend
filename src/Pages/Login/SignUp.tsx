@@ -27,11 +27,23 @@ export const SignUp: React.FC = () => {
         customerEmail,
         customerPassword,
       });
-      fetch(`api/customer/postNew`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: payload,
-      }).then(() => alert("user added"));
+      fetch(`api/customer/checkCustomerEmail?customerEmail=${customerEmail}`, {
+        method: "GET",
+      })
+        .then((response) => {
+          return response.json();
+        })
+        .then((response) => {
+          !response
+            ? fetch(`api/customer/postNew`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: payload,
+              }).then(() => {
+                alert("user created");
+              })
+            : alert("User already exists");
+        });
     } else {
       alert("passwords dont match");
     }
