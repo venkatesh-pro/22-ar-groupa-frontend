@@ -2,7 +2,6 @@ import s from "./Basket.styles";
 import React, { createContext } from "react";
 import { BasketItem } from "../../Components/BasketItem/BasketItem";
 import { useGetItems } from "../../Functions/useGetItems";
-import { Header } from "../../Components/Header/Header";
 import { item } from "../../Components/Item/Item";
 import { Loading } from "../../Components/Loading/Loading";
 import { Error } from "../../Components/Error/Error";
@@ -45,7 +44,6 @@ export const Basket: React.FC = () => {
   console.log(items);
   return (
     <s.basketContainer>
-      <Header />
       <BasketStateContext.Provider value={[setLoading, setError]}>
         {totalAmount > 0 ? (
           <s.basketContainer>
