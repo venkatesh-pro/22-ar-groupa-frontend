@@ -3,6 +3,7 @@ import React, { createContext } from "react";
 import { BasketItem } from "../../Components/BasketItem/BasketItem";
 import { useGetItems } from "../../Functions/useGetItems";
 import { Header } from "../../Components/Header/Header";
+import { item } from "../../Components/Item/Item";
 import { Loading } from "../../Components/Loading/Loading";
 import { Error } from "../../Components/Error/Error";
 
@@ -25,6 +26,23 @@ export const Basket: React.FC = () => {
   if (error) {
     return <Error></Error>;
   }
+
+  var uniqueCounts = items.reduce(
+    (
+      uniqueCounts: { [productId: string]: { number: number; itemG: item } },
+      item: item
+    ) => {
+      uniqueCounts[item.product_id] = {
+        number: (uniqueCounts[item.product_id]?.number || 0) + 1,
+        itemG: uniqueCounts[item.product_id]?.itemG || item,
+      };
+      return uniqueCounts;
+    },
+    {}
+  );
+
+  console.log(uniqueCounts);
+  console.log(items);
   return (
     <s.basketContainer>
       <Header />
@@ -32,17 +50,11 @@ export const Basket: React.FC = () => {
         {totalAmount > 0 ? (
           <s.basketContainer>
             <s.basketHeader>Your Basket!</s.basketHeader>
-
-            {items.map((item) => (
+            {Object.keys(uniqueCounts).map((key) => (
               <BasketItem
-                key={item.product_name}
-                product_name={item.product_name}
-                imagePath={item.imagePath}
-                product_id={item.product_id}
-                product_desc={item.product_desc}
-                product_type_id={item.product_type_id}
-                threeDModelPath={item.threeDModelPath}
-                product_price={item.product_price}
+                key={key}
+                item={uniqueCounts[key].itemG}
+                number={uniqueCounts[key].number}
               />
             ))}
             <s.checkout>
