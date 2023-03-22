@@ -10,14 +10,13 @@ interface props {
   number: number;
 }
 
-export const BasketItem: React.FC<props> = ({ item, number   product_id,
-}) => {
+export const BasketItem: React.FC<props> = ({ item, number }) => {
   const [setLoading, setError] = useContext(BasketStateContext);
 
   const handleDelete = () => {
     console.log("ADDED TO BASKET");
     setLoading(true);
-    fetch(`basket/1/delete?productId=${product_id}`, { method: "DELETE" })
+    fetch(`basket/1/delete?productId=${item.product_id}`, { method: "DELETE" })
       .finally(() => {
         setLoading(false);
         window.location.reload();
