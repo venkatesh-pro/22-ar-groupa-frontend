@@ -108,6 +108,7 @@ const button_AddToBasket = styled.button`
   border-radius: 15px;
   margin-top: 10px;
   font-weight: bold;
+  cursor: pointer;
   &:hover {
     background-color: black;
     color: white;
@@ -150,6 +151,7 @@ const button_GoBack = styled.button`
   border: 0.5px solid transparent;
   border-radius: 50%;
   background-color: black;
+  cursor: pointer;
   &:visited {
     color: white;
   }
