@@ -58,7 +58,10 @@ export const Basket: React.FC = () => {
               />
             ))}
             <s.checkout>
-              <s.description> Subtotal: £{totalAmount} </s.description>
+              <s.description>
+                {" "}
+                Subtotal: £{Math.round(totalAmount)}{" "}
+              </s.description>
               <s.checkoutButton to="/">Continue Shopping</s.checkoutButton>
             </s.checkout>
           </s.basketContainer>

@@ -59,6 +59,34 @@ const deleteButton = styled.button`
   }
 `;
 
+const incrementButton = styled.button`
+  margin-right: auto;
+  margin: auto;
+  width: 40px;
+  height: 40px;
+  padding: none;
+  text-decoration: none;
+  align-items: center;
+  font-size: 16px;
+  border: solid;
+  color: black;
+  background-color: white;
+  border-radius: 5px;
+
+  &:hover {
+    color: white;
+    background-color: black;
+  }
+  &:active {
+    background-color: red;
+    color: black;
+  }
+`;
+
+const incrementContainer = styled.div`
+  display: flex;
+`;
+
 const styles = {
   cartItem,
   cartItemImg,
@@ -66,6 +94,8 @@ const styles = {
   itemName,
   itemPrice,
   deleteButton,
+  incrementButton,
+  incrementContainer,
 };
 
 export default styles;
