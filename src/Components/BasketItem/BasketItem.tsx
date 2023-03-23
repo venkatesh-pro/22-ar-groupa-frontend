@@ -103,6 +103,10 @@ export const BasketItem: React.FC<props> = ({
   const handleAdd = () => {
     if (!(item.product_id === undefined)) {
       AddToBasket(states.setLoading, states.setError, item.product_id);
+      const newItem = item;
+      const updatedBasket = [...basketItems, newItem];
+      states.setBasketItems(updatedBasket);
+      setCounts(uniqueCountsFunc(updatedBasket));
     }
   };
   return (
