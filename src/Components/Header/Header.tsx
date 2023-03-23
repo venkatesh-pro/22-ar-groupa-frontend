@@ -1,8 +1,13 @@
 import s from "./Header.styles";
 import { RiShoppingCart2Line, RiMenuLine } from "react-icons/ri";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 
-export const Header: React.FC = () => {
+interface customer {
+  customerId: number | null;
+  setCustomerId: Dispatch<SetStateAction<number | null>>;
+}
+
+export const Header = (props: customer) => {
   const options = ["Table", "Chair", "Light"];
   const [toggle, setToggle] = useState<boolean>(false);
   const moblieMedia: MediaQueryList = window.matchMedia("(max-width:1000px)");
@@ -39,8 +44,24 @@ export const Header: React.FC = () => {
                 {op}
               </s.button>
             ))}
-            <s.button to="/signup">Sign Up</s.button>
-            <s.button to="/login">Log in</s.button>
+            {props.customerId === null ? (
+              <div>
+                <s.button to="/signup">Sign Up</s.button>
+                <s.button to="/login">Log in</s.button>
+              </div>
+            ) : (
+              <div>
+                <s.button
+                  to="/App"
+                  onClick={() => {
+                    props.setCustomerId(null);
+                  }}
+                >
+                  Log out
+                </s.button>{" "}
+                <s.header>{props.customerId}</s.header>
+              </div>
+            )}
             <s.button to="/basket">
               <RiShoppingCart2Line size={32} />
             </s.button>
@@ -62,11 +83,25 @@ export const Header: React.FC = () => {
             {op}
           </s.button>
         ))}
-        <s.button to="/signup">Sign Up</s.button>
-        <s.button to="/login">Log in</s.button>
-        <s.button to="/basket">
-          <RiShoppingCart2Line size={32} />
-        </s.button>
+        {props.customerId === null ? (
+          <s.button to="/login">Log in</s.button>
+        ) : (
+          <s.button
+            to="/"
+            onClick={() => {
+              props.setCustomerId(null);
+            }}
+          >
+            Log out
+          </s.button>
+        )}
+        {props.customerId === null ? (
+          <s.button to="/signup">Sign Up</s.button>
+        ) : (
+          <s.button to="/basket">
+            <RiShoppingCart2Line size={32} />
+          </s.button>
+        )}
       </s.buttonContainer>
     </s.headerContainer>
   );
