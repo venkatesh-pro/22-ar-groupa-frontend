@@ -5,12 +5,15 @@ import {
   RiLockPasswordFill,
 } from "react-icons/ri";
 import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-export const Login: React.FC = () => {
+interface customer {
+  setCustomerId: Dispatch<SetStateAction<number | null>>;
+}
+
+export const Login = (props: customer) => {
   const [customerEmail, setEmail] = useState<string>("");
   const [customerPassword, setPassword] = useState<string>("");
-  const [customerId, setCustomerId] = useState(null);
   const navigate = useNavigate();
 
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -30,7 +33,7 @@ export const Login: React.FC = () => {
         return response.json();
       })
       .then((response) => {
-        setCustomerId(response);
+        props.setCustomerId(response);
       })
       .then(() => {
         navigate("/");

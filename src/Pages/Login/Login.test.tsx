@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import { useState } from "react";
 
 import { MemoryRouter } from "react-router";
 import { Login } from "./Login";
@@ -14,9 +15,10 @@ window.matchMedia =
   };
 
 test("Renders h1 Login and all inputs fields", () => {
+  const [customerId, setCustomerId] = useState<number | null>(1234);
   render(
     <MemoryRouter initialEntries={[`/login`]}>
-      <Login />
+      <Login setCustomerId={setCustomerId} />
     </MemoryRouter>
   );
   const header = screen.getByTestId("login-header");

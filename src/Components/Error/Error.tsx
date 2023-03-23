@@ -5,7 +5,6 @@ import errorImage from "./emptyroom.png";
 export const Error: React.FC = () => {
   return (
     <div>
-      <Header />
       <s.div_ErrorPageContainer>
         <s.Header> Furniture not found :( </s.Header>
         <s.div_ImageContainer>
