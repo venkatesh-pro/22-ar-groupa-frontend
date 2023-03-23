@@ -95,9 +95,13 @@ export const Header = (props: customer) => {
             Log out
           </s.button>
         )}
-        <s.button to="/basket">
-          <RiShoppingCart2Line size={32} />
-        </s.button>
+        {props.customerId === null ? (
+          <s.button to="/signup">Sign Up</s.button>
+        ) : (
+          <s.button to="/basket">
+            <RiShoppingCart2Line size={32} />
+          </s.button>
+        )}
       </s.buttonContainer>
     </s.headerContainer>
   );
