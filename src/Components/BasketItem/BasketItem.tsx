@@ -2,51 +2,96 @@ import React, { useContext } from "react";
 import { item } from "../Item/Item";
 import s from "./BasketItem.styles";
 import { RiDeleteBin2Line } from "react-icons/ri";
-import { BasketStateContext } from "../../Pages/Basket/Basket";
+
 import { AddToBasket } from "../../Functions/AddToBasket";
+import { BasketStateContext } from "../../Pages/Basket/Basket";
 
 interface props {
+  basketItems: item[];
   item: item;
   number: number;
 }
 
-export const BasketItem: React.FC<props> = ({ item, number }) => {
-  const [setLoading, setError] = useContext(BasketStateContext);
+export const BasketItem: React.FC<props> = ({ basketItems, item, number }) => {
+  console.log("Basket Item");
+
+  const [states] = useContext(BasketStateContext);
+
+  const uniqueCountsFunc = (basketItems: item[]) => {
+    return basketItems.reduce(
+      (
+        uniqueCounts: { [productId: string]: { number: number; itemG: item } },
+        item: item
+      ) => {
+        uniqueCounts[item.product_id] = {
+          number: (uniqueCounts[item.product_id]?.number || 0) + 1,
+          itemG: uniqueCounts[item.product_id]?.itemG || item,
+        };
+        return uniqueCounts;
+      },
+      {}
+    );
+  };
+
+  const onDelete = (productId: number, basketItems: item[]): item[] => {
+    const updatedBasketItems = basketItems.filter(
+      (basketItem) => basketItem.product_id !== productId
+    );
+    return updatedBasketItems;
+  };
+
+  const onSingleDelete = (productId: number, basketItems: item[]) => {
+    const updatedBasketItems: item[] = basketItems.reduce(
+      (updatedBasketItems: item[], basketItem: item) => {
+        var count = 0;
+        if (basketItem.product_id !== productId) {
+          updatedBasketItems.push(basketItem);
+        } else if (basketItem.product_id === productId && count === 1) {
+        } else {
+          count++;
+          updatedBasketItems.push(basketItem);
+        }
+        return updatedBasketItems;
+      },
+      []
+    );
+    return updatedBasketItems;
+  };
 
   const handleDelete = () => {
     console.log("ADDED TO BASKET");
-    setLoading(true);
-    fetch(`api/basketProducts/1/delete?productId=${item.product_id}`, {
+    states.setLoading(true);
+    fetch(`basketProducts/1/delete?productId=${item.product_id}`, {
       method: "DELETE",
     })
       .finally(() => {
-        setLoading(false);
-        window.location.reload();
+        states.setLoading(false);
+        states.setBasketItems(onDelete(item.product_id, basketItems));
       })
       .catch(() => {
-        setError(true);
+        states.setError(true);
       });
   };
 
   const handleSingleDelete = () => {
     console.log("ADDED TO BASKET");
-    setLoading(true);
+    states.setLoading(true);
     fetch(`api/basketProducts/1/single/delete?productId=${item.product_id}`, {
       method: "DELETE",
     })
       .finally(() => {
-        setLoading(false);
-        window.location.reload();
+        states.setLoading(false);
+        states.setBasketItems(onSingleDelete(item.product_id, basketItems));
+        // states.setUniqueCounts(uniqueCountsFunc(basketItems));
       })
       .catch(() => {
-        setError(true);
+        states.setError(true);
       });
   };
 
   const handleAdd = () => {
     if (!(item.product_id === undefined)) {
-      AddToBasket(setLoading, setError, item.product_id);
-      window.location.reload();
+      AddToBasket(states.setLoading, states.setError, item.product_id);
     }
   };
   return (
