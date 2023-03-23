@@ -6,6 +6,7 @@ import {
 } from "react-icons/ri";
 import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../Components/Footer/Footer";
 
 interface customer {
   setCustomerId: Dispatch<SetStateAction<number | null>>;
@@ -76,6 +77,7 @@ export const Login = (props: customer) => {
         </s.userDetailContainer>
         <s.loginButton onClick={handleAdd}>LOGIN</s.loginButton>
       </s.loginBox>
+      <Footer />
     </s.loginContainer>
   );
 };

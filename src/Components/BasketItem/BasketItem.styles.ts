@@ -60,11 +60,13 @@ const deleteButton = styled.button`
 `;
 
 const incrementButton = styled.button`
-  margin-right: 20px;
+  margin-right: auto;
+  margin: auto;
   width: 40px;
   height: 40px;
   padding: none;
   text-decoration: none;
+  align-items: center;
   font-size: 16px;
   border: solid;
   color: black;

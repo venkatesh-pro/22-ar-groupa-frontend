@@ -6,6 +6,7 @@ import {
 } from "react-icons/ri";
 import { ChangeEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../Components/Footer/Footer";
 
 export const SignUp: React.FC = () => {
   const [customerEmail, setEmail] = useState<string>("");
@@ -13,7 +14,6 @@ export const SignUp: React.FC = () => {
   const [repeatPassword, setRepeatPassword] = useState<string>("");
   const [passwordDontMatch, setPasswordDontMatch] = useState(false);
   const [UserExists, setUserExists] = useState(false);
-  const [customerId, setCustomerId] = useState(null);
 
   const navigate = useNavigate();
 
@@ -116,6 +116,7 @@ export const SignUp: React.FC = () => {
         </s.userDetailContainer>
         <s.loginButton onClick={handleAdd}>Create New User</s.loginButton>
       </s.loginBox>
+      <Footer />
     </s.loginContainer>
   );
 };
