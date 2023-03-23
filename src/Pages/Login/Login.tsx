@@ -4,8 +4,46 @@ import {
   RiUser3Fill,
   RiLockPasswordFill,
 } from "react-icons/ri";
+import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Footer from "../../Components/Footer/Footer";
 
-export const Login: React.FC = () => {
+interface customer {
+  setCustomerId: Dispatch<SetStateAction<number | null>>;
+}
+
+export const Login = (props: customer) => {
+  const [customerEmail, setEmail] = useState<string>("");
+  const [customerPassword, setPassword] = useState<string>("");
+  const navigate = useNavigate();
+
+  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
+  const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+  };
+  const handleAdd = () => {
+    fetch(
+      `/api/customer/getCustomerId?customerEmail=${customerEmail}&customerPassword=${customerPassword}`,
+      {
+        method: "Get",
+      }
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((response) => {
+        props.setCustomerId(response);
+      })
+      .then(() => {
+        navigate("/");
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  };
+
   return (
     <s.loginContainer>
       <s.loginHeader data-testid="login-header">Login</s.loginHeader>
@@ -20,6 +58,8 @@ export const Login: React.FC = () => {
             <s.userDetailBox
               key={"username-input"}
               type="text"
+              value={customerEmail}
+              onChange={handleEmailChange}
             ></s.userDetailBox>
           </s.userInputWraper>
         </s.userDetailContainer>
@@ -30,11 +70,14 @@ export const Login: React.FC = () => {
             <s.userDetailBox
               key={"password-input"}
               type="text"
+              value={customerPassword}
+              onChange={handlePasswordChange}
             ></s.userDetailBox>
           </s.userInputWraper>
         </s.userDetailContainer>
-        <s.loginButton>LOGIN</s.loginButton>
+        <s.loginButton onClick={handleAdd}>LOGIN</s.loginButton>
       </s.loginBox>
+      <Footer />
     </s.loginContainer>
   );
 };

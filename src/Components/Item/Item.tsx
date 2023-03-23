@@ -10,7 +10,7 @@ export interface item {
   product_type_id: number;
   imagePath: string;
   threeDModelPath: string;
-  product_price?: string;
+  product_price: string | undefined;
 }
 
 export const Item: React.FC<item> = ({

@@ -8,7 +8,7 @@ const headerContainer = styled.div`
   color: white;
   width: 100vw;
   align-items: flex-start;
-  height: 100px;
+  height: 80px;
   @media screen and (max-width: 750px) {
   }
 `;
