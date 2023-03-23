@@ -35,7 +35,7 @@ export const Basket: React.FC = () => {
 
   const [setLoading, setError, setBasketItems, basketItems, loading, error] =
     useGetBasketItems(basketId);
-
+  console.log(basketItems);
   const uniqueCounts = uniqueCountsFunc(basketItems);
 
   const [counts, setCounts] = useState(uniqueCounts);
@@ -71,11 +71,11 @@ export const Basket: React.FC = () => {
         {totalAmount > 0 ? (
           <s.basketContainer>
             <s.basketHeader>Your Basket!</s.basketHeader>
-            {Object.keys(counts).map((key) => (
+            {Object.keys(uniqueCounts).map((key) => (
               <BasketItem
                 key={key}
-                item={counts[key].itemG}
-                number={counts[key].number}
+                item={uniqueCounts[key].itemG}
+                number={uniqueCounts[key].number}
                 basketItems={basketItems}
                 setCounts={setCounts}
               />
