@@ -1,5 +1,4 @@
 import s from "./Loading.styles";
-import { Header } from "../../Components/Header/Header";
 
 export const Loading: React.FC = () => {
   return (
