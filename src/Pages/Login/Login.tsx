@@ -45,7 +45,7 @@ export const Login = (props: customer) => {
 
   return (
     <s.loginContainer>
-      <s.loginHeader data-testid="login-header">Login</s.loginHeader>
+      <s.loginHeader data-testid="login-header">Log In</s.loginHeader>
       <s.loginBox>
         <s.cancelButton to="/">
           <RiCloseCircleFill size={25} />
