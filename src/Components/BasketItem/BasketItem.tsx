@@ -51,15 +51,15 @@ export const BasketItem: React.FC<props> = ({
   };
 
   const onSingleDelete = (productId: number, basketItems: item[]) => {
+    var count = 0;
     const updatedBasketItems: item[] = basketItems.reduce(
       (updatedBasketItems: item[], basketItem: item) => {
-        var count = 0;
         if (basketItem.product_id !== productId) {
           updatedBasketItems.push(basketItem);
         } else if (basketItem.product_id === productId && count === 1) {
+          updatedBasketItems.push(basketItem);
         } else {
           count++;
-          updatedBasketItems.push(basketItem);
         }
         return updatedBasketItems;
       },
@@ -103,6 +103,10 @@ export const BasketItem: React.FC<props> = ({
   const handleAdd = () => {
     if (!(item.product_id === undefined)) {
       AddToBasket(states.setLoading, states.setError, item.product_id);
+      const newItem = item;
+      const updatedBasket = [...basketItems, newItem];
+      states.setBasketItems(updatedBasket);
+      setCounts(uniqueCountsFunc(updatedBasket));
     }
   };
   return (

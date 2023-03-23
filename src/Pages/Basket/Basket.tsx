@@ -35,7 +35,7 @@ export const Basket: React.FC = () => {
 
   const [setLoading, setError, setBasketItems, basketItems, loading, error] =
     useGetBasketItems(basketId);
-
+  console.log(basketItems);
   const uniqueCounts = uniqueCountsFunc(basketItems);
 
   const [counts, setCounts] = useState(uniqueCounts);
