@@ -1,5 +1,5 @@
 import s from "./Basket.styles";
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useState } from "react";
 import { BasketItem } from "../../Components/BasketItem/BasketItem";
 import { item } from "../../Components/Item/Item";
 import { Loading } from "../../Components/Loading/Loading";

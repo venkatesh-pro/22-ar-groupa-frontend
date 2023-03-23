@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import { useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { App } from "./Pages/App/App";
@@ -9,8 +9,6 @@ import { Login } from "./Pages/Login/Login";
 import { SignUp } from "./Pages/Login/SignUp";
 import ProductCard from "./Components/ProductCard/ProductCard";
 import { Header } from "./Components/Header/Header";
-import { useGetBasketItems } from "./Functions/useGetBasketItems";
-import { item } from "./Components/Item/Item";
 
 export default function Layout() {
   const [customerId, setCustomerId] = useState<number | null>(null);

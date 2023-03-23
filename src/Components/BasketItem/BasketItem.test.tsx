@@ -1,6 +1,5 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import { item } from "../Item/Item";
-import { BasketItem } from "./BasketItem";
 
 const mockItem: item = {
   product_id: 0,

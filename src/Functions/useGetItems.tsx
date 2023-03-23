@@ -20,10 +20,10 @@ export const useGetItems = ({
     setLoading(true);
     let path;
     if (selectedOption === undefined) {
-      path = `/products/all`;
+      path = `api/products/all`;
     } else {
       const choice = selectedOption.toUpperCase();
-      path = `/products/all?productType=${choice}`;
+      path = `api/products/all?productType=${choice}`;
     }
 
     fetch(path, {

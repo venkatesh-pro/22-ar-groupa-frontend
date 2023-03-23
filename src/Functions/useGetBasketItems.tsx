@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { couldStartTrivia } from "typescript";
 import { item } from "../Components/Item/Item";
 
 export const useGetBasketItems = (
