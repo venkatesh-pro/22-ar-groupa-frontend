@@ -10,11 +10,6 @@ interface setStates {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   setError: React.Dispatch<React.SetStateAction<boolean>>;
   setBasketItems: React.Dispatch<React.SetStateAction<item[]>>;
-  setUniqueCounts: React.Dispatch<
-    React.SetStateAction<{
-      [productId: string]: { number: number; itemG: item };
-    }>
-  >;
 }
 
 export const BasketStateContext = createContext<setStates[]>([]);
@@ -41,10 +36,11 @@ export const Basket: React.FC = () => {
   const [setLoading, setError, setBasketItems, basketItems, loading, error] =
     useGetBasketItems(basketId);
 
-  const [uniqueCounts, setUniqueCounts] = useState(
-    uniqueCountsFunc(basketItems)
-  );
+  const uniqueCounts = uniqueCountsFunc(basketItems);
 
+  const [counts, setCounts] = useState(uniqueCounts);
+
+  console.log(uniqueCounts);
   const handleBasketFinished = () => {
     console.log("basket finished");
   };
@@ -52,6 +48,7 @@ export const Basket: React.FC = () => {
   const totalAmount = basketItems
     .map((item) => Number(item.product_price))
     .reduce((sum, price) => sum + price, 0);
+
   if (loading) {
     return <Loading></Loading>;
   }
@@ -60,7 +57,6 @@ export const Basket: React.FC = () => {
     return <Error></Error>;
   }
 
-  console.log(uniqueCounts);
   return (
     <s.basketContainer>
       <BasketStateContext.Provider
@@ -69,19 +65,19 @@ export const Basket: React.FC = () => {
             setLoading: setLoading,
             setError: setError,
             setBasketItems: setBasketItems,
-            setUniqueCounts: setUniqueCounts,
           },
         ]}
       >
         {totalAmount > 0 ? (
           <s.basketContainer>
             <s.basketHeader>Your Basket!</s.basketHeader>
-            {Object.keys(uniqueCounts).map((key) => (
+            {Object.keys(counts).map((key) => (
               <BasketItem
                 key={key}
-                item={uniqueCounts[key].itemG}
-                number={uniqueCounts[key].number}
+                item={counts[key].itemG}
+                number={counts[key].number}
                 basketItems={basketItems}
+                setCounts={setCounts}
               />
             ))}
             <s.checkout>

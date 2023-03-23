@@ -10,12 +10,20 @@ interface props {
   basketItems: item[];
   item: item;
   number: number;
+  setCounts: React.Dispatch<
+    React.SetStateAction<{
+      [productId: string]: { number: number; itemG: item };
+    }>
+  >;
 }
 
-export const BasketItem: React.FC<props> = ({ basketItems, item, number }) => {
+export const BasketItem: React.FC<props> = ({
+  basketItems,
+  item,
+  number,
+  setCounts,
+}) => {
   console.log("Basket Item");
-
-  const [states] = useContext(BasketStateContext);
 
   const uniqueCountsFunc = (basketItems: item[]) => {
     return basketItems.reduce(
@@ -32,6 +40,8 @@ export const BasketItem: React.FC<props> = ({ basketItems, item, number }) => {
       {}
     );
   };
+
+  const [states] = useContext(BasketStateContext);
 
   const onDelete = (productId: number, basketItems: item[]): item[] => {
     const updatedBasketItems = basketItems.filter(
@@ -81,8 +91,9 @@ export const BasketItem: React.FC<props> = ({ basketItems, item, number }) => {
     })
       .finally(() => {
         states.setLoading(false);
-        states.setBasketItems(onSingleDelete(item.product_id, basketItems));
-        // states.setUniqueCounts(uniqueCountsFunc(basketItems));
+        const updatedBasket = onSingleDelete(item.product_id, basketItems);
+        states.setBasketItems(updatedBasket);
+        setCounts(uniqueCountsFunc(updatedBasket));
       })
       .catch(() => {
         states.setError(true);
