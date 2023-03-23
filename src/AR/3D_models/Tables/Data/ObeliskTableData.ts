@@ -1,6 +1,7 @@
 export const ObeliskTableData = {
     name: "Obelisk Table",
     URL: "assets/Tables/obelisk_table/scene-transformed.glb",
+    backgroundURL: "assets/background_images/table_2.jpeg",
     groups: [
       { position: [0, -3, -10], 
         rotation: [Math.PI, Math.PI, Math.PI],

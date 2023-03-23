@@ -1,6 +1,7 @@
 export const JanusLampData = {
   name: "Janus Lamp",
   URL: "assets/Lamps/janus_lamp/scene-transformed.glb",
+  backgroundURL: "assets/background_images/chair_lamp_1.jpeg",
   groups: [
     {
       position: [1.7, -3, -10],

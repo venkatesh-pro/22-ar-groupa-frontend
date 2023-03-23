@@ -1,6 +1,7 @@
 export const StyxTableData = {
   name: "Styx Table",
   URL: "assets/Tables/styx_table/scene-transformed.glb",
+  backgroundURL: "",
   groups: [
     {
       position: [0, -1.5, -5],

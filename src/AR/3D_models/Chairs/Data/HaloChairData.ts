@@ -1,6 +1,7 @@
 export const HaloChairData = {
   name: "Halo Chair",
   URL: "assets/Chairs/halo_chair/scene-transformed.glb",
+  backgroundURL: "assets/background_images/chair_lamp_0.jpeg",
   groups: [
     {
       position: [0, -2, -5],

@@ -1,6 +1,7 @@
 export const TyrChairData = {
   name: "Tyr Chair",
   URL: "assets/Chairs/tyr_chair/scene-transformed.glb",
+  backgroundURL: "assets/background_images/chair_lamp_4.jpeg",
   groups: [
     {
       position: [0, -1.5, -5],

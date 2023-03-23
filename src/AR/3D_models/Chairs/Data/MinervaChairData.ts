@@ -1,6 +1,7 @@
 export const MinervaChairData = {
   name: "Minerva Chair",
   URL: "assets/Chairs/minerva_chair/scene-transformed.glb",
+  backgroundURL: "assets/background_images/chair_lamp_2.jpeg",
   groups: [
     {
       position: [0, -2, -2],

@@ -1,6 +1,7 @@
 export const KelpieChairData = {
   name: "Kelpie Chair",
   URL: "assets/Chairs/kelpie_chair/scene-transformed.glb",
+  backgroundURL: "assets/background_images/chair_lamp_1.jpeg",
   groups: [
     {
       position: [0, -2, -4],

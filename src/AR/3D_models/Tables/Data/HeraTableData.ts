@@ -1,6 +1,7 @@
 export const HeraTableData = {
   name: "Hera Table",
   URL: "assets/Tables/hera_table/scene-transformed.glb",
+  backgroundURL: "assets/background_images/chair_lamp_4.jpeg",
   groups: [
     {
       position: [0, -5, -10],

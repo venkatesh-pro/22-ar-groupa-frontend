@@ -1,6 +1,7 @@
 export const DurbanLampData = {
   name: "Durban Lamp",
   URL: "assets/Lamps/durban_lamp/scene-transformed.glb",
+  backgroundURL: "assets/background_images/chair_lamp_7.jpeg",
   groups: [
     {
       position: [2.5, -4, -10],

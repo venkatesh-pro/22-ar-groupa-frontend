@@ -1,6 +1,7 @@
 export interface model {
   name: string;
   URL: string;
+  backgroundURL: string;
   groups: group[]
 }
 

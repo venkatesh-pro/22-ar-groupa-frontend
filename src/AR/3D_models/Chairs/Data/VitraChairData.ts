@@ -1,6 +1,7 @@
 export const VitraChairData = {
   name: "Vitra Chair",
   URL: "assets/Chairs/vitra_chair/scene-transformed.glb",
+  backgroundURL: "assets/background_images/chair_lamp_5.jpeg",
   groups: [
     {
       position: [0, -2, -2],
