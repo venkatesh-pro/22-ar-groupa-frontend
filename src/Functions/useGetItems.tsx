@@ -20,19 +20,16 @@ export const useGetItems = ({
     setLoading(true);
     let path;
     if (selectedOption === undefined) {
-      path = `api/products/all`;
-    } else if (selectedOption === "basket") {
-      path = `api/basket/1/getProducts`;
+      path = `/products/all`;
     } else {
       const choice = selectedOption.toUpperCase();
-      path = `api/products/all?productType=${choice}`;
+      path = `/products/all?productType=${choice}`;
     }
 
     fetch(path, {
       method: "GET",
     })
       .then((response) => {
-        console.log(response.status);
         return response.json();
       })
       .then((response) => {

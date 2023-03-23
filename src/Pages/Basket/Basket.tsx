@@ -1,21 +1,55 @@
 import s from "./Basket.styles";
-import React, { createContext } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { BasketItem } from "../../Components/BasketItem/BasketItem";
-import { useGetItems } from "../../Functions/useGetItems";
 import { item } from "../../Components/Item/Item";
 import { Loading } from "../../Components/Loading/Loading";
 import { Error } from "../../Components/Error/Error";
+import { useGetBasketItems } from "../../Functions/useGetBasketItems";
 
-export const BasketStateContext = createContext<
-  React.Dispatch<React.SetStateAction<boolean>>[]
->([]);
+interface setStates {
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  setError: React.Dispatch<React.SetStateAction<boolean>>;
+  setBasketItems: React.Dispatch<React.SetStateAction<item[]>>;
+  setUniqueCounts: React.Dispatch<
+    React.SetStateAction<{
+      [productId: string]: { number: number; itemG: item };
+    }>
+  >;
+}
+
+export const BasketStateContext = createContext<setStates[]>([]);
 
 export const Basket: React.FC = () => {
-  const [loading, error, items, setLoading, setError] = useGetItems({
-    selectedOption: "basket",
-  });
+  const [basketId, setBasketId] = useState("1");
 
-  const totalAmount = items
+  const uniqueCountsFunc = (basketItems: item[]) => {
+    return basketItems.reduce(
+      (
+        uniqueCounts: { [productId: string]: { number: number; itemG: item } },
+        item: item
+      ) => {
+        uniqueCounts[item.product_id] = {
+          number: (uniqueCounts[item.product_id]?.number || 0) + 1,
+          itemG: uniqueCounts[item.product_id]?.itemG || item,
+        };
+        return uniqueCounts;
+      },
+      {}
+    );
+  };
+
+  const [setLoading, setError, setBasketItems, basketItems, loading, error] =
+    useGetBasketItems(basketId);
+
+  const [uniqueCounts, setUniqueCounts] = useState(
+    uniqueCountsFunc(basketItems)
+  );
+
+  const handleBasketFinished = () => {
+    console.log("basket finished");
+  };
+
+  const totalAmount = basketItems
     .map((item) => Number(item.product_price))
     .reduce((sum, price) => sum + price, 0);
   if (loading) {
@@ -26,25 +60,19 @@ export const Basket: React.FC = () => {
     return <Error></Error>;
   }
 
-  var uniqueCounts = items.reduce(
-    (
-      uniqueCounts: { [productId: string]: { number: number; itemG: item } },
-      item: item
-    ) => {
-      uniqueCounts[item.product_id] = {
-        number: (uniqueCounts[item.product_id]?.number || 0) + 1,
-        itemG: uniqueCounts[item.product_id]?.itemG || item,
-      };
-      return uniqueCounts;
-    },
-    {}
-  );
-
   console.log(uniqueCounts);
-  console.log(items);
   return (
     <s.basketContainer>
-      <BasketStateContext.Provider value={[setLoading, setError]}>
+      <BasketStateContext.Provider
+        value={[
+          {
+            setLoading: setLoading,
+            setError: setError,
+            setBasketItems: setBasketItems,
+            setUniqueCounts: setUniqueCounts,
+          },
+        ]}
+      >
         {totalAmount > 0 ? (
           <s.basketContainer>
             <s.basketHeader>Your Basket!</s.basketHeader>
@@ -53,13 +81,19 @@ export const Basket: React.FC = () => {
                 key={key}
                 item={uniqueCounts[key].itemG}
                 number={uniqueCounts[key].number}
+                basketItems={basketItems}
               />
             ))}
             <s.checkout>
               <s.description>
-                {" "}
-                Subtotal: £{Math.round(totalAmount)}{" "}
+                Subtotal: £{Math.round(totalAmount * 100) / 100}
               </s.description>
+              <s.checkoutButton
+                to={`/order/${1}/complete`}
+                onClick={handleBasketFinished}
+              >
+                Complete Order
+              </s.checkoutButton>
               <s.checkoutButton to="/">Continue Shopping</s.checkoutButton>
             </s.checkout>
           </s.basketContainer>
