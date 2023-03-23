@@ -19,7 +19,7 @@ export const useGetBasketItems = (
   useEffect(() => {
     setLoading(true);
     setError(false);
-    const path = `/basket/1/getProducts`;
+    const path = `/api/basket/1/getProducts`;
     fetch(path, {
       method: "GET",
     })
