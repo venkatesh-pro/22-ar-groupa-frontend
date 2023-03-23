@@ -15,6 +15,7 @@ interface customer {
 export const Login = (props: customer) => {
   const [customerEmail, setEmail] = useState<string>("");
   const [customerPassword, setPassword] = useState<string>("");
+  const [incorrect, setIncorrect] = useState(false);
   const navigate = useNavigate();
 
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -37,10 +38,11 @@ export const Login = (props: customer) => {
         props.setCustomerId(response);
       })
       .then(() => {
+        setIncorrect(false);
         navigate("/");
       })
       .catch((error) => {
-        alert(error);
+        setIncorrect(true);
       });
   };
 
@@ -53,6 +55,9 @@ export const Login = (props: customer) => {
         </s.cancelButton>
         <s.userDetailContainer key={"username"}>
           <s.userDetailText key={"username-text"}>Email:</s.userDetailText>
+          {incorrect ? (
+            <s.userDetailText>Incorrect username or password</s.userDetailText>
+          ) : null}
           <s.userInputWraper>
             <RiUser3Fill size={25} />
             <s.userDetailBox
