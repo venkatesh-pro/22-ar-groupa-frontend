@@ -1,6 +1,5 @@
 import React, { createContext } from "react";
 import "./App.css";
-import { Header } from "../../Components/Header/Header";
 import { ItemList } from "../../Components/ItemList/ItemList";
 import { useGetItems } from "../../Functions/useGetItems";
 import { useParams } from "react-router-dom";
@@ -19,7 +18,6 @@ export function App() {
   });
   // console.log(items);
 
-  items.map((item) => console.log(item.product_id));
   if (loading) {
     return <Loading></Loading>;
   }
@@ -30,7 +28,6 @@ export function App() {
 
   return (
     <div className="App">
-      <Header />
       <AppStateContext.Provider value={[setLoading, setError]}>
         <ItemList items={items} />
       </AppStateContext.Provider>

@@ -51,6 +51,11 @@ const userDetailText = styled.p`
   font-weight: bold;
 `;
 
+const incorrectInput = styled.p`
+  color: white;
+  margin: 10px;
+`;
+
 const userDetailBox = styled.input`
   margin: 10px;
   margin-left: 0px;
@@ -95,6 +100,7 @@ const styles = {
   cancelButton,
   userInputWraper,
   loginButton,
+  incorrectInput,
 };
 
 export default styles;
