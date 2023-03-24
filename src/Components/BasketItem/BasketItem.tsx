@@ -5,41 +5,16 @@ import { RiDeleteBin2Line } from "react-icons/ri";
 
 import { AddToBasket } from "../../Functions/AddToBasket";
 import { BasketStateContext } from "../../Pages/Basket/Basket";
+import { UniqueCountsFunc } from "../../Functions/UniqueCountsFunc";
 
 interface props {
   basketItems: item[];
   item: item;
   number: number;
-  setCounts: React.Dispatch<
-    React.SetStateAction<{
-      [productId: string]: { number: number; itemG: item };
-    }>
-  >;
 }
 
-export const BasketItem: React.FC<props> = ({
-  basketItems,
-  item,
-  number,
-  setCounts,
-}) => {
+export const BasketItem: React.FC<props> = ({ basketItems, item, number }) => {
   console.log("Basket Item");
-
-  const uniqueCountsFunc = (basketItems: item[]) => {
-    return basketItems.reduce(
-      (
-        uniqueCounts: { [productId: string]: { number: number; itemG: item } },
-        item: item
-      ) => {
-        uniqueCounts[item.product_id] = {
-          number: (uniqueCounts[item.product_id]?.number || 0) + 1,
-          itemG: uniqueCounts[item.product_id]?.itemG || item,
-        };
-        return uniqueCounts;
-      },
-      {}
-    );
-  };
 
   const [states] = useContext(BasketStateContext);
 
@@ -93,7 +68,6 @@ export const BasketItem: React.FC<props> = ({
         states.setLoading(false);
         const updatedBasket = onSingleDelete(item.product_id, basketItems);
         states.setBasketItems(updatedBasket);
-        setCounts(uniqueCountsFunc(updatedBasket));
       })
       .catch(() => {
         states.setError(true);
@@ -106,7 +80,6 @@ export const BasketItem: React.FC<props> = ({
       const newItem = item;
       const updatedBasket = [...basketItems, newItem];
       states.setBasketItems(updatedBasket);
-      setCounts(uniqueCountsFunc(updatedBasket));
     }
   };
   return (

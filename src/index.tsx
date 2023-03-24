@@ -10,6 +10,9 @@ import { SignUp } from "./Pages/Login/SignUp";
 import ProductCard from "./Components/ProductCard/ProductCard";
 import { Header } from "./Components/Header/Header";
 import MainFooter from "./Components/MainFooter/MainFooter";
+import { useGetBasketItems } from "./Functions/useGetBasketItems";
+import { item } from "./Components/Item/Item";
+import { OrderComplete } from "./Pages/OrderComplete/OrderComplete";
 
 export default function Layout() {
   const [customerId, setCustomerId] = useState<number | null>(null);
@@ -25,6 +28,7 @@ export default function Layout() {
           element={<Login setCustomerId={setCustomerId} />}
         />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/order/:basketId/complete" element={<OrderComplete />} />
         <Route path="/product/:id" element={<ProductCard />} />
       </Routes>
       <MainFooter />
