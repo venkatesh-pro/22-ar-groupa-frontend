@@ -16,7 +16,7 @@ const headerContainer = styled.div`
 const header = styled.div`
   display: flex;
   color: black;
-  font-size: 65px;
+  font-size: 45px;
   margin-left: 10vw;
   margin-right: 20px;
   /* margin: auto 15vw; */
@@ -26,7 +26,7 @@ const header = styled.div`
 `;
 const logo = styled.span`
   color: ${Colour.AR};
-  font-size: 65px;
+  font-size: 45px;
   font-weight: 900;
   /* align-self: center; */
   /* margin: 0px; */
@@ -140,6 +140,9 @@ const underBanner2 = styled.div`
   justify-content: center;
   align-items: center;
   font-weight: 700;
+  @media screen and (max-width: 800px) {
+    font-size: 12px;
+  }
 `;
 
 const underBanner = styled.div`
