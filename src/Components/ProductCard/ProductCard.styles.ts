@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import Colour from "../../Colour";
 
 const productCardContainer = styled.div``;
 
@@ -108,7 +109,7 @@ const button_AddToBasket = styled.button`
 
 const button_TryAR = styled(Link)`
   text-decoration: none;
-  background-color: turquoise;
+  background-color: ${Colour.AR};
   /* border: 2px solid black; */
   /* width: 45px; */
 

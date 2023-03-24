@@ -10,8 +10,8 @@ const div_FooterContainer = styled.div`
   height: 30px;
   justify-content: center;
   align-items: center;
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: balck;
 
   @media screen and (max-width: 715px) {
     /* width: 500px; */

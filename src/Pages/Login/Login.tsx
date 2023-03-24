@@ -79,7 +79,7 @@ export const Login = (props: customer) => {
             ></s.userDetailBox>
           </s.userInputWraper>
         </s.userDetailContainer>
-        <s.loginButton onClick={handleAdd}>LOGIN</s.loginButton>
+        <s.loginButton onClick={handleAdd}>Login</s.loginButton>
       </s.loginBox>
       <Footer />
     </s.loginContainer>
