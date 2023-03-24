@@ -6,7 +6,7 @@ const div_ErrorPageContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   border: 1px solid black;
-  border-radius: 25px;
+  border-radius: 1px;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
   width: 700px;
 
