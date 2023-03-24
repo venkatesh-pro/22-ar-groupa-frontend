@@ -1,6 +1,7 @@
 export const SomaChairData = {
     name: "Soma Chair",
     URL: "assets/Chairs/soma_chair/scene-transformed.glb",
+    backgroundURL: "assets/background_images/chair_lamp_3.jpeg",
     groups: [
       {
         position: [-1, -1, -5],

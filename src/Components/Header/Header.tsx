@@ -27,10 +27,12 @@ export const Header = (props: customer) => {
 
   if (mobileView) {
     return (
+      <div>
+      <s.topBanner/>
       <s.headerWrapper>
         <s.headerContainer>
           <s.header>
-            f<s.logo>AR</s.logo>nitures
+            THE H<s.logo>AR</s.logo>T.
           </s.header>
           <s.menuButton onClick={handleClick}>
             <RiMenuLine size={32} />
@@ -68,14 +70,19 @@ export const Header = (props: customer) => {
           </s.menuContainer>
         )}
       </s.headerWrapper>
+      <s.underBanner/>
+      </div>
     );
   }
 
   return (
+    <div>
+    <s.topBanner/>
     <s.headerContainer>
       <s.header>
-        f<s.logo>AR</s.logo>nitures
+        THE H<s.logo>AR</s.logo>T.
       </s.header>
+      
       <s.buttonContainer>
         <s.button to="/">Home</s.button>
         {options.map((op) => (
@@ -104,5 +111,7 @@ export const Header = (props: customer) => {
         )}
       </s.buttonContainer>
     </s.headerContainer>
+    <s.underBanner/>
+    </div>
   );
 };

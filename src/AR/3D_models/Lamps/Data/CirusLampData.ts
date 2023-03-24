@@ -1,6 +1,7 @@
 export const CirusLampData = {
   name: "Cirus Lamp",
   URL: "assets/Lamps/cirus_lamp/scene-transformed.glb",
+  backgroundURL: "assets/background_images/chair_lamp_6.jpeg",
   groups: [
     {
       position: [0, 10, -15],

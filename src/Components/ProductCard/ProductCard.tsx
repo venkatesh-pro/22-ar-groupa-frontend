@@ -10,7 +10,6 @@ import { Error } from "../Error/Error";
 
 const ProductCard: React.FC = () => {
   const { id } = useParams();
-  console.log(id);
   const [product, setProduct] = useState<item | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);

@@ -1,6 +1,7 @@
 export const VelesLampData = {
   name: "Veles Lamp",
   URL: "assets/Lamps/veles_lamp/scene-transformed.glb",
+  backgroundURL: "assets/background_images/chair_lamp_3.jpeg",
   groups: [
     {
       position: [-4.5, -5, -10],

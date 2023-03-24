@@ -1,6 +1,7 @@
 export const CeresTableData = {
   name: "Ceres Table",
   URL: "assets/Tables/ceres_table/scene-transformed.glb",
+  backgroundURL: "assets/background_images/table_1.jpeg",
   groups: [
     {
       position: [0, -4.5, -10],

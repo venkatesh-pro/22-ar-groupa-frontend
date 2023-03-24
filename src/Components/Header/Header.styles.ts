@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const headerContainer = styled.div`
-  background-color: black;
+  background-color: white;
   display: flex;
   justify-content: space-between;
   color: white;
@@ -14,19 +14,19 @@ const headerContainer = styled.div`
 `;
 const header = styled.div`
   display: flex;
-  color: white;
-  font-size: 32px;
+  color: black;
+  font-size: 50px;
   margin-left: 50px;
   margin-right: 20px;
-  /* margin-top: 30px; */
-  font-weight: bolder;
+  margin: auto 15vw;
+  font-weight: 900;
   align-self: center;
   align-content: center;
 `;
 const logo = styled.h1`
-  color: red;
-  font-size: 35px;
-  font-weight: bolder;
+  color: lightblue;
+  font-size: 50px;
+  font-weight: 900;
   align-self: center;
   margin: 0px;
 `;
@@ -39,30 +39,32 @@ const button = styled(NavLink)`
   gap: 15px;
   margin: 0px 5px 10px 5px;
   text-decoration: none;
-  color: white;
-  font-size: 25px;
-  background-color: black;
+  color: black;
+  font-size: 20px;
+  font-weight: bolder;
+  background-color: white;
   width: auto;
-  padding-left: 10px;
-  padding-right: 10px;
-  border: 2px solid black;
-  border-radius: 15px;
+  /* padding-left: 10px;
+  padding-right: 10px; */
+  padding: 10px;
+  border: 2px solid white;
+  /* border-radius: 15px; */
 
   &:hover {
-    background-color: white;
+    background-color: lightgray;
     color: black;
-    border-color: white;
+    /* border-color: black; */
   }
   &:active {
-    background-color: red;
-    color: black;
-    border-color: red;
+    background-color: black;
+    color: white;
+    border-color: black;
   }
-  &.active {
+  /* &.active {
     background-color: white;
     color: black;
     border-color: white;
-  }
+  } */
 `;
 
 const menuButton = styled.button`
@@ -72,11 +74,11 @@ const menuButton = styled.button`
   align-self: center;
   margin-left: 25px;
   text-decoration: none;
-  color: white;
+  color: black;
   margin-left: 20px;
   font-size: 25px;
   border: none;
-  background-color: black;
+  background-color: white;
   width: 50px;
   padding-left: 10px;
   padding-right: 10px;
@@ -84,14 +86,14 @@ const menuButton = styled.button`
   &:hover {
     text-decoration: none;
     color: black;
-    background-color: white;
+    background-color: lightgray;
     border-radius: 15px;
   }
 `;
 const menuContainer = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: black;
+  background-color: white;
   width: 150px;
   align-items: center;
   align-self: flex-end;
@@ -109,7 +111,22 @@ const headerWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
+const topBanner = styled.div`
+  height: 30px;
+  width: 100;
+  background-color: lightgray;
+`;
+
+const underBanner = styled.div`
+  height: 80px;
+  width: 100;
+  background-color: turquoise;
+`;
+
 const styles = {
+  underBanner,
+  topBanner,
   header,
   headerContainer,
   button,

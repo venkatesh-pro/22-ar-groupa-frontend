@@ -1,6 +1,7 @@
 export const MarioLampData = {
   name: "Mario Lamp",
   URL: "assets/Lamps/mario_lamp/scene-transformed.glb",
+  backgroundURL: "assets/background_images/chair_lamp_2.jpeg",
   groups: [
     { position: [0, 0, -5], 
       rotation: [Math.PI, Math.PI, Math.PI],
