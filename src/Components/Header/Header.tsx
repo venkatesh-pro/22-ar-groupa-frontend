@@ -68,7 +68,7 @@ export const Header = (props: customer) => {
                 <s.button to="/login">Log in</s.button>
               ) : (
                 <s.button
-                  to="/"
+                  to="/App"
                   onClick={() => {
                     props.setCustomerId(null);
                   }}

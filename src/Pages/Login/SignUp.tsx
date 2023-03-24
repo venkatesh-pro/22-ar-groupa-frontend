@@ -46,9 +46,6 @@ export const SignUp: React.FC = () => {
                 body: payload,
               })
                 .then(() => {
-                  alert("user created");
-                })
-                .then(() => {
                   setPasswordDontMatch(false);
                   setUserExists(false);
                 })
@@ -74,7 +71,7 @@ export const SignUp: React.FC = () => {
           {UserExists ? (
             <s.incorrectInput>User already exists!</s.incorrectInput>
           ) : null}
-          <s.userDetailText key={"username-text"}>Email:</s.userDetailText>
+          <s.userDetailText key={"username-text"}>Username:</s.userDetailText>
           <s.userInputWraper>
             <RiUser3Fill size={25} />
             <s.userDetailBox
@@ -94,7 +91,7 @@ export const SignUp: React.FC = () => {
             <RiLockPasswordFill size={25} />
             <s.userDetailBox
               key={"password-input"}
-              type="text"
+              type="password"
               value={customerPassword}
               onChange={handlePasswordChange}
             ></s.userDetailBox>
@@ -108,7 +105,7 @@ export const SignUp: React.FC = () => {
             <RiLockPasswordFill size={25} />
             <s.userDetailBox
               key={"repeat-password-input"}
-              type="text"
+              type="password"
               value={repeatPassword}
               onChange={handleRepeatPasswordChange}
             ></s.userDetailBox>
