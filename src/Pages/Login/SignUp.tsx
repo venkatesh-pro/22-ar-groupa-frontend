@@ -94,7 +94,7 @@ export const SignUp: React.FC = () => {
             <RiLockPasswordFill size={25} />
             <s.userDetailBox
               key={"password-input"}
-              type="text"
+              type="password"
               value={customerPassword}
               onChange={handlePasswordChange}
             ></s.userDetailBox>
@@ -108,7 +108,7 @@ export const SignUp: React.FC = () => {
             <RiLockPasswordFill size={25} />
             <s.userDetailBox
               key={"repeat-password-input"}
-              type="text"
+              type="password"
               value={repeatPassword}
               onChange={handleRepeatPasswordChange}
             ></s.userDetailBox>

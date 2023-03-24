@@ -35,14 +35,13 @@ export const Login = (props: customer) => {
         return response.json();
       })
       .then((response) => {
-        props.setCustomerId(response);
-      })
-      .then(() => {
-        setIncorrect(false);
-        navigate("/");
-      })
-      .catch((error) => {
-        setIncorrect(true);
+        if (response === -1) {
+          setIncorrect(true);
+        } else {
+          props.setCustomerId(response);
+          setIncorrect(false);
+          navigate("/");
+        }
       });
   };
 
@@ -54,7 +53,7 @@ export const Login = (props: customer) => {
           <RiCloseCircleFill size={25} />
         </s.cancelButton>
         <s.userDetailContainer key={"username"}>
-          <s.userDetailText key={"username-text"}>Email:</s.userDetailText>
+          <s.userDetailText key={"username-text"}>Username:</s.userDetailText>
           {incorrect ? (
             <s.userDetailText>Incorrect username or password</s.userDetailText>
           ) : null}
@@ -74,7 +73,7 @@ export const Login = (props: customer) => {
             <RiLockPasswordFill size={25} />
             <s.userDetailBox
               key={"password-input"}
-              type="text"
+              type="password"
               value={customerPassword}
               onChange={handlePasswordChange}
             ></s.userDetailBox>
