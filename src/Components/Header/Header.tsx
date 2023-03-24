@@ -74,59 +74,23 @@ export const Header = (props: customer) => {
         <s.topBannerContent>Quick Returns</s.topBannerContent>
         <s.topBannerContent>Help</s.topBannerContent>
       </s.topBanner>
-      {/* <s.headerWrapper> */}
-        <s.headerContainer>
-          <s.header>
-            THE H<s.logo>AR</s.logo>T.
-          </s.header>
-          {!mobileView ? (
-            <div>
-              {/* <s.headerContainer> */}
+      <s.headerContainer>
+        <s.header>
+          THE H<s.logo>AR</s.logo>T.
+        </s.header>
+        {!mobileView ? (
+          <div>
             <s.buttonContainer>{menu()}</s.buttonContainer>
-            {/* </s.headerContainer> */}
-            </div>
-          ) : (
-            <div>
-              <s.menuButton onClick={handleClick}>
-                <RiMenuLine size={32} />
-              </s.menuButton>
-              {toggle ? <s.menuContainer>{menu()}</s.menuContainer> : null}
-            </div>
-          )}
-        </s.headerContainer>
-
-        {/* {mobileView && toggle ? (
-          <s.menuContainer>
-            <s.button to="/">Home</s.button>
-            {options.map((op) => (
-              <s.button key={op} to={`/${op}`}>
-                {op}
-              </s.button>
-            ))}
-            {props.customerId === null ? (
-              <div>
-                <s.button to="/signup">Sign Up</s.button>
-                <s.button to="/login">Log in</s.button>
-              </div>
-            ) : (
-              <div>
-                <s.button
-                  to="/App"
-                  onClick={() => {
-                    props.setCustomerId(null);
-                  }}
-                >
-                  Log out
-                </s.button>{" "}
-                <s.header>{props.customerId}</s.header>
-              </div>
-            )}
-            <s.button to="/basket">
-              <RiShoppingCart2Line size={32} />
-            </s.button>
-          </s.menuContainer>
-        ) : null} */}
-      {/* </s.headerWrapper> */}
+          </div>
+        ) : (
+          <div>
+            <s.menuButton onClick={handleClick}>
+              <RiMenuLine size={32} />
+            </s.menuButton>
+            {toggle ? <s.menuContainer>{menu()}</s.menuContainer> : null}
+          </div>
+        )}
+      </s.headerContainer>
       <s.underBanner>
         <s.bannerContent>
           <BsTruck /> Free UK delivery over £70
