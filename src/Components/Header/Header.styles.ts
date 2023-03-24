@@ -16,20 +16,20 @@ const headerContainer = styled.div`
 const header = styled.div`
   display: flex;
   color: black;
-  font-size: 50px;
-  margin-left: 50px;
+  font-size: 55px;
+  margin-left: 10vw;
   margin-right: 20px;
-  margin: auto 15vw;
+  /* margin: auto 15vw; */
   font-weight: 900;
   align-self: center;
   align-content: center;
 `;
-const logo = styled.h1`
-  color: lightblue;
-  font-size: 50px;
+const logo = styled.span`
+  color: ${Colour.AR};
+  font-size: 55px;
   font-weight: 900;
-  align-self: center;
-  margin: 0px;
+  /* align-self: center; */
+  /* margin: 0px; */
 `;
 
 const button = styled(NavLink)`
