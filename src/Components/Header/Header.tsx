@@ -28,61 +28,74 @@ export const Header = (props: customer) => {
   moblieMedia.addEventListener("change", (e) => {
     if (e.matches) {
       setMobileView(true);
-      // setToggle(false);
     } else {
       setMobileView(false);
-      // setToggle(false);
     }
   });
+
+  const menu = () => {
+    return (
+      <div>
+        <s.button to="/">Home</s.button>
+        {options.map((op) => (
+          <s.button key={op} to={`/${op}`}>
+            {op}
+          </s.button>
+        ))}
+        {props.customerId === null ? (
+          <s.button to="/login">Log in</s.button>
+        ) : (
+          <s.button
+            to="/"
+            onClick={() => {
+              props.setCustomerId(null);
+            }}
+          >
+            Log out
+          </s.button>
+        )}
+        {props.customerId === null ? (
+          <s.button to="/signup">Sign Up</s.button>
+        ) : (
+          <s.button to="/basket">
+            <RiShoppingCart2Line size={32} />
+          </s.button>
+        )}
+      </div>
+    );
+  };
 
   return (
     <div>
       <s.topBanner>
         <s.topBannerContent>
-          <GiUnionJack/> en -GBP
+          <GiUnionJack /> en -GBP
         </s.topBannerContent>
-        <s.topBannerContent>Quick Returns
-        </s.topBannerContent>
-        <s.topBannerContent>Help
-        </s.topBannerContent>
+        <s.topBannerContent>Quick Returns</s.topBannerContent>
+        <s.topBannerContent>Help</s.topBannerContent>
       </s.topBanner>
-      <s.headerWrapper>
+      {/* <s.headerWrapper> */}
         <s.headerContainer>
           <s.header>
             THE H<s.logo>AR</s.logo>T.
           </s.header>
-
-          {mobileView ? (
-            <s.menuButton onClick={handleClick}>
-              <RiMenuLine size={32} />
-            </s.menuButton>
+          {!mobileView ? (
+            <div>
+              {/* <s.headerContainer> */}
+            <s.buttonContainer>{menu()}</s.buttonContainer>
+            {/* </s.headerContainer> */}
+            </div>
           ) : (
-            <s.buttonContainer>
-              <s.button to="/">Home</s.button>
-              {options.map((op) => (
-                <s.button key={op} to={`/${op}`}>
-                  {op}
-                </s.button>
-              ))}
-              {props.customerId === null ? (
-                <s.button to="/login">Log in</s.button>
-              ) : (
-                <s.button
-                  to="/App"
-                  onClick={() => {
-                    props.setCustomerId(null);
-                  }}
-                >
-                  Log out
-                </s.button>
-              )}
-              <s.button to="/basket">
-                <RiShoppingCart2Line size={32} />
-              </s.button>
-            </s.buttonContainer>
+            <div>
+              <s.menuButton onClick={handleClick}>
+                <RiMenuLine size={32} />
+              </s.menuButton>
+              {toggle ? <s.menuContainer>{menu()}</s.menuContainer> : null}
+            </div>
           )}
         </s.headerContainer>
-        {mobileView && toggle ? (
+
+        {/* {mobileView && toggle ? (
           <s.menuContainer>
             <s.button to="/">Home</s.button>
             {options.map((op) => (
@@ -112,8 +125,8 @@ export const Header = (props: customer) => {
               <RiShoppingCart2Line size={32} />
             </s.button>
           </s.menuContainer>
-        ) : null}
-      </s.headerWrapper>
+        ) : null} */}
+      {/* </s.headerWrapper> */}
       <s.underBanner>
         <s.bannerContent>
           <BsTruck /> Free UK delivery over £70

@@ -6,11 +6,13 @@ const headerContainer = styled.div`
   background-color: white;
   display: flex;
   justify-content: space-between;
+  align-content: center;
   color: white;
   width: 100vw;
-  align-items: flex-start;
+  align-items: center;
   height: 155px;
-  @media screen and (max-width: 750px) {
+  margin: auto;
+  @media screen and (max-width: 1000px) {
   }
 `;
 const header = styled.div`
@@ -19,7 +21,6 @@ const header = styled.div`
   font-size: 45px;
   margin-left: 10vw;
   margin-right: 20px;
-  /* margin: auto 15vw; */
   font-weight: 900;
   align-self: center;
   align-content: center;
@@ -28,15 +29,12 @@ const logo = styled.span`
   color: ${Colour.AR};
   font-size: 45px;
   font-weight: 900;
-  /* align-self: center; */
-  /* margin: 0px; */
 `;
 
 const button = styled(NavLink)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-self: center;
+   @media screen and (max-width: 1000px) {
+    display: flex
+  }
   gap: 15px;
   margin: 0px 5px 10px 5px;
   text-decoration: none;
@@ -45,32 +43,21 @@ const button = styled(NavLink)`
   font-weight: bolder;
   background-color: white;
   width: auto;
-  /* padding-left: 10px;
-  padding-right: 10px; */
   padding: 10px;
   border: 2px solid white;
-  /* border-radius: 15px; */
 
   &:hover {
     background-color: lightgray;
     color: black;
-    /* border-color: black; */
   }
   &:active {
     background-color: black;
     color: white;
     border-color: black;
   }
-  /* &.active {
-    background-color: white;
-    color: black;
-    border-color: white;
-  } */
 `;
 
 const menuButton = styled.button`
-  display: flex;
-  justify-content: flex-end;
   align-items: center;
   align-self: center;
   margin-left: 25px;
@@ -84,6 +71,7 @@ const menuButton = styled.button`
   padding-left: 10px;
   padding-right: 10px;
 
+
   &:hover {
     text-decoration: none;
     color: black;
@@ -92,24 +80,17 @@ const menuButton = styled.button`
   }
 `;
 const menuContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  width: 150px;
-  align-items: center;
-  align-self: flex-end;
   position: absolute;
-  margin-top: 100px;
+  right: 0px;
+  background-color: white;
+
 `;
 const buttonContainer = styled.div`
   display: flex;
-  justify-content: flex-end;
   margin-right: 50px;
-  align-self: center;
-`;
-
-const headerWrapper = styled.div`
-  display: flex;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
 `;
 
@@ -119,18 +100,14 @@ const topBanner = styled.div`
   background-color: ${Colour.overHeader};
   display: flex;
   align-items: flex-end;
-  /* align-items: flex-end; */
   margin: 0;
-
-
 `;
 
-const topBannerContent =styled.div`
+const topBannerContent = styled.div`
   font-weight: 400;
   font-size: 15px;
   margin: auto 1vw;
-
-`
+`;
 
 const underBanner2 = styled.div`
   height: 55px;
@@ -151,17 +128,16 @@ const underBanner = styled.div`
   background-color: ${Colour.underHeader};
   display: flex;
   @media all and (max-width: 1200px) {
-  display: none;
-}
+    display: none;
+  }
 `;
 
-const bannerContent =styled.div`
+const bannerContent = styled.div`
   justify-content: center;
   font-weight: 400;
   font-size: 15px;
   margin: auto;
-
-`
+`;
 
 const styles = {
   topBannerContent,
@@ -176,7 +152,6 @@ const styles = {
   buttonContainer,
   menuButton,
   menuContainer,
-  headerWrapper,
 };
 
 export default styles;
