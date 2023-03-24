@@ -1,6 +1,14 @@
 import s from "./Header.styles";
-import { RiShoppingCart2Line, RiMenuLine } from "react-icons/ri";
+import {
+  RiShoppingCart2Line,
+  RiMenuLine,
+  RiMoneyPoundCircleLine,
+} from "react-icons/ri";
+import { BsClipboardCheck, BsTruck } from "react-icons/bs";
 import { Dispatch, SetStateAction, useState } from "react";
+import { ImMobile } from "react-icons/im";
+import { TfiEmail } from "react-icons/tfi";
+import { GiUnionJack } from "react-icons/gi";
 
 interface customer {
   customerId: number | null;
@@ -29,7 +37,15 @@ export const Header = (props: customer) => {
 
   return (
     <div>
-      <s.topBanner />
+      <s.topBanner>
+        <s.topBannerContent>
+          <GiUnionJack/> en -GBP
+        </s.topBannerContent>
+        <s.topBannerContent>Quick Returns
+        </s.topBannerContent>
+        <s.topBannerContent>Help
+        </s.topBannerContent>
+      </s.topBanner>
       <s.headerWrapper>
         <s.headerContainer>
           <s.header>
@@ -98,9 +114,27 @@ export const Header = (props: customer) => {
           </s.menuContainer>
         ) : null}
       </s.headerWrapper>
-      <s.underBanner />
-      <s.underBanner />
-      <s.underBanner2 />
+      <s.underBanner>
+        <s.bannerContent>
+          <BsTruck /> Free UK delivery over £70
+        </s.bannerContent>
+        <s.bannerContent>
+          <RiMoneyPoundCircleLine /> New here? 20% off selected styles with code
+          NEW20
+        </s.bannerContent>
+        <s.bannerContent>
+          <BsClipboardCheck /> Easy returns
+        </s.bannerContent>
+        <s.bannerContent>
+          <ImMobile /> Download our app
+        </s.bannerContent>
+        <s.bannerContent>
+          <TfiEmail /> Sign up for latest offers
+        </s.bannerContent>
+      </s.underBanner>
+      <s.underBanner2>
+        25% off when you shop through our app | Use code APP25
+      </s.underBanner2>
     </div>
   );
 };

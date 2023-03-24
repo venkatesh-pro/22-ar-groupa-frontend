@@ -16,7 +16,7 @@ const headerContainer = styled.div`
 const header = styled.div`
   display: flex;
   color: black;
-  font-size: 55px;
+  font-size: 65px;
   margin-left: 10vw;
   margin-right: 20px;
   /* margin: auto 15vw; */
@@ -26,7 +26,7 @@ const header = styled.div`
 `;
 const logo = styled.span`
   color: ${Colour.AR};
-  font-size: 55px;
+  font-size: 65px;
   font-weight: 900;
   /* align-self: center; */
   /* margin: 0px; */
@@ -117,21 +117,52 @@ const topBanner = styled.div`
   height: 30px;
   width: 100;
   background-color: ${Colour.overHeader};
+  display: flex;
+  align-items: flex-end;
+  /* align-items: flex-end; */
+  margin: 0;
+
+
+`;
+
+const topBannerContent =styled.div`
+  font-weight: 400;
+  font-size: 15px;
+  margin: auto 1vw;
+
+`
+
+const underBanner2 = styled.div`
+  height: 55px;
+  width: 100;
+  background-color: ${Colour.underHeader2};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
 `;
 
 const underBanner = styled.div`
   height: 55px;
   width: 100;
   background-color: ${Colour.underHeader};
+  display: flex;
+  @media all and (max-width: 1200px) {
+  display: none;
+}
 `;
 
-const underBanner2 = styled.div`
-  height: 55px;
-  width: 100;
-  background-color: ${Colour.underHeader2};
-`;
+const bannerContent =styled.div`
+  justify-content: center;
+  font-weight: 400;
+  font-size: 15px;
+  margin: auto;
+
+`
 
 const styles = {
+  topBannerContent,
+  bannerContent,
   underBanner2,
   underBanner,
   topBanner,
