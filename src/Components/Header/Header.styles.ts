@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import Colour from "../../Colour";
 
 const headerContainer = styled.div`
   background-color: white;
@@ -8,7 +9,7 @@ const headerContainer = styled.div`
   color: white;
   width: 100vw;
   align-items: flex-start;
-  height: 80px;
+  height: 155px;
   @media screen and (max-width: 750px) {
   }
 `;
@@ -115,16 +116,23 @@ const headerWrapper = styled.div`
 const topBanner = styled.div`
   height: 30px;
   width: 100;
-  background-color: lightgray;
+  background-color: ${Colour.overHeader};
 `;
 
 const underBanner = styled.div`
-  height: 80px;
+  height: 55px;
   width: 100;
-  background-color: turquoise;
+  background-color: ${Colour.underHeader};
+`;
+
+const underBanner2 = styled.div`
+  height: 55px;
+  width: 100;
+  background-color: ${Colour.underHeader2};
 `;
 
 const styles = {
+  underBanner2,
   underBanner,
   topBanner,
   header,
