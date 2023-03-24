@@ -74,7 +74,7 @@ export const SignUp: React.FC = () => {
           {UserExists ? (
             <s.incorrectInput>User already exists!</s.incorrectInput>
           ) : null}
-          <s.userDetailText key={"username-text"}>Email:</s.userDetailText>
+          <s.userDetailText key={"username-text"}>Username:</s.userDetailText>
           <s.userInputWraper>
             <RiUser3Fill size={25} />
             <s.userDetailBox
