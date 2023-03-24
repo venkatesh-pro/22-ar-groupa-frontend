@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { App } from "./Pages/App/App";
@@ -13,6 +13,8 @@ import { useGetBasketItems } from "./Functions/useGetBasketItems";
 import { item } from "./Components/Item/Item";
 import { OrderComplete } from "./Pages/OrderComplete/OrderComplete";
 
+import { RedirectToLogin } from "./Redirectors/toLogin";
+
 export default function Layout() {
   const [customerId, setCustomerId] = useState<number | null>(null);
   return (
@@ -21,13 +23,18 @@ export default function Layout() {
       <Routes>
         <Route path="/:filter?" element={<App />} />
         <Route path="/AR" element={<AugmentedReality />} />
-        <Route path="/basket" element={<Basket />} />
+        {customerId === null ? (
+          <Route path="/basket" element={<RedirectToLogin />} />
+        ) : (
+          <Route path="/basket" element={<Basket />} />
+        )}
         <Route
           path="/login"
           element={<Login setCustomerId={setCustomerId} />}
         />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/order/:basketId/complete" element={<OrderComplete />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/product/:id" element={<ProductCard />} />
       </Routes>
     </BrowserRouter>
