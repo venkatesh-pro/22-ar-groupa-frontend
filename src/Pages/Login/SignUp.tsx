@@ -46,9 +46,6 @@ export const SignUp: React.FC = () => {
                 body: payload,
               })
                 .then(() => {
-                  alert("user created");
-                })
-                .then(() => {
                   setPasswordDontMatch(false);
                   setUserExists(false);
                 })
