@@ -37,9 +37,11 @@ export const Item: React.FC<item> = ({
         <s.itemText>{product_name}</s.itemText>
         <s.itemText>£ {product_price}</s.itemText>
       </s.itemLink>
-      <s.addToBasketButton onClick={handleAddToBasket}>
-        Add To Basket
-      </s.addToBasketButton>
+      {basketId !== 0 ? (
+        <s.addToBasketButton onClick={handleAddToBasket}>
+          Add To Basket
+        </s.addToBasketButton>
+      ) : null}
     </s.itemContainer>
   );
 };
