@@ -13,13 +13,15 @@ interface setStates {
   setBasketItems: React.Dispatch<React.SetStateAction<item[]>>;
 }
 
+interface Props {
+  basketId: number;
+}
+
 export const BasketStateContext = createContext<setStates[]>([]);
 
-export const Basket: React.FC = () => {
-  const [basketId, setBasketId] = useState("1");
-
+export const Basket: React.FC<Props> = (props: Props) => {
   const [setLoading, setError, setBasketItems, basketItems, loading, error] =
-    useGetBasketItems(basketId);
+    useGetBasketItems(props.basketId.toString());
   const uniqueCounts = UniqueCountsFunc(basketItems);
 
   const handleBasketFinished = () => {
@@ -58,6 +60,7 @@ export const Basket: React.FC = () => {
                 item={uniqueCounts[key].itemG}
                 number={uniqueCounts[key].number}
                 basketItems={basketItems}
+                basketId={props.basketId}
               />
             ))}
             <s.checkout>
@@ -65,7 +68,7 @@ export const Basket: React.FC = () => {
                 Subtotal: £{Math.round(totalAmount * 100) / 100}
               </s.description>
               <s.checkoutButton
-                to={`/order/1/complete`}
+                to={`/order/${props.basketId}/complete`}
                 onClick={handleBasketFinished}
               >
                 Complete Order

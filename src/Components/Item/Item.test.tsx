@@ -11,6 +11,7 @@ const mockItem: item = {
   product_price: "price",
   imagePath: "./table.jpg",
   threeDModelPath: "",
+  basketId: 0,
 };
 
 test("It renders the product details", () => {
@@ -24,6 +25,7 @@ test("It renders the product details", () => {
         product_price={mockItem.product_price}
         imagePath={mockItem.imagePath}
         threeDModelPath={mockItem.threeDModelPath}
+        basketId={2}
       />
     </MemoryRouter>
   );

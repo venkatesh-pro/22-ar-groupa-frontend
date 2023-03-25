@@ -11,6 +11,7 @@ export interface item {
   imagePath: string;
   threeDModelPath: string;
   product_price: string | undefined;
+  basketId: number;
 }
 
 export const Item: React.FC<item> = ({
@@ -20,11 +21,13 @@ export const Item: React.FC<item> = ({
   product_id,
   product_price,
   threeDModelPath,
+  basketId,
 }) => {
   const [setLoading, setError] = useContext(AppStateContext);
 
   const handleAddToBasket = () => {
-    AddToBasket(setLoading, setError, product_id);
+    console.log(basketId);
+    AddToBasket(setLoading, setError, product_id, basketId);
   };
 
   return (

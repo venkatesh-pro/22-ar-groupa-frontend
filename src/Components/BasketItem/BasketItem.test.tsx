@@ -10,6 +10,7 @@ const mockItem: item = {
   product_price: "price",
   imagePath: "./table.jpg",
   threeDModelPath: "",
+  basketId: 2,
 };
 
 test("It renders the product details", () => {

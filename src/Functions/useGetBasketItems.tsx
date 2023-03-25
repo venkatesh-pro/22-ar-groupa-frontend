@@ -16,11 +16,12 @@ export const useGetBasketItems = (
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   console.log("i cri 1");
+  console.log(basketId);
 
   useEffect(() => {
     setLoading(true);
     setError(false);
-    const path = `/basket/1/getProducts`;
+    const path = `/basket/${basketId}/getProducts`;
     fetch(path, {
       method: "GET",
     })

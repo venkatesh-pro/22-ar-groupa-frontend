@@ -18,7 +18,7 @@ const ProductCard: React.FC = () => {
 
   const handleAddToBasket = () => {
     if (!(id === undefined)) {
-      AddToBasket(setLoading, setError, id);
+      AddToBasket(setLoading, setError, id, 123);
     }
   };
 

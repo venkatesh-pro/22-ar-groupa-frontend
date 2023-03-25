@@ -11,7 +11,11 @@ export const AppStateContext = createContext<
   React.Dispatch<React.SetStateAction<boolean>>[]
 >([]);
 
-export function App() {
+interface Props {
+  basketId: number;
+}
+
+export function App(props: Props) {
   const { filter } = useParams<string>();
   const [loading, error, items, setLoading, setError] = useGetItems({
     selectedOption: filter,
@@ -29,7 +33,7 @@ export function App() {
   return (
     <div className="App">
       <AppStateContext.Provider value={[setLoading, setError]}>
-        <ItemList items={items} />
+        <ItemList items={items} basketId={props.basketId} />
       </AppStateContext.Provider>
       <Footer />
     </div>

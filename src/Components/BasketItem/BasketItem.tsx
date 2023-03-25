@@ -11,9 +11,15 @@ interface props {
   basketItems: item[];
   item: item;
   number: number;
+  basketId: number;
 }
 
-export const BasketItem: React.FC<props> = ({ basketItems, item, number }) => {
+export const BasketItem: React.FC<props> = ({
+  basketItems,
+  item,
+  number,
+  basketId,
+}) => {
   console.log("Basket Item");
 
   const [states] = useContext(BasketStateContext);
@@ -46,7 +52,7 @@ export const BasketItem: React.FC<props> = ({ basketItems, item, number }) => {
   const handleDelete = () => {
     console.log("ADDED TO BASKET");
     states.setLoading(true);
-    fetch(`basketProducts/1/delete?productId=${item.product_id}`, {
+    fetch(`basketProducts/${basketId}/delete?productId=${item.product_id}`, {
       method: "DELETE",
     })
       .finally(() => {
@@ -61,9 +67,12 @@ export const BasketItem: React.FC<props> = ({ basketItems, item, number }) => {
   const handleSingleDelete = () => {
     console.log("ADDED TO BASKET");
     states.setLoading(true);
-    fetch(`api/basketProducts/1/single/delete?productId=${item.product_id}`, {
-      method: "DELETE",
-    })
+    fetch(
+      `api/basketProducts/${basketId}/single/delete?productId=${item.product_id}`,
+      {
+        method: "DELETE",
+      }
+    )
       .finally(() => {
         states.setLoading(false);
         const updatedBasket = onSingleDelete(item.product_id, basketItems);
@@ -76,7 +85,12 @@ export const BasketItem: React.FC<props> = ({ basketItems, item, number }) => {
 
   const handleAdd = () => {
     if (!(item.product_id === undefined)) {
-      AddToBasket(states.setLoading, states.setError, item.product_id);
+      AddToBasket(
+        states.setLoading,
+        states.setError,
+        item.product_id,
+        basketId
+      );
       const newItem = item;
       const updatedBasket = [...basketItems, newItem];
       states.setBasketItems(updatedBasket);

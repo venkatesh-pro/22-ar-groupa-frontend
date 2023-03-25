@@ -33,12 +33,12 @@ export default function Layout() {
         setBasketId={setBasketId}
       />
       <Routes>
-        <Route path="/:filter?" element={<App />} />
+        <Route path="/:filter?" element={<App basketId={basketId} />} />
         <Route path="/AR" element={<AugmentedReality />} />
         {customerId === null ? (
           <Route path="/basket" element={<RedirectToLogin />} />
         ) : (
-          <Route path="/basket" element={<Basket />} />
+          <Route path="/basket" element={<Basket basketId={basketId} />} />
         )}
         <Route
           path="/login"
