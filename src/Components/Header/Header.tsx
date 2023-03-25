@@ -13,6 +13,7 @@ import { GiUnionJack } from "react-icons/gi";
 interface customer {
   customerId: number | null;
   setCustomerId: Dispatch<SetStateAction<number | null>>;
+  setBasketId: Dispatch<SetStateAction<number>>;
 }
 
 export const Header = (props: customer) => {
@@ -49,6 +50,7 @@ export const Header = (props: customer) => {
             to="/"
             onClick={() => {
               props.setCustomerId(null);
+              props.setBasketId(0);
             }}
           >
             Log out

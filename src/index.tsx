@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { App } from "./Pages/App/App";
@@ -18,9 +18,20 @@ import { RedirectToLogin } from "./Redirectors/toLogin";
 
 export default function Layout() {
   const [customerId, setCustomerId] = useState<number | null>(null);
+  const [basketId, setBasketId] = useState<number>(0);
+  useEffect(() => {
+    console.log(customerId);
+  }, [customerId]);
+  useEffect(() => {
+    console.log(basketId);
+  }, [basketId]);
   return (
     <BrowserRouter>
-      <Header customerId={customerId} setCustomerId={setCustomerId} />
+      <Header
+        customerId={customerId}
+        setCustomerId={setCustomerId}
+        setBasketId={setBasketId}
+      />
       <Routes>
         <Route path="/:filter?" element={<App />} />
         <Route path="/AR" element={<AugmentedReality />} />
@@ -31,7 +42,13 @@ export default function Layout() {
         )}
         <Route
           path="/login"
-          element={<Login setCustomerId={setCustomerId} />}
+          element={
+            <Login
+              customerId={customerId}
+              setCustomerId={setCustomerId}
+              setBasketId={setBasketId}
+            />
+          }
         />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/order/:basketId/complete" element={<OrderComplete />} />
