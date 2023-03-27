@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CheckoutItem } from "../../Components/BasketItem/CheckoutItem";
 import { Loading } from "../../Components/Loading/Loading";
@@ -6,21 +6,41 @@ import { Error } from "../../Components/Error/Error";
 import s from "./OrderComplete.styles";
 import { useGetBasketItems } from "../../Functions/useGetBasketItems";
 import { UniqueCountsFunc } from "../../Functions/UniqueCountsFunc";
+import { item } from "../../Components/Item/Item";
 
-export const OrderComplete: React.FC = () => {
-  const { basketId } = useParams();
-  const [setLoading, setError, setBasketItems, basketItems, loading, error] =
-    useGetBasketItems("1");
+interface Props {
+  basketId: number;
+  setBasketId: React.Dispatch<React.SetStateAction<number>>;
+}
 
-  const path = `api/basket/${basketId}/completed`;
-  fetch(path, { method: "PUT" })
-    .then((response) => {
-      console.log(response);
-    })
-    .finally(() => {})
-    .catch((error) => {
-      console.log(error);
-    });
+export const OrderComplete: React.FC<Props> = ({ basketId, setBasketId }) => {
+  const [setLoading, setError, , basketItems, loading, error] =
+    useGetBasketItems(basketId.toString());
+
+  useEffect(() => {
+    const path = `/api/basket/${basketId}/completed`;
+    setLoading(true);
+    fetch(path, { method: "PUT" })
+      .then((response) => {
+        console.log(response);
+      })
+      .finally(() => {
+        setLoading(false);
+        fetch(`/api/basket/${basketId}/getBasketId`, {
+          method: "Get",
+        })
+          .then((response) => {
+            return response.json();
+          })
+          .then((response) => {
+            setBasketId(response);
+          });
+      })
+      .catch((error) => {
+        setError(true);
+        console.log(error);
+      });
+  }, []);
 
   const totalAmount = basketItems
     .map((item) => Number(item.product_price))
@@ -38,15 +58,17 @@ export const OrderComplete: React.FC = () => {
 
   return (
     <s.orderCompleteContainer>
-      <s.text>ORDER COMPLETE!</s.text>
+      <s.header>ORDER COMPLETE!</s.header>
       <s.text>Order Number: {basketId}</s.text>
-      {Object.keys(uniqueCounts).map((key) => (
-        <CheckoutItem
-          key={uniqueCounts[key].itemG.product_id}
-          item={uniqueCounts[key].itemG}
-          number={uniqueCounts[key].number}
-        />
-      ))}
+      <s.itemContainer>
+        {Object.keys(uniqueCounts).map((key) => (
+          <CheckoutItem
+            key={uniqueCounts[key].itemG.product_id}
+            item={uniqueCounts[key].itemG}
+            number={uniqueCounts[key].number}
+          />
+        ))}
+      </s.itemContainer>
       <s.text>Total: £{Math.round(totalAmount * 100) / 100}</s.text>
       <s.button to="/">Home</s.button>
     </s.orderCompleteContainer>

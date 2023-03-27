@@ -24,12 +24,6 @@ export const Basket: React.FC<Props> = (props: Props) => {
     useGetBasketItems(props.basketId.toString());
   const uniqueCounts = UniqueCountsFunc(basketItems);
 
-  const handleBasketFinished = () => {
-    fetch(`api/basketProducts/${props.basketId}/deleteAll`, {
-      method: "DELETE",
-    });
-  };
-
   const totalAmount = basketItems
     .map((item) => Number(item.product_price))
     .reduce((sum, price) => sum + price, 0);
@@ -69,7 +63,7 @@ export const Basket: React.FC<Props> = (props: Props) => {
               <s.description>
                 Subtotal: £{Math.round(totalAmount * 100) / 100}
               </s.description>
-              <s.checkoutButton to={`/`} onClick={handleBasketFinished}>
+              <s.checkoutButton to={"/order/complete"}>
                 Complete Order
               </s.checkoutButton>
               <s.checkoutButton to="/">Continue Shopping</s.checkoutButton>
