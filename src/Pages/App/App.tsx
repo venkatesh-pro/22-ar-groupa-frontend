@@ -22,6 +22,7 @@ export function App() {
     return <Loading></Loading>;
   }
 
+
   if (error) {
     return <Error></Error>;
   }

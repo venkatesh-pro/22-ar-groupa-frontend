@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import Colour from "../../Colour";
 
 const LoadingSpinner = styled.div`
-  border: 16px solid #e4cbc6; /* Light grey */
-  border-top: 16px solid #ad381f; /* Blue */
+  border: 16px solid ${Colour.overHeader};
+  border-top: 16px solid ${Colour.AR};
   border-radius: 50%;
   width: 90px;
   height: 90px;
