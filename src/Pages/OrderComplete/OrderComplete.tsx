@@ -13,7 +13,7 @@ interface Props {
 }
 
 export const OrderComplete: React.FC<Props> = ({ basketId, setBasketId }) => {
-  const [setLoading, setError, , basketItems, loading, error] =
+  const [setLoading, setError, setBasketItems, basketItems, loading, error] =
     useGetBasketItems(basketId);
 
   useEffect(() => {
