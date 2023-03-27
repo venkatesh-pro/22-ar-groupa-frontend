@@ -63,7 +63,7 @@ export const Basket: React.FC<Props> = (props: Props) => {
               <s.description>
                 Subtotal: £{Math.round(totalAmount * 100) / 100}
               </s.description>
-              <s.checkoutButton to={"/order/complete"}>
+              <s.checkoutButton to={"/complete"}>
                 Complete Order
               </s.checkoutButton>
               <s.checkoutButton to="/">Continue Shopping</s.checkoutButton>
