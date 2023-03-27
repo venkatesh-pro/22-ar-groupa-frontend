@@ -14,7 +14,7 @@ interface Props {
 
 export const OrderComplete: React.FC<Props> = ({ basketId, setBasketId }) => {
   const [setLoading, setError, , basketItems, loading, error] =
-    useGetBasketItems(basketId.toString());
+    useGetBasketItems(basketId);
 
   useEffect(() => {
     const path = `/api/basket/${basketId}/completed`;

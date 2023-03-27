@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { item } from "../Components/Item/Item";
 
 export const useGetBasketItems = (
-  basketId: string
+  basketId: number
 ): [
   setLoading: React.Dispatch<React.SetStateAction<boolean>>,
   setError: React.Dispatch<React.SetStateAction<boolean>>,

@@ -21,7 +21,7 @@ export const BasketStateContext = createContext<setStates[]>([]);
 
 export const Basket: React.FC<Props> = (props: Props) => {
   const [setLoading, setError, setBasketItems, basketItems, loading, error] =
-    useGetBasketItems(props.basketId.toString());
+    useGetBasketItems(props.basketId);
   const uniqueCounts = UniqueCountsFunc(basketItems);
 
   const totalAmount = basketItems
