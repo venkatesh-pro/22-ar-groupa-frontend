@@ -9,12 +9,15 @@ import { useNavigate } from "react-router-dom";
 import Footer from "../../Components/Footer/Footer";
 
 interface customer {
+  customerId: number | null;
   setCustomerId: Dispatch<SetStateAction<number | null>>;
+  setBasketId: Dispatch<SetStateAction<number>>;
 }
 
 export const Login = (props: customer) => {
   const [customerEmail, setEmail] = useState<string>("");
   const [customerPassword, setPassword] = useState<string>("");
+  const [incorrect, setIncorrect] = useState(false);
   const navigate = useNavigate();
 
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -34,25 +37,38 @@ export const Login = (props: customer) => {
         return response.json();
       })
       .then((response) => {
-        props.setCustomerId(response);
-      })
-      .then(() => {
-        navigate("/");
-      })
-      .catch((error) => {
-        alert(error);
+        if (response === -1) {
+          setIncorrect(true);
+        } else {
+          props.setCustomerId(response);
+          let ID = response;
+          setIncorrect(false);
+          navigate("/");
+          fetch(`/api/basket/${ID}/getBasketId`, {
+            method: "Get",
+          })
+            .then((response) => {
+              return response.json();
+            })
+            .then((response) => {
+              props.setBasketId(response);
+            });
+        }
       });
   };
 
   return (
     <s.loginContainer>
-      <s.loginHeader data-testid="login-header">Login</s.loginHeader>
+      <s.loginHeader data-testid="login-header">Log In</s.loginHeader>
       <s.loginBox>
         <s.cancelButton to="/">
           <RiCloseCircleFill size={25} />
         </s.cancelButton>
         <s.userDetailContainer key={"username"}>
-          <s.userDetailText key={"username-text"}>Email:</s.userDetailText>
+          <s.userDetailText key={"username-text"}>Username:</s.userDetailText>
+          {incorrect ? (
+            <s.userDetailText>Incorrect username or password</s.userDetailText>
+          ) : null}
           <s.userInputWraper>
             <RiUser3Fill size={25} />
             <s.userDetailBox
@@ -69,13 +85,13 @@ export const Login = (props: customer) => {
             <RiLockPasswordFill size={25} />
             <s.userDetailBox
               key={"password-input"}
-              type="text"
+              type="password"
               value={customerPassword}
               onChange={handlePasswordChange}
             ></s.userDetailBox>
           </s.userInputWraper>
         </s.userDetailContainer>
-        <s.loginButton onClick={handleAdd}>LOGIN</s.loginButton>
+        <s.loginButton onClick={handleAdd}>Login</s.loginButton>
       </s.loginBox>
       <Footer />
     </s.loginContainer>

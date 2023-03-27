@@ -11,6 +11,7 @@ export interface item {
   imagePath: string;
   threeDModelPath: string;
   product_price: string | undefined;
+  basketId: number;
 }
 
 export const Item: React.FC<item> = ({
@@ -20,11 +21,12 @@ export const Item: React.FC<item> = ({
   product_id,
   product_price,
   threeDModelPath,
+  basketId,
 }) => {
   const [setLoading, setError] = useContext(AppStateContext);
 
   const handleAddToBasket = () => {
-    AddToBasket(setLoading, setError, product_id);
+    AddToBasket(setLoading, setError, product_id, basketId);
   };
 
   return (
@@ -34,9 +36,11 @@ export const Item: React.FC<item> = ({
         <s.itemText>{product_name}</s.itemText>
         <s.itemText>£ {product_price}</s.itemText>
       </s.itemLink>
-      <s.addToBasketButton onClick={handleAddToBasket}>
-        Add To Basket
-      </s.addToBasketButton>
+      {basketId !== 0 ? (
+        <s.addToBasketButton onClick={handleAddToBasket}>
+          Add To Basket
+        </s.addToBasketButton>
+      ) : null}
     </s.itemContainer>
   );
 };

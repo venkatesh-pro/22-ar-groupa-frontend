@@ -1,6 +1,7 @@
 export const QiTableData = {
   name: "Qi Table",
   URL: "assets/Tables/qi_table/scene-transformed.glb",
+  backgroundURL: "assets/background_images/chair_lamp_5.jpeg",
   groups: [
     {
       position: [0, -4, -10],

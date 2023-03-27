@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import Colour from "../../Colour";
 
 const productCardContainer = styled.div``;
 
@@ -8,11 +9,11 @@ const div_ProductCard = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   max-width: 700px;
-  min-width: 610px;
-  margin: 50px auto;
+  /* min-width: 610px; */
+  margin: 30px auto;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-  border-radius: 25px;
-  border: 1px solid black;
+  /* border-radius: 25px; */
+  /* border: 1px solid black; */
 
   @media screen and (max-width: 615px) {
     flex-direction: column;
@@ -24,8 +25,8 @@ const div_ProductCard = styled.div`
 const div_Gallery = styled.div`
   display: flex;
   flex-direction: column;
-  min-width: 400px;
-  max-width: 600px;
+  /* min-width: 400px; */
+  /* max-width: 600px; */
 
   @media screen and (max-width: 615px) {
     flex-direction: column;
@@ -36,8 +37,8 @@ const div_Gallery = styled.div`
 
 const img_Big = styled.img`
   margin: 10px;
-  border: 1px solid black;
-  border-radius: 20px;
+  /* border: 1px solid black; */
+  /* border-radius: 20px; */
 `;
 
 const div_Details1 = styled.div`
@@ -86,13 +87,15 @@ const div_Buttons = styled.div`
 `;
 
 const button_AddToBasket = styled.button`
-  background-color: transparent;
+  color: white;
+  background-color: black;
   border: 2px solid black;
-  max-width: 115px;
+  max-width: 200px;
   padding: 5px 10px;
-  margin-bottom: 25px;
-  border-radius: 15px;
-  margin-top: 10px;
+  /* margin-bottom: 25px; */
+  font-size: 20px;
+  /* border-radius: 15px; */
+  margin: 10px 0px;
   font-weight: bold;
   cursor: pointer;
   &:hover {
@@ -106,16 +109,16 @@ const button_AddToBasket = styled.button`
 
 const button_TryAR = styled(Link)`
   text-decoration: none;
-  background-color: lightpink;
-  border: 2px solid black;
-  width: 45px;
+  background-color: ${Colour.AR};
+  /* border: 2px solid black; */
+  /* width: 45px; */
 
   padding: 5px 10px;
-  border-radius: 15px;
-  margin-top: 15px;
-  font-size: 13.33px;
+  /* border-radius: 15px; */
+  margin: 10px 0px;
+  font-size: 20px;
   font-weight: bold;
-  color: black;
+  color: white;
   &:hover {
     background-color: red;
     color: black;

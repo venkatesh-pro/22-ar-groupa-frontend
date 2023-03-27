@@ -1,10 +1,19 @@
 import s from "./Header.styles";
-import { RiShoppingCart2Line, RiMenuLine } from "react-icons/ri";
+import {
+  RiShoppingCart2Line,
+  RiMenuLine,
+  RiMoneyPoundCircleLine,
+} from "react-icons/ri";
+import { BsClipboardCheck, BsTruck } from "react-icons/bs";
 import { Dispatch, SetStateAction, useState } from "react";
+import { ImMobile } from "react-icons/im";
+import { TfiEmail } from "react-icons/tfi";
+import { GiUnionJack } from "react-icons/gi";
 
 interface customer {
   customerId: number | null;
   setCustomerId: Dispatch<SetStateAction<number | null>>;
+  setBasketId: Dispatch<SetStateAction<number>>;
 }
 
 export const Header = (props: customer) => {
@@ -25,58 +34,9 @@ export const Header = (props: customer) => {
     }
   });
 
-  if (mobileView) {
+  const menu = () => {
     return (
-      <s.headerWrapper>
-        <s.headerContainer>
-          <s.header>
-            f<s.logo>AR</s.logo>nitures
-          </s.header>
-          <s.menuButton onClick={handleClick}>
-            <RiMenuLine size={32} />
-          </s.menuButton>
-        </s.headerContainer>
-        {toggle && (
-          <s.menuContainer>
-            <s.button to="/">Home</s.button>
-            {options.map((op) => (
-              <s.button key={op} to={`/${op}`}>
-                {op}
-              </s.button>
-            ))}
-            {props.customerId === null ? (
-              <div>
-                <s.button to="/signup">Sign Up</s.button>
-                <s.button to="/login">Log in</s.button>
-              </div>
-            ) : (
-              <div>
-                <s.button
-                  to="/App"
-                  onClick={() => {
-                    props.setCustomerId(null);
-                  }}
-                >
-                  Log out
-                </s.button>{" "}
-                <s.header>{props.customerId}</s.header>
-              </div>
-            )}
-            <s.button to="/basket">
-              <RiShoppingCart2Line size={32} />
-            </s.button>
-          </s.menuContainer>
-        )}
-      </s.headerWrapper>
-    );
-  }
-
-  return (
-    <s.headerContainer>
-      <s.header>
-        f<s.logo>AR</s.logo>nitures
-      </s.header>
-      <s.buttonContainer>
+      <div>
         <s.button to="/">Home</s.button>
         {options.map((op) => (
           <s.button key={op} to={`/${op}`}>
@@ -90,15 +50,70 @@ export const Header = (props: customer) => {
             to="/"
             onClick={() => {
               props.setCustomerId(null);
+              props.setBasketId(0);
             }}
           >
             Log out
           </s.button>
         )}
-        <s.button to="/basket">
-          <RiShoppingCart2Line size={32} />
-        </s.button>
-      </s.buttonContainer>
-    </s.headerContainer>
+        {props.customerId === null ? (
+          <s.button to="/signup">Sign Up</s.button>
+        ) : (
+          <s.button to="/basket">
+            <RiShoppingCart2Line size={32} />
+          </s.button>
+        )}
+      </div>
+    );
+  };
+
+  return (
+    <div>
+      <s.topBanner>
+        <s.topBannerContent>
+          <GiUnionJack /> en -GBP
+        </s.topBannerContent>
+        <s.topBannerContent>Quick Returns</s.topBannerContent>
+        <s.topBannerContent>Help</s.topBannerContent>
+      </s.topBanner>
+      <s.headerContainer>
+        <s.header>
+          THE H<s.logo>AR</s.logo>T.
+        </s.header>
+        {!mobileView ? (
+          <div>
+            <s.buttonContainer>{menu()}</s.buttonContainer>
+          </div>
+        ) : (
+          <div>
+            <s.menuButton onClick={handleClick}>
+              <RiMenuLine size={32} />
+            </s.menuButton>
+            {toggle ? <s.menuContainer>{menu()}</s.menuContainer> : null}
+          </div>
+        )}
+      </s.headerContainer>
+      <s.underBanner>
+        <s.bannerContent>
+          <BsTruck /> Free UK delivery over £70
+        </s.bannerContent>
+        <s.bannerContent>
+          <RiMoneyPoundCircleLine /> New here? 20% off selected styles with code
+          NEW20
+        </s.bannerContent>
+        <s.bannerContent>
+          <BsClipboardCheck /> Easy returns
+        </s.bannerContent>
+        <s.bannerContent>
+          <ImMobile /> Download our app
+        </s.bannerContent>
+        <s.bannerContent>
+          <TfiEmail /> Sign up for latest offers
+        </s.bannerContent>
+      </s.underBanner>
+      <s.underBanner2>
+        25% off when you shop through our app | Use code APP25
+      </s.underBanner2>
+    </div>
   );
 };

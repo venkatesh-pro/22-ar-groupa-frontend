@@ -1,6 +1,7 @@
 export const BabyYodaData = {
   name: "Baby Yoda",
   URL: "assets/Misc/baby_yoda/scene-transformed.glb",
+  backgroundURL: "assets/background_images/chair_lamp_0.jpeg",
   groups: [
     {
       position: [0, 0, -10],
