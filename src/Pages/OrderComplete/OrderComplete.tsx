@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect } from "react";
+
 import { CheckoutItem } from "../../Components/BasketItem/CheckoutItem";
 import { Loading } from "../../Components/Loading/Loading";
 import { Error } from "../../Components/Error/Error";
 import s from "./OrderComplete.styles";
 import { useGetBasketItems } from "../../Functions/useGetBasketItems";
 import { UniqueCountsFunc } from "../../Functions/UniqueCountsFunc";
-import { item } from "../../Components/Item/Item";
 
 interface Props {
   basketId: number;

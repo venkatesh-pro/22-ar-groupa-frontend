@@ -118,7 +118,7 @@ const button_TryAR = styled(Link)`
   margin: 10px 0px;
   font-size: 20px;
   font-weight: bold;
-  color: white;
+  color: black;
   &:hover {
     background-color: red;
     color: black;
