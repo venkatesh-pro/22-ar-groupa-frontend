@@ -12,7 +12,6 @@ const div_ProductCard = styled.div`
   margin: 30px auto;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
 
-
   @media screen and (max-width: 615px) {
     flex-direction: column;
     max-width: 300px;
@@ -83,6 +82,7 @@ const button_AddToBasket = styled.button`
   font-size: 20px;
   margin: 10px 0px;
   font-weight: bold;
+  border: solid black;
   cursor: pointer;
   &:hover {
     background-color: white;
@@ -102,8 +102,8 @@ const button_TryAR = styled(Link)`
   font-weight: bold;
   color: black;
   &:hover {
-    background-color: white;
-    color: ${Colour.AR};
+    background-color: red;
+    color: black;
   }
   &:visited {
     color: none;

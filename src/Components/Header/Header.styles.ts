@@ -32,8 +32,8 @@ const logo = styled.span`
 `;
 
 const button = styled(NavLink)`
-   @media screen and (max-width: 1000px) {
-    display: flex
+  @media screen and (max-width: 1000px) {
+    display: flex;
   }
   gap: 15px;
   margin: 0px 5px 10px 5px;
@@ -71,19 +71,16 @@ const menuButton = styled.button`
   padding-left: 10px;
   padding-right: 10px;
 
-
   &:hover {
     text-decoration: none;
     color: black;
     background-color: lightgray;
-    border-radius: 15px;
   }
 `;
 const menuContainer = styled.div`
   position: absolute;
   right: 0px;
   background-color: white;
-
 `;
 const buttonContainer = styled.div`
   display: flex;

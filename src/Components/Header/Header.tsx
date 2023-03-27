@@ -37,29 +37,36 @@ export const Header = (props: customer) => {
   const menu = () => {
     return (
       <div>
-        <s.button to="/">Home</s.button>
+        <s.button to="/" onClick={handleClick}>
+          Home
+        </s.button>
         {options.map((op) => (
-          <s.button key={op} to={`/${op}`}>
+          <s.button key={op} to={`/${op}`} onClick={handleClick}>
             {op}
           </s.button>
         ))}
         {props.customerId === null ? (
-          <s.button to="/login">Log in</s.button>
+          <s.button to="/login" onClick={handleClick}>
+            Log in
+          </s.button>
         ) : (
           <s.button
             to="/"
             onClick={() => {
               props.setCustomerId(null);
               props.setBasketId(0);
+              setToggle((toggle) => !toggle);
             }}
           >
             Log out
           </s.button>
         )}
         {props.customerId === null ? (
-          <s.button to="/signup">Sign Up</s.button>
+          <s.button to="/signup" onClick={handleClick}>
+            Sign Up
+          </s.button>
         ) : (
-          <s.button to="/basket">
+          <s.button to="/basket" onClick={handleClick}>
             <RiShoppingCart2Line size={32} />
           </s.button>
         )}

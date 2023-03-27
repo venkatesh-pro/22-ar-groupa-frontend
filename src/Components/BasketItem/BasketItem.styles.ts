@@ -7,7 +7,6 @@ const cartItem = styled.div`
   display: flex;
   align-items: center;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-  border-radius: 25px;
   margin: 30px;
   @media screen and (min-width: 700px) {
     width: 600px;
@@ -47,7 +46,6 @@ const deleteButton = styled.button`
   border: none;
   color: black;
   background-color: white;
-  border-radius: 5px;
 
   &:hover {
     color: white;
@@ -71,7 +69,6 @@ const incrementButton = styled.button`
   border: solid;
   color: black;
   background-color: white;
-  border-radius: 5px;
 
   &:hover {
     color: white;

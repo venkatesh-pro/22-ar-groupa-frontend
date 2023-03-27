@@ -26,7 +26,6 @@ const button = styled(Link)`
   background-color: rgb(19, 19, 19);
   color: white;
   border: solid;
-  border-radius: 8px;
   margin: 10px;
   border-width: 3px;
   border-color: black;
