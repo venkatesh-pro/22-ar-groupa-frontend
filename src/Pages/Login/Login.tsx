@@ -9,7 +9,9 @@ import { useNavigate } from "react-router-dom";
 import Footer from "../../Components/Footer/Footer";
 
 interface customer {
+  customerId: number | null;
   setCustomerId: Dispatch<SetStateAction<number | null>>;
+  setBasketId: Dispatch<SetStateAction<number>>;
 }
 
 export const Login = (props: customer) => {
@@ -39,8 +41,18 @@ export const Login = (props: customer) => {
           setIncorrect(true);
         } else {
           props.setCustomerId(response);
+          let ID = response;
           setIncorrect(false);
           navigate("/");
+          fetch(`/api/basket/${ID}/getBasketId`, {
+            method: "Get",
+          })
+            .then((response) => {
+              return response.json();
+            })
+            .then((response) => {
+              props.setBasketId(response);
+            });
         }
       });
   };

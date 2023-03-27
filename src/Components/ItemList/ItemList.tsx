@@ -3,9 +3,10 @@ import s from "./ItemList.styles";
 
 interface Props {
   items: item[];
+  basketId: number;
 }
 
-export const ItemList: React.FC<Props> = ({ items }) => {
+export const ItemList: React.FC<Props> = ({ items, basketId }) => {
   return (
     <s.itemListContainer>
       {items.length > 0 ? (
@@ -19,6 +20,7 @@ export const ItemList: React.FC<Props> = ({ items }) => {
             product_type_id={item.product_type_id}
             threeDModelPath={item.threeDModelPath}
             product_price={item.product_price}
+            basketId={basketId}
           />
         ))
       ) : (

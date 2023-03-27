@@ -16,9 +16,14 @@ window.matchMedia =
 
 test("Renders h1 Login and all inputs fields", () => {
   const [customerId, setCustomerId] = useState<number | null>(1234);
+  const [basketId, setBasketId] = useState<number>(0);
   render(
     <MemoryRouter initialEntries={[`/login`]}>
-      <Login setCustomerId={setCustomerId} />
+      <Login
+        customerId={0}
+        setCustomerId={setCustomerId}
+        setBasketId={setBasketId}
+      />
     </MemoryRouter>
   );
   const header = screen.getByTestId("login-header");
