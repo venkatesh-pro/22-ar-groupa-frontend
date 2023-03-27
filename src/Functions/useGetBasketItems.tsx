@@ -34,6 +34,6 @@ export const useGetBasketItems = (
       .catch(() => {
         setError(true);
       });
-  }, []);
+  }, [basketId]);
   return [setLoading, setError, setBasketItems, basketItems, loading, error];
 };

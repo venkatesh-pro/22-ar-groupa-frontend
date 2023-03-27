@@ -5,7 +5,6 @@ import { RiDeleteBin2Line } from "react-icons/ri";
 
 import { AddToBasket } from "../../Functions/AddToBasket";
 import { BasketStateContext } from "../../Pages/Basket/Basket";
-import { UniqueCountsFunc } from "../../Functions/UniqueCountsFunc";
 
 interface props {
   basketItems: item[];
