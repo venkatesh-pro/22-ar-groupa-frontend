@@ -20,8 +20,6 @@ export const BasketItem: React.FC<props> = ({
   number,
   basketId,
 }) => {
-  console.log("Basket Item");
-
   const [states] = useContext(BasketStateContext);
 
   const onDelete = (productId: number, basketItems: item[]): item[] => {
@@ -50,7 +48,6 @@ export const BasketItem: React.FC<props> = ({
   };
 
   const handleDelete = () => {
-    console.log("ADDED TO BASKET");
     states.setLoading(true);
     fetch(`basketProducts/${basketId}/delete?productId=${item.product_id}`, {
       method: "DELETE",
@@ -65,7 +62,6 @@ export const BasketItem: React.FC<props> = ({
   };
 
   const handleSingleDelete = () => {
-    console.log("ADDED TO BASKET");
     states.setLoading(true);
     fetch(
       `api/basketProducts/${basketId}/single/delete?productId=${item.product_id}`,

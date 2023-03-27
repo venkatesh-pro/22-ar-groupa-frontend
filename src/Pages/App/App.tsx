@@ -20,7 +20,6 @@ export function App(props: Props) {
   const [loading, error, items, setLoading, setError] = useGetItems({
     selectedOption: filter,
   });
-  // console.log(items);
 
   if (loading) {
     return <Loading></Loading>;

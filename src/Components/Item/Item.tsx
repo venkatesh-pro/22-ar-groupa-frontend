@@ -26,7 +26,6 @@ export const Item: React.FC<item> = ({
   const [setLoading, setError] = useContext(AppStateContext);
 
   const handleAddToBasket = () => {
-    console.log(basketId);
     AddToBasket(setLoading, setError, product_id, basketId);
   };
 

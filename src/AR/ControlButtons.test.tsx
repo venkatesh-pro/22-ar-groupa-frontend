@@ -27,5 +27,4 @@ test("testing", async () => {
   );
 
   expect(renderer.scene.instance).toBeDefined();
-  console.log(renderer.toGraph());
 });

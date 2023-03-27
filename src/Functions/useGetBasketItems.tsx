@@ -15,8 +15,6 @@ export const useGetBasketItems = (
   const [basketItems, setBasketItems] = useState<item[]>([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
-  console.log("i cri 1");
-  console.log(basketId);
 
   useEffect(() => {
     setLoading(true);
@@ -26,7 +24,6 @@ export const useGetBasketItems = (
       method: "GET",
     })
       .then((response) => {
-        console.log("i cri 2");
         return response.json();
       })
       .then((response) => {

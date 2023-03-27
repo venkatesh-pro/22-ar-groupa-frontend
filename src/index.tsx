@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { App } from "./Pages/App/App";
@@ -10,8 +10,6 @@ import { SignUp } from "./Pages/Login/SignUp";
 import ProductCard from "./Components/ProductCard/ProductCard";
 import { Header } from "./Components/Header/Header";
 import MainFooter from "./Components/MainFooter/MainFooter";
-import { useGetBasketItems } from "./Functions/useGetBasketItems";
-import { item } from "./Components/Item/Item";
 import { OrderComplete } from "./Pages/OrderComplete/OrderComplete";
 
 import { RedirectToLogin } from "./Redirectors/toLogin";
@@ -19,12 +17,6 @@ import { RedirectToLogin } from "./Redirectors/toLogin";
 export default function Layout() {
   const [customerId, setCustomerId] = useState<number | null>(null);
   const [basketId, setBasketId] = useState<number>(0);
-  useEffect(() => {
-    console.log(customerId);
-  }, [customerId]);
-  useEffect(() => {
-    console.log(basketId);
-  }, [basketId]);
   return (
     <BrowserRouter>
       <Header
