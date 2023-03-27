@@ -8,7 +8,11 @@ import { RiCloseCircleFill } from "react-icons/ri";
 import { Loading } from "../Loading/Loading";
 import { Error } from "../Error/Error";
 
-const ProductCard: React.FC = () => {
+interface Props {
+  basketId: number;
+}
+
+const ProductCard: React.FC<Props> = ({ basketId }) => {
   const { id } = useParams();
   const [product, setProduct] = useState<item | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
@@ -18,7 +22,7 @@ const ProductCard: React.FC = () => {
 
   const handleAddToBasket = () => {
     if (!(id === undefined)) {
-      AddToBasket(setLoading, setError, id, 123);
+      AddToBasket(setLoading, setError, id, basketId);
     }
   };
 
@@ -65,9 +69,11 @@ const ProductCard: React.FC = () => {
               <s.div_Product_Description>
                 £{product.product_price}
               </s.div_Product_Description>
-              <s.button_AddToBasket onClick={handleAddToBasket}>
-                Add to basket
-              </s.button_AddToBasket>
+              {basketId !== 0 ? (
+                <s.button_AddToBasket onClick={handleAddToBasket}>
+                  Add to basket
+                </s.button_AddToBasket>
+              ) : null}
 
               <s.div_Buttons>
                 <s.button_TryAR to="/AR" state={state}>

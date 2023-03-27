@@ -43,9 +43,17 @@ export default function Layout() {
           }
         />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/order/:basketId/complete" element={<OrderComplete />} />
+        <Route
+          path="/order/complete"
+          element={
+            <OrderComplete basketId={basketId} setBasketId={setBasketId} />
+          }
+        />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/product/:id" element={<ProductCard />} />
+        <Route
+          path="/product/:id"
+          element={<ProductCard basketId={basketId} />}
+        />
       </Routes>
       <MainFooter />
     </BrowserRouter>

@@ -30,7 +30,7 @@ const itemLink = styled(Link)`
   &:hover {
     background-color: lightgrey;
     transition: 0.2s ease-in;
-    color: white;
+    color: black;
     /* border: 4px solid black; */
   }
 `;
@@ -62,8 +62,7 @@ const itemImage = styled.img`
   /* border-radius: 5%; */
 `;
 
-const itemPrice = styled.div`
-`;
+const itemPrice = styled.div``;
 
 const addToBasketButton = styled.button`
   background-color: black;
