@@ -6,6 +6,7 @@ import { Loading } from "../../Components/Loading/Loading";
 import { Error } from "../../Components/Error/Error";
 import { useGetBasketItems } from "../../Functions/useGetBasketItems";
 import { UniqueCountsFunc } from "../../Functions/UniqueCountsFunc";
+import Footer from "../../Components/Footer/Footer";
 
 interface setStates {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
@@ -73,6 +74,7 @@ export const Basket: React.FC<Props> = (props: Props) => {
           <s.basketHeader> Your Shopping Basket is Empty!</s.basketHeader>
         )}
       </BasketStateContext.Provider>
+      <Footer />
     </s.basketContainer>
   );
 };

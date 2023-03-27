@@ -6,6 +6,7 @@ import { Error } from "../../Components/Error/Error";
 import s from "./OrderComplete.styles";
 import { useGetBasketItems } from "../../Functions/useGetBasketItems";
 import { UniqueCountsFunc } from "../../Functions/UniqueCountsFunc";
+import Footer from "../../Components/Footer/Footer";
 
 interface Props {
   basketId: number;
@@ -70,6 +71,7 @@ export const OrderComplete: React.FC<Props> = ({ basketId, setBasketId }) => {
       </s.itemContainer>
       <s.text>Total: £{Math.round(totalAmount * 100) / 100}</s.text>
       <s.button to="/">Home</s.button>
+      <Footer />
     </s.orderCompleteContainer>
   );
 };

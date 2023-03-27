@@ -7,6 +7,7 @@ import s from "./ProductCard.styles";
 import { RiCloseCircleFill } from "react-icons/ri";
 import { Loading } from "../Loading/Loading";
 import { Error } from "../Error/Error";
+import Footer from "../Footer/Footer";
 
 interface Props {
   basketId: number;
@@ -93,6 +94,7 @@ const ProductCard: React.FC<Props> = ({ basketId }) => {
           <p>Product not found</p>
         </s.productCardContainer>
       )}
+      <Footer />
     </div>
   );
 };
