@@ -46,7 +46,8 @@ export const OrderComplete: React.FC<Props> = ({ basketId, setBasketId }) => {
     .reduce((sum, price) => sum + price, 0);
 
   const uniqueCounts = UniqueCountsFunc(basketItems);
-
+  console.log(uniqueCounts);
+  console.log(basketItems);
   if (loading) {
     return <Loading />;
   }
