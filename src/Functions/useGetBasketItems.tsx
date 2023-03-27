@@ -18,7 +18,7 @@ export const useGetBasketItems = (
   useEffect(() => {
     setLoading(true);
     setError(false);
-    const path = `/basket/${basketId}/getProducts`;
+    const path = `api/basket/${basketId}/getProducts`;
     fetch(path, {
       method: "GET",
     })
