@@ -48,9 +48,12 @@ export const BasketItem: React.FC<props> = ({
 
   const handleDelete = () => {
     states.setLoading(true);
-    fetch(`basketProducts/${basketId}/delete?productId=${item.product_id}`, {
-      method: "DELETE",
-    })
+    fetch(
+      `/api/basketProducts/${basketId}/delete?productId=${item.product_id}`,
+      {
+        method: "DELETE",
+      }
+    )
       .finally(() => {
         states.setLoading(false);
         states.setBasketItems(onDelete(item.product_id, basketItems));
