@@ -6,6 +6,7 @@ import { Loading } from "../../Components/Loading/Loading";
 import { Error } from "../../Components/Error/Error";
 import { useGetBasketItems } from "../../Functions/useGetBasketItems";
 import { UniqueCountsFunc } from "../../Functions/UniqueCountsFunc";
+import Footer from "../../Components/Footer/Footer";
 
 interface setStates {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
@@ -23,12 +24,6 @@ export const Basket: React.FC<Props> = (props: Props) => {
   const [setLoading, setError, setBasketItems, basketItems, loading, error] =
     useGetBasketItems(props.basketId.toString());
   const uniqueCounts = UniqueCountsFunc(basketItems);
-
-  const handleBasketFinished = () => {
-    fetch(`api/basketProducts/${props.basketId}/deleteAll`, {
-      method: "DELETE",
-    });
-  };
 
   const totalAmount = basketItems
     .map((item) => Number(item.product_price))
@@ -69,7 +64,7 @@ export const Basket: React.FC<Props> = (props: Props) => {
               <s.description>
                 Subtotal: £{Math.round(totalAmount * 100) / 100}
               </s.description>
-              <s.checkoutButton to={`/`} onClick={handleBasketFinished}>
+              <s.checkoutButton to={"/complete"}>
                 Complete Order
               </s.checkoutButton>
               <s.checkoutButton to="/">Continue Shopping</s.checkoutButton>
@@ -79,6 +74,7 @@ export const Basket: React.FC<Props> = (props: Props) => {
           <s.basketHeader> Your Shopping Basket is Empty!</s.basketHeader>
         )}
       </BasketStateContext.Provider>
+      <Footer />
     </s.basketContainer>
   );
 };

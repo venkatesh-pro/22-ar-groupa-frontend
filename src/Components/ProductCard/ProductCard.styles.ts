@@ -9,11 +9,8 @@ const div_ProductCard = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   max-width: 700px;
-  /* min-width: 610px; */
   margin: 30px auto;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-  /* border-radius: 25px; */
-  /* border: 1px solid black; */
 
   @media screen and (max-width: 615px) {
     flex-direction: column;
@@ -25,8 +22,6 @@ const div_ProductCard = styled.div`
 const div_Gallery = styled.div`
   display: flex;
   flex-direction: column;
-  /* min-width: 400px; */
-  /* max-width: 600px; */
 
   @media screen and (max-width: 615px) {
     flex-direction: column;
@@ -37,8 +32,6 @@ const div_Gallery = styled.div`
 
 const img_Big = styled.img`
   margin: 10px;
-  /* border: 1px solid black; */
-  /* border-radius: 20px; */
 `;
 
 const div_Details1 = styled.div`
@@ -46,7 +39,6 @@ const div_Details1 = styled.div`
   flex-direction: column;
   margin-left: 10px;
   width: 100%;
-  /* border: 1px solid yellow; */
 `;
 
 const div_Details2 = styled.div`
@@ -58,7 +50,6 @@ const div_Details2 = styled.div`
     width: 100%;
     margin-left: 0;
   }
-  /* border: 1px solid yellow; */
 `;
 
 const div_Product_Name = styled.div`
@@ -66,7 +57,6 @@ const div_Product_Name = styled.div`
   text-align: left;
   font-size: 35px;
   width: 100%;
-  /* border: 1px solid aqua; */
 `;
 
 const div_Product_Description = styled.div`
@@ -74,7 +64,6 @@ const div_Product_Description = styled.div`
   padding-top: 10px;
   text-align: left;
   font-size: 25px;
-  /* border: 1px solid aqua; */
 `;
 
 const div_Buttons = styled.div`
@@ -83,24 +72,21 @@ const div_Buttons = styled.div`
   height: 100%;
   width: 100%;
   align-items: flex-start;
-  /* border: 1px solid red; */
 `;
 
 const button_AddToBasket = styled.button`
   color: white;
   background-color: black;
-  border: 2px solid black;
   max-width: 200px;
   padding: 5px 10px;
-  /* margin-bottom: 25px; */
   font-size: 20px;
-  /* border-radius: 15px; */
   margin: 10px 0px;
   font-weight: bold;
+  border: solid black;
   cursor: pointer;
   &:hover {
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
   }
   @media screen and (max-width: 615px) {
     margin-bottom: 0px;
@@ -110,11 +96,7 @@ const button_AddToBasket = styled.button`
 const button_TryAR = styled(Link)`
   text-decoration: none;
   background-color: ${Colour.AR};
-  /* border: 2px solid black; */
-  /* width: 45px; */
-
   padding: 5px 10px;
-  /* border-radius: 15px; */
   margin: 10px 0px;
   font-size: 20px;
   font-weight: bold;
