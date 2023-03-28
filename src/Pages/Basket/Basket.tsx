@@ -1,5 +1,5 @@
 import s from "./Basket.styles";
-import React, { createContext, useState } from "react";
+import React, { createContext } from "react";
 import { BasketItem } from "../../Components/BasketItem/BasketItem";
 import { item } from "../../Components/Item/Item";
 import { Loading } from "../../Components/Loading/Loading";
@@ -64,10 +64,12 @@ export const Basket: React.FC<Props> = (props: Props) => {
               <s.description>
                 Subtotal: £{Math.round(totalAmount * 100) / 100}
               </s.description>
-              <s.checkoutButton to={"/complete"}>
+              <s.checkoutButton to={"/complete"} aria-label="Complete Order">
                 Complete Order
               </s.checkoutButton>
-              <s.checkoutButton to="/">Continue Shopping</s.checkoutButton>
+              <s.checkoutButton to="/" aria-label="Continue Shopping">
+                Continue Shopping
+              </s.checkoutButton>
             </s.checkout>
           </s.basketContainer>
         ) : (

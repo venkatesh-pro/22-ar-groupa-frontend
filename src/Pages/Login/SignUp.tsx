@@ -64,7 +64,7 @@ export const SignUp: React.FC = () => {
     <s.loginContainer>
       <s.loginHeader>Sign Up</s.loginHeader>
       <s.loginBox>
-        <s.cancelButton to="/">
+        <s.cancelButton to="/" aria-label="Go back">
           <RiCloseCircleFill size={25} />
         </s.cancelButton>
         <s.userDetailContainer key={"username"}>
@@ -79,6 +79,7 @@ export const SignUp: React.FC = () => {
               type="text"
               value={customerEmail}
               onChange={handleEmailChange}
+              aria-label="Enter your username"
             ></s.userDetailBox>
           </s.userInputWraper>
         </s.userDetailContainer>
@@ -94,6 +95,7 @@ export const SignUp: React.FC = () => {
               type="password"
               value={customerPassword}
               onChange={handlePasswordChange}
+              aria-label="Enter your password"
             ></s.userDetailBox>
           </s.userInputWraper>
         </s.userDetailContainer>
@@ -108,6 +110,7 @@ export const SignUp: React.FC = () => {
               type="password"
               value={repeatPassword}
               onChange={handleRepeatPasswordChange}
+              aria-label="Repeat your password"
             ></s.userDetailBox>
           </s.userInputWraper>
         </s.userDetailContainer>

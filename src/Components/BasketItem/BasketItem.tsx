@@ -5,7 +5,7 @@ import { RiDeleteBin2Line } from "react-icons/ri";
 
 import { AddToBasket } from "../../Functions/AddToBasket";
 import { BasketStateContext } from "../../Pages/Basket/Basket";
-import { UniqueCountsFunc } from "../../Functions/UniqueCountsFunc";
+// import { UniqueCountsFunc } from "../../Functions/UniqueCountsFunc";
 
 interface props {
   basketItems: item[];
@@ -99,15 +99,27 @@ export const BasketItem: React.FC<props> = ({
         <s.itemName>{item.product_name}</s.itemName>
         <s.itemPrice>Price: £{item.product_price}</s.itemPrice>
         <s.incrementContainer>
-          <s.incrementButton onClick={handleSingleDelete}>
+          <s.incrementButton
+            onClick={handleSingleDelete}
+            aria-label="Quantity. Remove one."
+          >
             {" "}
             -{" "}
           </s.incrementButton>
           <s.itemPrice> Quantity : {number}</s.itemPrice>
-          <s.incrementButton onClick={handleAdd}> + </s.incrementButton>
+          <s.incrementButton
+            onClick={handleAdd}
+            aria-label="Quantity. Add one."
+          >
+            {" "}
+            +{" "}
+          </s.incrementButton>
         </s.incrementContainer>
       </s.itemDescription>
-      <s.deleteButton onClick={handleDelete}>
+      <s.deleteButton
+        onClick={handleDelete}
+        aria-label="Remove item from the basket"
+      >
         <RiDeleteBin2Line size={32} />
       </s.deleteButton>
     </s.cartItem>

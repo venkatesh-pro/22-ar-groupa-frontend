@@ -12,7 +12,7 @@ const div_ProductCard = styled.div`
   margin: 30px auto;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
 
-  @media screen and (max-width: 615px) {
+  @media screen and (max-width: 640px) {
     flex-direction: column;
     max-width: 300px;
     min-width: 300px;
@@ -23,7 +23,7 @@ const div_Gallery = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media screen and (max-width: 615px) {
+  @media screen and (max-width: 640px) {
     flex-direction: column;
     min-width: 300px;
     max-width: 400px;
@@ -46,7 +46,7 @@ const div_Details2 = styled.div`
   flex-direction: column;
   margin-left: 10px;
   width: 10%;
-  @media screen and (max-width: 615px) {
+  @media screen and (max-width: 640px) {
     width: 100%;
     margin-left: 0;
   }
@@ -88,7 +88,7 @@ const button_AddToBasket = styled.button`
     background-color: white;
     color: black;
   }
-  @media screen and (max-width: 615px) {
+  @media screen and (max-width: 640px) {
     margin-bottom: 0px;
   }
 `;
@@ -131,7 +131,7 @@ const button_GoBack = styled.button`
     color: black;
   }
 
-  @media screen and (max-width: 615px) {
+  @media screen and (max-width: 640px) {
     margin-bottom: 10px;
     margin-right: 10px;
     margin-top: 0px;
