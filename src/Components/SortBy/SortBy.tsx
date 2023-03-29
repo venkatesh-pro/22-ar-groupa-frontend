@@ -14,8 +14,8 @@ export const SortBy: React.FC<Props> = ({ setSortValue, sortValue }) => {
     <s.sortByContainer>
       <s.selectSortBy onChange={handelChange} defaultValue={sortValue}>
         <s.optionSortBy value="DEFAULT">Sort By</s.optionSortBy>
-        <s.optionSortBy value="PRICEASC">Price Low-High</s.optionSortBy>
-        <s.optionSortBy value="PRICEDESC">Price High-Low</s.optionSortBy>
+        <s.optionSortBy value="PRICEASC">Price: Low-High</s.optionSortBy>
+        <s.optionSortBy value="PRICEDESC">Price: High-Low</s.optionSortBy>
       </s.selectSortBy>
     </s.sortByContainer>
   );
