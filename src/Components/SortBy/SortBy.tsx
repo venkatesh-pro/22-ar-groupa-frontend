@@ -1,20 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
+import s from "./SortBy.styles";
 
 interface Props {
   setSortValue: React.Dispatch<React.SetStateAction<string>>;
+  sortValue: string;
 }
-export const SortBy: React.FC<Props> = ({ setSortValue }) => {
+export const SortBy: React.FC<Props> = ({ setSortValue, sortValue }) => {
   const handelChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSortValue(e.target.value);
   };
 
   return (
-    <div>
-      <select onChange={handelChange}>
-        <option value="DEFAULT">Default</option>
-        <option value="PRICEASC">Price Low-High</option>
-        <option value="PRICEDESC">Price High-Low</option>
-      </select>
-    </div>
+    <s.sortByContainer>
+      <s.selectSortBy onChange={handelChange} defaultValue={sortValue}>
+        <s.optionSortBy value="DEFAULT">Sort By</s.optionSortBy>
+        <s.optionSortBy value="PRICEASC">Price Low-High</s.optionSortBy>
+        <s.optionSortBy value="PRICEDESC">Price High-Low</s.optionSortBy>
+      </s.selectSortBy>
+    </s.sortByContainer>
   );
 };

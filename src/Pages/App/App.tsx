@@ -35,7 +35,7 @@ export function App(props: Props) {
   return (
     <div className="App">
       <AppStateContext.Provider value={[setLoading, setError]}>
-        <SortBy setSortValue={setSortValue}></SortBy>
+        <SortBy setSortValue={setSortValue} sortValue={sortValue}></SortBy>
         <ItemList items={items} basketId={props.basketId} />
       </AppStateContext.Provider>
       <Footer />
