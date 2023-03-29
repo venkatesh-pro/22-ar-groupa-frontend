@@ -7,6 +7,7 @@ import { Loading } from "../../Components/Loading/Loading";
 import { Error } from "../../Components/Error/Error";
 import Footer from "../../Components/Footer/Footer";
 import { SortBy } from "../../Components/SortBy/SortBy";
+import { CompressedTextureLoader } from "three";
 
 export const AppStateContext = createContext<
   React.Dispatch<React.SetStateAction<boolean>>[]
@@ -18,6 +19,7 @@ interface Props {
 
 export function App(props: Props) {
   const [sortValue, setSortValue] = useState<string>("DEFAULT");
+  console.log(sortValue);
   const { filter } = useParams<string>();
   const [loading, error, items, setLoading, setError] = useGetItems({
     selectedOption: filter,
@@ -35,7 +37,7 @@ export function App(props: Props) {
   return (
     <div className="App">
       <AppStateContext.Provider value={[setLoading, setError]}>
-        <SortBy setSortValue={setSortValue}></SortBy>
+        <SortBy setSortValue={setSortValue} sortValue={sortValue}></SortBy>
         <ItemList items={items} basketId={props.basketId} />
       </AppStateContext.Provider>
       <Footer />
