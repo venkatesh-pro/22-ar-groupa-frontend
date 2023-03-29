@@ -1,4 +1,5 @@
 import React from "react";
+import s from "./SortBy.styles";
 
 interface Props {
   setSortValue: React.Dispatch<React.SetStateAction<string>>;
@@ -10,15 +11,12 @@ export const SortBy: React.FC<Props> = ({ setSortValue, sortValue }) => {
     console.log(e.target);
   };
   return (
-    <div>
-      <select onChange={handelChange}>
-        <option disabled selected>
-          {sortValue}{" "}
-        </option>
-        <option value="DEFAULT">Default</option>
-        <option value="PRICEASC">Price: Low-High</option>
-        <option value="PRICEDESC">Price: High-Low</option>
-      </select>
-    </div>
+    <s.sortByContainer>
+      <s.selectSortBy onChange={handelChange} defaultValue={sortValue}>
+        <s.optionSortBy value="DEFAULT">Sort By</s.optionSortBy>
+        <s.optionSortBy value="PRICEASC">Price Low-High</s.optionSortBy>
+        <s.optionSortBy value="PRICEDESC">Price High-Low</s.optionSortBy>
+      </s.selectSortBy>
+    </s.sortByContainer>
   );
 };
