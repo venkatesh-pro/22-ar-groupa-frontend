@@ -3,9 +3,11 @@ import { item } from "../Components/Item/Item";
 
 interface Props {
   selectedOption: string | undefined;
+  selectedSort: string | undefined;
 }
 export const useGetItems = ({
   selectedOption,
+  selectedSort,
 }: Props): [
   boolean,
   boolean,
@@ -20,10 +22,10 @@ export const useGetItems = ({
     setLoading(true);
     let path;
     if (selectedOption === undefined) {
-      path = `api/products/all`;
+      path = `api/products/all?sortType=${selectedSort}`;
     } else {
       const choice = selectedOption.toUpperCase();
-      path = `api/products/all?productType=${choice}`;
+      path = `api/products/all?sortType=${selectedSort}&productType=${choice}`;
     }
 
     fetch(path, {
@@ -41,6 +43,6 @@ export const useGetItems = ({
       .catch(() => {
         setError(true);
       });
-  }, [selectedOption]);
+  }, [selectedOption, selectedSort]);
   return [loading, error, items, setLoading, setError];
 };
