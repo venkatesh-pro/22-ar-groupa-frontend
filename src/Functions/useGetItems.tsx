@@ -22,10 +22,10 @@ export const useGetItems = ({
     setLoading(true);
     let path;
     if (selectedOption === undefined) {
-      path = `/products/all`;
+      path = `/products/all?sortType=${selectedSort}`;
     } else {
       const choice = selectedOption.toUpperCase();
-      path = `/products/all?productType=${choice}&sortType=${selectedSort}`;
+      path = `/products/all?sortType=${selectedSort}&productType=${choice}`;
     }
 
     fetch(path, {
