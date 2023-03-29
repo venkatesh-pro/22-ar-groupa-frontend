@@ -61,7 +61,7 @@ export const Login = (props: customer) => {
     <s.loginContainer>
       <s.loginHeader data-testid="login-header">Log In</s.loginHeader>
       <s.loginBox>
-        <s.cancelButton to="/">
+        <s.cancelButton to="/" aria-label="Go back">
           <RiCloseCircleFill size={25} />
         </s.cancelButton>
         <s.userDetailContainer key={"username"}>
@@ -76,6 +76,7 @@ export const Login = (props: customer) => {
               type="text"
               value={customerEmail}
               onChange={handleEmailChange}
+              aria-label="Enter your user name"
             ></s.userDetailBox>
           </s.userInputWraper>
         </s.userDetailContainer>
@@ -88,6 +89,7 @@ export const Login = (props: customer) => {
               type="password"
               value={customerPassword}
               onChange={handlePasswordChange}
+              aria-label="Enter your password"
             ></s.userDetailBox>
           </s.userInputWraper>
         </s.userDetailContainer>

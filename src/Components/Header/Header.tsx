@@ -37,7 +37,7 @@ export const Header = (props: customer) => {
   const menu = () => {
     return (
       <div>
-        <s.button to="/" onClick={handleClick}>
+        <s.button to="/" onClick={handleClick} aria-label="Home">
           Home
         </s.button>
         {options.map((op) => (
@@ -46,7 +46,7 @@ export const Header = (props: customer) => {
           </s.button>
         ))}
         {props.customerId === null ? (
-          <s.button to="/login" onClick={handleClick}>
+          <s.button to="/login" onClick={handleClick} aria-label="Login">
             Log in
           </s.button>
         ) : (
@@ -57,16 +57,17 @@ export const Header = (props: customer) => {
               props.setBasketId(0);
               setToggle((toggle) => !toggle);
             }}
+            aria-label="Logout"
           >
             Log out
           </s.button>
         )}
         {props.customerId === null ? (
-          <s.button to="/signup" onClick={handleClick}>
+          <s.button to="/signup" onClick={handleClick} aria-label="Signup">
             Sign Up
           </s.button>
         ) : (
-          <s.button to="/basket" onClick={handleClick}>
+          <s.button to="/basket" onClick={handleClick} aria-label="Basket">
             <RiShoppingCart2Line size={32} />
           </s.button>
         )}
@@ -93,7 +94,11 @@ export const Header = (props: customer) => {
           </div>
         ) : (
           <div>
-            <s.menuButton onClick={handleClick}>
+            <s.menuButton
+              onClick={handleClick}
+              aria-expanded="false"
+              aria-label="Click to expand menu"
+            >
               <RiMenuLine size={32} />
             </s.menuButton>
             {toggle ? <s.menuContainer>{menu()}</s.menuContainer> : null}

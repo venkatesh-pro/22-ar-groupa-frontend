@@ -16,7 +16,7 @@ const div_FooterContainer = styled.div`
   @media screen and (max-width: 715px) {
     /* width: 500px; */
   }
-  @media screen and (max-width: 350px) {
+  @media screen and (max-width: 400px) {
     font-size: 12px;
   }
 `;

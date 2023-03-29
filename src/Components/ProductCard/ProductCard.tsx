@@ -77,13 +77,20 @@ const ProductCard: React.FC<Props> = ({ basketId }) => {
               ) : null}
 
               <s.div_Buttons>
-                <s.button_TryAR to="/AR" state={state}>
+                <s.button_TryAR
+                  to="/AR"
+                  state={state}
+                  aria-label="Try Augmented Reality"
+                >
                   Try AR
                 </s.button_TryAR>
               </s.div_Buttons>
             </s.div_Details1>
             <s.div_Details2>
-              <s.button_GoBack onClick={() => navigate(-1)}>
+              <s.button_GoBack
+                onClick={() => navigate(-1)}
+                aria-label="Go back"
+              >
                 <RiCloseCircleFill size={25} />
               </s.button_GoBack>
             </s.div_Details2>
